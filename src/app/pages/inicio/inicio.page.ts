@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
@@ -8,9 +9,20 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class InicioPage implements OnInit {
 
-  constructor(private statusBar: StatusBar) { }
+  constructor(
+    private statusBar: StatusBar,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.statusBar.backgroundColorByHexString('#58B187');
+  }
+
+  rotaAjustePlacar(): void {
+    this.router.navigate(['/ajuste-placar']);
+  }
+
+  rotaAjusteSelecionar(): void {
+    this.router.navigate(['/ajuste-selecionar']);
   }
 }

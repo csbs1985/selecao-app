@@ -1,3 +1,54 @@
 ion-content {
   --ion-background-color: var(--cor-verde);
+  position: relative;
+}
+
+.inicio {
+  position: absolute;
+  bottom: var(--tamanho-g);
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: var(--cor-cinza);
+    font-size: 70px;
+    font-family: 'poppins-bold';
+    margin-left: var(--tamanho-m);
+  }
+
+  p {
+    color: var(--cor-amarelo);
+    font-size: 30px;
+    font-family: 'poppins-bold';
+    text-transform: uppercase;
+    line-height: 200%;
+    letter-spacing: 5px;
+    padding: 0 var(--tamanho-m) var(--tamanho-g) var(--tamanho-m);
+  }
+
+  span {
+    background-color: var(--cor-azul);
+    font-family: 'poppins-bold';
+    padding: 0 var(--tamanho-pp);
+  }
+
+  button {
+    align-self: flex-end;
+    background-color: var(--cor-azul);
+    background-image: url('../../../assets/svg/seta.svg');
+    background-position: right var(--tamanho-m) center;
+    background-repeat: no-repeat;
+    color: var(--cor-branco);
+    flex: 0 1 auto;
+    font-size: var(--tamanho-m);
+    height: 70px;
+    margin: 0 var(--tamanho-m) 0 0;
+    padding: 0 var(--tamanho-gg) 0 var(--tamanho-m);
+    text-align: left;
+  }
+
+  button:last-of-type {
+    background-color: var(--cor-vermelho);
+    margin-top: var(--tamanho-g);
+  }
 }
