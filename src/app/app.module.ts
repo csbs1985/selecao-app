@@ -8,6 +8,7 @@ import { InicioPageModule } from './pages/inicio/inicio.module';
 import { PlacarPageModule } from './pages/placar/placar.module';
 import { SelecionarPageModule } from './pages/selecionar/selecionar.module';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppPage],
@@ -19,7 +20,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     AppRoutingModule,
     InicioPageModule,
     PlacarPageModule,
-    SelecionarPageModule
+    SelecionarPageModule,
+    ComponentsModule
   ],
   providers: [
     StatusBar,

@@ -10,8 +10,6 @@ export class AppPage {
   constructor(private statusBar: StatusBar) { }
 
   ngOnInit() {
-    // deixe a barra de status se sobrepor ao webview
-    this.statusBar.overlaysWebView(true);
     this.statusBar.backgroundColorByHexString('#2A2A2A');
     this.statusBar.styleLightContent();
   }

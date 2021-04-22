@@ -1,0 +1,12 @@
+.cabecalho {
+  margin: var(--tamanho-m);
+  color: white;
+
+  svg {
+    margin-bottom: var(--tamanho-m);
+  }
+
+  &-texto {
+    color: var(--cor-branco);
+  }
+}
