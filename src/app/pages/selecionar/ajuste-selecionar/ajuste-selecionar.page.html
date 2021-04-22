@@ -1,3 +1,9 @@
 <ion-content [scrollEvents]="true">
   <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
+
+  <div class="teste"></div>
 </ion-content>
+
+<ion-footer>
+  <app-botao [texto]="textoBotao" (bataoResposta)="bataoResposta($event)"></app-botao>
+</ion-footer>

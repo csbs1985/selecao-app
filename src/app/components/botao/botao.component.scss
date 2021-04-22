@@ -1,0 +1,13 @@
+.botao {
+  display: flex;
+
+  button {
+    background-color: var(--cor-verde);
+    border-radius: var(--borda-canto);
+    color: var(--cor-preto);
+    font-family: 'poppins-bold';
+    height: var(--tamanho-g);
+    margin: var(--tamanho-m);
+    width: 100%;
+  }
+}

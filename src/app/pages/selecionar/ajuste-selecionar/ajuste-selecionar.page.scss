@@ -1,4 +1,16 @@
 ion-content {
-  --ion-background-color: var(preto);
+  --ion-background-color: var(--cor-preto);
+  display: flex;
+  flex-direction: column;
   height: 100%;
+}
+
+.teste {
+  height: 4000px;
+  width: 100%;
+  // background-color: red;
+}
+
+ion-footer {
+  background-color: var(--cor-preto);
 }
