@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { AppComponent } from './app.component';
+import { AppPage } from './app.page';
 import { AppRoutingModule } from './app-routing.module';
 import { InicioPageModule } from './pages/inicio/inicio.module';
 import { PlacarPageModule } from './pages/placar/placar.module';
@@ -10,8 +10,8 @@ import { SelecionarPageModule } from './pages/selecionar/selecionar.module';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @NgModule({
-  declarations: [AppComponent],
-  exports: [AppComponent],
+  declarations: [AppPage],
+  exports: [AppPage],
   entryComponents: [],
   imports: [
     BrowserModule, 
@@ -25,6 +25,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     StatusBar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppPage],
 })
 export class AppModule { }

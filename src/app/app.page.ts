@@ -3,10 +3,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  templateUrl: 'app.page.html',
+  styleUrls: ['app.page.scss'],
 })
-export class AppComponent {
+export class AppPage {
   constructor(private statusBar: StatusBar) { }
 
   ngOnInit() {
