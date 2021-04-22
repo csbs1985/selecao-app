@@ -1,3 +1,19 @@
+@import './fonts';
+@import './base';
+
+/*na_trave*/
+:root {
+  --cor-branco: #F3F3F3;
+  --cor-preto: #2A2A2A;
+  --cor-cinza: #3F3F3F;
+  --cor-verde: #58B187;
+  --cor-azul: #688DE2;
+  --cor-amarelo: #FDD549;
+  --cor-vermeho: #DA714F;
+}
+
+
+
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
@@ -197,7 +213,7 @@
    */
 
   .md body {
-    --ion-background-color: #121212;
+    --ion-background-color: var(--cor-verde);
     --ion-background-color-rgb: 18, 18, 18;
 
     --ion-text-color: #ffffff;

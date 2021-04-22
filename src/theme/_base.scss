@@ -1,5 +1,3 @@
-@import './variaveis.scss';
-
 html,
 h1 body {
   font-family: 'ww-digital';
@@ -10,9 +8,4 @@ h1 body {
   position: relative;
   // font-size: $fonte-primaria;
   text-transform: uppercase;
-}
-
-h1 {
-  font-family: 'ww-digital';
-  color: $cor-azul;
 }

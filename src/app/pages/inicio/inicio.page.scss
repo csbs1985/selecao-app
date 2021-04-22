@@ -1,5 +1,3 @@
-@import '../../../theme/variaveis.scss';
-
 ion-content {
-  background-color: $cor-verde;
+  --ion-background-color: var(--cor-verde);
 }
