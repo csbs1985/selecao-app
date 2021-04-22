@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  constructor(private statusBar: StatusBar) { }
 
   ngOnInit() {
+    this.statusBar.backgroundColorByHexString('#58B187');
   }
-
 }
