@@ -1,7 +1,57 @@
 <ion-content [scrollEvents]="true">
   <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
-  <div class="teste"></div>
+  <div class="conteudo">
+    <div class="input-text">
+      <label for="">Time Mandante</label>
+      <input type="text" placeholder="Mandante">
+    </div>
+
+    <div class="input-text">
+      <label for="">Time Visitante</label>
+      <input type="text" placeholder="Visitante">
+    </div>
+
+    <div class="input-toggle">
+      <div class="input-toggle-div">
+        <label for="">Cronômetro</label>
+        <p>Habilitar cronômetro junto ao placar.</p>
+      </div>
+      <ion-toggle checked></ion-toggle>
+    </div>
+
+    <div class="input-radio">
+      <label for="">Periodos</label>
+      <p>Quantidade de periodos da partida.</p>
+
+      <div>
+        <div class="input-radio-item" *ngFor="let item of periodosArray.valor">
+          <input type="radio" 
+            [id]="item" 
+            [value]="item" 
+            [name]="periodosArray.name"
+            [checked]="item === periodosArray.checked">
+          <label [for]="item">{{ item }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-radio">
+      <label for="">Duração</label>
+      <p>Duração de cada periodo.</p>     
+
+      <div>
+        <div class="input-radio-item" *ngFor="let item of duracaoArray.valor">
+          <input type="radio" 
+            [id]="item" 
+            [value]="item" 
+            [name]="duracaoArray.name"
+            [checked]="item === duracaoArray.checked">
+          <label class="label" [for]="item">{{ item }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>
 
 <ion-footer no-border>

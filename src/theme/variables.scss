@@ -1,5 +1,6 @@
 @import './fonts';
 @import './base';
+@import './inputs';
 
 /*na_trave*/
 :root {
@@ -12,10 +13,14 @@
   --vermelho: #DA714F;
 
   // rem = 1px / 16
+  --px-2: 0.125rem;
+  --px-4: 0.25rem;
   --px-4: 0.25rem;
   --px-10: 0.625rem;
+  --px-12: 0.688rem;
   --px-16: 1rem;
   --px-20: 1.25rem;
+  --px-24: 1.5rem;
   --px-30: 1.875rem;
   --px-40: 2.5rem;
   --px-60: 3.75rem;
@@ -25,6 +30,7 @@
   --bold: 'poppins-bold';
   --lcd: 'ww-digital';
 
+  --borda: var(--px-2) solid;
   --canto: var(--px-4);
 }
 
