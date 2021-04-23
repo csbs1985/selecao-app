@@ -9,13 +9,16 @@ import { PlacarPageModule } from './pages/placar/placar.module';
 import { SelecionarPageModule } from './pages/selecionar/selecionar.module';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ComponentsModule } from './components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppPage],
   exports: [AppPage],
   entryComponents: [],
   imports: [
-    BrowserModule, 
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(), 
     AppRoutingModule,
     InicioPageModule,
