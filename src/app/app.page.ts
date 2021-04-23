@@ -11,6 +11,5 @@ export class AppPage {
 
   ngOnInit() {
     this.statusBar.backgroundColorByHexString('#2A2A2A');
-    this.statusBar.styleLightContent();
   }
 }

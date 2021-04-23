@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-ajuste-selecionar',
@@ -10,13 +9,11 @@ export class AjusteSelecionarPage implements OnInit {
   readonly textoCabecalho = 'Ajustar placa e cronômetro';
   readonly textoBotao = 'Confirmar';
 
-  constructor(private statusBar: StatusBar) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.statusBar.backgroundColorByHexString('#58B187');
-  }
+  ngOnInit() { }
 
-  bataoResposta(event): void { 
+  bataoResposta(event): void {
     alert(event);
   }
 }
