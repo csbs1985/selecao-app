@@ -2,12 +2,12 @@
   display: flex;
 
   button {
-    background-color: var(--cor-verde);
-    border-radius: var(--borda-canto);
-    color: var(--cor-preto);
-    font-family: 'poppins-bold';
-    height: var(--tamanho-g);
-    margin: var(--tamanho-m);
+    background-color: var(--verde);
+    border-radius: var(--canto);
+    color: var(--preto);
+    font-family: var(--bold);
+    height: var(--px-40);
+    margin: var(--px-20);
     width: 100%;
   }
 }

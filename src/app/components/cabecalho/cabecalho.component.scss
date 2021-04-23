@@ -1,12 +1,12 @@
 .cabecalho {
-  margin: var(--tamanho-m);
+  margin: var(--px-20);
   color: white;
 
   svg {
-    margin-bottom: var(--tamanho-m);
+    margin-bottom: var(--px-20);
   }
 
   &-texto {
-    color: var(--cor-branco);
+    color: var(--branco);
   }
 }

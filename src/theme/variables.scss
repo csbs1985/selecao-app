@@ -3,24 +3,30 @@
 
 /*na_trave*/
 :root {
-  --cor-branco: #F3F3F3;
-  --cor-preto: #2A2A2A;
-  --cor-cinza: #3F3F3F;
-  --cor-verde: #58B187;
-  --cor-azul: #688DE2;
-  --cor-amarelo: #FDD549;
-  --cor-vermelho: #DA714F;
+  --branco: #F3F3F3;
+  --preto: #2A2A2A;
+  --cinza: #3F3F3F;
+  --verde: #58B187;
+  --azul: #688DE2;
+  --amarelo: #FDD549;
+  --vermelho: #DA714F;
 
-  --tamanho-pp: 4px;
-  --tamanho-p: 10px;
-  --tamanho-m: 20px;
-  --tamanho-g: 40px;
-  --tamanho-gg: 60px;
+  // rem = 1px / 16
+  --px-4: 0.25rem;
+  --px-10: 0.625rem;
+  --px-16: 1rem;
+  --px-20: 1.25rem;
+  --px-30: 1.875rem;
+  --px-40: 2.5rem;
+  --px-60: 3.75rem;
+  --px-70: 4.375rem;
 
-  --borda-canto: 5px;
+  --medium: 'poppins-medium';
+  --bold: 'poppins-bold';
+  --lcd: 'ww-digital';
+
+  --canto: var(--px-4);
 }
-
-
 
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
@@ -221,7 +227,7 @@
    */
 
   .md body {
-    --ion-background-color: var(--cor-verde);
+    --ion-background-color: var(--verde);
     --ion-background-color-rgb: 18, 18, 18;
 
     --ion-text-color: #ffffff;
