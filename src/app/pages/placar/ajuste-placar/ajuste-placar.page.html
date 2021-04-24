@@ -1,9 +1,61 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ajuste-placar</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [scrollEvents]="true">
+  <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
-<ion-content>
+  <form [formGroup]="formPlacar" class="conteudo">
+    <div class="input-text">
+      <label for="">Time Mandante</label>
+      <input type="text" placeholder="Mandante" formControlName="mandante">
+    </div>
 
+    <div class="input-text">
+      <label for="">Time Visitante</label>
+      <input type="text" placeholder="Visitante" formControlName="visitante">
+    </div>
+
+    <div class="input-toggle">
+      <div class="input-toggle-div">
+        <label for="">Cronômetro</label>
+        <p>Habilitar cronômetro junto ao placar.</p>
+      </div>
+      <ion-toggle checked formControlName="cronometro"></ion-toggle>
+    </div>
+
+    <div class="input-radio" *ngIf="isCronometro">
+      <label for="">Periodos</label>
+      <p>Quantidade de periodos da partida.</p>
+
+      <div>
+        <div class="input-radio-item" *ngFor="let item of periodosArray.valor">
+          <input type="radio" 
+            [id]="item" 
+            [value]="item" 
+            [name]="periodosArray.name"
+            [checked]="item === periodosArray.checked"
+            formControlName="periodos">
+          <label [for]="item">{{ item }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-radio" *ngIf="isCronometro">
+      <label for="">Duração</label>
+      <p>Duração de cada periodo.</p>     
+
+      <div>
+        <div class="input-radio-item" *ngFor="let item of duracaoArray.valor">
+          <input type="radio" 
+            [id]="item" 
+            [value]="item" 
+            [name]="duracaoArray.name"
+            [checked]="item === duracaoArray.checked"
+            formControlName="duracao">
+          <label class="label" [for]="item">{{ item }}</label>
+        </div>
+      </div>
+    </div>
+  </form>
 </ion-content>
+
+<ion-footer no-border>
+  <app-botao [texto]="textoBotao" (bataoResposta)="bataoResposta()"></app-botao>
+</ion-footer>

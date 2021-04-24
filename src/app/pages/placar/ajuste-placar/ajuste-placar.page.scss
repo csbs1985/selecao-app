@@ -1,0 +1,14 @@
+ion-content {
+  --ion-background-color: var(--preto);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.conteudo {
+  width: 100%;
+}
+
+ion-footer {
+  background-color: var(--preto);
+}
