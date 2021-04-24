@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.page.scss'],
 })
 export class AppPage {
-  constructor(private statusBar: StatusBar) { }
+  constructor(
+    private statusBar: StatusBar,
+    private screenOrientation: ScreenOrientation
+  ) { }
 
   ngOnInit() {
     this.statusBar.backgroundColorByHexString('#2A2A2A');
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 }
