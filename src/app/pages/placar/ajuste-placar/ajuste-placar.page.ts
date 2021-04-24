@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Placar } from 'src/app/models/placar';
 
 @Component({
@@ -31,7 +32,8 @@ export class AjustePlacarPage implements OnInit {
   }
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -49,11 +51,12 @@ export class AjustePlacarPage implements OnInit {
   }
 
   bataoResposta(): void {
-    alert(this.formPlacar.value.mandante);
     console.log(this.formPlacar.value);
 
     // Usar o método reset para limpar os controles na tela
     // this.formCliente.reset(new Cliente());
+
+    this.router.navigate(['/placar']);
   }
 
   get isCronometro(): any {

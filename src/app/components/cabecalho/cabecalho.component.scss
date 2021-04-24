@@ -1,8 +1,9 @@
 .cabecalho {
-  margin: var(--px-20);
+  background-color: var(--preto);
+  padding: var(--px-10) var(--px-20);
   color: white;
 
-  svg {
+  .svg {
     margin-bottom: var(--px-20);
   }
 

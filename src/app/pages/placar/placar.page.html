@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>placar</ion-title>
-  </ion-toolbar>
-</ion-header>
+<section>
+  <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
-<ion-content>
+  <div class="placar">
+    <div class="placar-marcador">
+      <button (click)="adicionarMandante()"></button>
 
-</ion-content>
+      <button (click)="diminuirMandante()"></button>
+    </div>
+
+    <div class="placar-mandante">
+      <p>{{ nomeMandante }}</p>
+
+      <div class="placar-pontos">{{ placarMandanteReal }}</div>
+    </div>
+
+    <div class="placar-centro">
+      <div class="placar-timer">{{ placarRelogio }}</div>
+
+      <div class="placar-tempo">{{ placarTempo }}T</div>
+    </div>
+
+    <div class="placar-visitante">
+      <p>{{ nomeVisitante }}</p>
+
+      <div class="placar-pontos">{{ placarVisitanteReal }}</div>
+    </div>
+
+    <div class="placar-marcador">
+      <button (click)="adicionarVisitante()"></button>
+
+      <button (click)="diminuirVisitante()"></button>
+    </div>
+  </div>
+
+  <div class="relogio">
+    <app-relogio (relogioResposta)="relogioResposta($event)"></app-relogio>
+  </div>
+</section>

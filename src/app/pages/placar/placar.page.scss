@@ -1,0 +1,98 @@
+section {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: var(--preto);
+}
+
+.placar {
+  width: 100%;
+  background-color: var(--preto);
+  display: flex;
+  flex: 1 1 auto;
+  padding: var(--px-20);
+ 
+  &-marcador {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--px-40);
+    padding-top: 2.25rem;
+
+    button {
+      width: var(--px-40);
+      height: 100px;
+      border-radius: var(--canto);
+      flex: 1 1 auto;
+      max-height: 100px;
+      background: var(--verde) url('../../../assets/svg/adicionar.svg') no-repeat center;
+    }
+
+    button:last-of-type {
+      max-height: var(--px-40);
+      margin-top: var(--px-10);
+      background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
+    }
+  }
+
+  &-mandante,
+  &-visitante {
+    flex: 1 1 auto;
+    text-align: right;
+    margin-left: var(--px-20);
+
+    p {
+      font-size: 1.5em;
+      color: var(--branco);
+    }
+  }
+
+  &-visitante {
+    text-align: left;
+    margin: 0 var(--px-20) 0 0;
+  }
+
+  &-pontos {
+    background-color: var(--cinza);
+    padding: 0 var(--px-10) var(--px-10);
+    border-radius: var(--canto);
+    line-height: 32vh;
+    text-align: center;
+    font-size: 32vh;
+    font-family: var(--lcd);
+    color: var(--amarelo);
+  }
+
+  &-centro {
+    display: flex;
+    flex-direction: column;
+    margin: 0 var(--px-10);
+    max-width: 18.125rem;
+    padding-top: 2.25rem;
+  }
+
+  &-timer,
+  &-tempo {
+    font-size: 6vh;
+    line-height: 6vh;
+    text-align: center;
+    color: var(--azul);
+    font-family: var(--lcd);
+    background-color: var(--cinza);
+    padding: var(--px-16);
+    border-radius: var(--canto);
+  }
+
+  &-tempo {
+    align-self: center;
+    margin-top: var(--px-10);
+  }
+}
+
+.relogio {
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  margin-bottom: var(--px-20);
+}

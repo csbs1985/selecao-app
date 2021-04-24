@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { BotaoComponent } from './botao/botao.component';
+import { RelogioComponent } from './relogio/relogio.component';
 
 @NgModule({
   declarations: [
     BotaoComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    RelogioComponent
   ],
   exports: [
     BotaoComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    RelogioComponent
   ],
   imports: [
     CommonModule
