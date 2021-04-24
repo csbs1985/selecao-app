@@ -12,7 +12,7 @@
 }
 
 @mixin p {
-  font-size: var(--px-12);
+  font-size: var(--px-14);
   flex: 1 1 auto;
   color: var(--branco);
 }
@@ -91,18 +91,18 @@
     }
 
     input:checked+label {
-      border-bottom-color: var(--verde);
+      background-color: var(--verde);
       z-index: 9;
     }
 
     label {
-      border-bottom: var(--borda) transparent;
       box-sizing: border-box;
+      border-radius: var(--canto);
       color: var(--branco);
       flex: 1 1 auto;
       line-height: var(--px-30);
-      margin: 0;
-      font-size: var(--px-12);
+      margin: 0 0 var(--px-4);
+      font-size: var(--px-14);
       text-align: center;
       transition: border-color .15s ease-out,
         background-color .15s ease-out,
