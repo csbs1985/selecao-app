@@ -1,7 +1,7 @@
 <div class="relogio">
-  <button class="relogio-adicionar" (click)="inciar()"></button>
+  <button class="relogio-adicionar" (click)="inciar()" *ngIf="!isRodando"></button>
 
-  <button class="relogio-pausar" (click)="pausar()"></button>
+  <button class="relogio-pausar" (click)="pausar()" *ngIf="isRodando"></button>
 
-  <button class="relogio-parar" (click)="parar()"></button>
+  <button class="relogio-parar" (click)="parar()" *ngIf="isRodando"></button>
 </div>

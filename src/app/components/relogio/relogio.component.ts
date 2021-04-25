@@ -8,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class RelogioComponent implements OnInit {
   @Output() relogioResposta = new EventEmitter();
 
-  isIniciar: boolean = true;
+  isRodando: boolean = false;
 
   tempo: any;
   intervalo: number = 60;
@@ -24,10 +24,13 @@ export class RelogioComponent implements OnInit {
     this.tempo = setInterval(() => {
       this.timer();
     }, this.intervalo);
+
+    this.isRodando = true;
   }
 
   pausar(): void {
     clearInterval(this.tempo);
+    this.isRodando = false;
   }
 
   parar(): void {
@@ -38,6 +41,7 @@ export class RelogioComponent implements OnInit {
     const tempo = '00:00:00';
 
     this.relogioResposta.emit(tempo);
+    this.isRodando = false;
   }
 
   timer(): void {

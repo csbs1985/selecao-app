@@ -1,39 +1,40 @@
-<section>
   <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
   <div class="placar">
-    <div class="placar-marcador">
-      <button (click)="adicionarMandante()"></button>
+    <div class="placar-placar">
+      <div class="placar-mandante">
+        <p>{{ nomeMandante }}</p>
+        <h1>88</h1>
+        <h1>{{ placarMandanteReal }}</h1>
+      </div>
 
-      <button (click)="diminuirMandante()"></button>
+      <div class="placar-visitante">
+        <p>{{ nomeVisitante }}</p>
+        <h1>88</h1>
+        <h1>{{ placarVisitanteReal }}</h1>
+      </div>
     </div>
 
-    <div class="placar-mandante">
-      <p>{{ nomeMandante }}</p>
-
-      <div class="placar-pontos">{{ placarMandanteReal }}</div>
+    <div class="placar-relogio">
+      <p>00:00:00</p>
+      <p>{{ placarRelogio }}</p>
     </div>
 
-    <div class="placar-centro">
-      <div class="placar-timer">{{ placarRelogio }}</div>
+    <div class="placar-teclado">
+      <div class="placar-marcador">
+        <button (click)="adicionarMandante()"></button>
 
-      <div class="placar-tempo">{{ placarTempo }}T</div>
-    </div>
+        <button (click)="diminuirMandante()"></button>
+      </div>
 
-    <div class="placar-visitante">
-      <p>{{ nomeVisitante }}</p>
+      <div class="relogio">
+        <app-relogio (relogioResposta)="relogioResposta($event)"></app-relogio>
+      </div>
 
-      <div class="placar-pontos">{{ placarVisitanteReal }}</div>
-    </div>
+      <div class="placar-marcador">
+        <button (click)="diminuirVisitante()"></button>
 
-    <div class="placar-marcador">
-      <button (click)="adicionarVisitante()"></button>
-
-      <button (click)="diminuirVisitante()"></button>
+        <button (click)="adicionarVisitante()"></button>
+      </div>
     </div>
   </div>
-
-  <div class="relogio">
-    <app-relogio (relogioResposta)="relogioResposta($event)"></app-relogio>
-  </div>
-</section>

@@ -24,30 +24,29 @@ export class PlacarPage implements OnInit {
 
   ngOnInit() {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    this.formatarPontos();
   }
 
   adicionarMandante(): void {
     this.placarMandante++;
-    this.formatarPontos();
+    this.formatarPontosMandante();
   }
 
   diminuirMandante(): void {
     this.placarMandante--;
-    this.formatarPontos();
+    this.formatarPontosMandante();
   }
 
   adicionarVisitante(): void {
     this.placarVisitante++;
-    this.formatarPontos();
+    this.formatarPontosVisitante();
   }
 
   diminuirVisitante(): void {
     this.placarVisitante--;
-    this.formatarPontos();
+    this.formatarPontosVisitante();
   }
 
-  formatarPontos(): void {
+  formatarPontosMandante(): void {
     if (this.placarMandante < 10) {
       this.placarMandanteReal = this.placarMandante.toString().padStart(2, '0');
       if (this.placarMandante < 1) {
@@ -56,9 +55,10 @@ export class PlacarPage implements OnInit {
       }
       return;
     }
-
     this.placarMandanteReal = this.placarMandante.toString();
+  }
 
+  formatarPontosVisitante(): void {
     if (this.placarVisitante < 10) {
       this.placarVisitanteReal = this.placarVisitante.toString().padStart(2, '0');
       if (this.placarVisitante < 1) {

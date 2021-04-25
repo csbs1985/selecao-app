@@ -1,98 +1,104 @@
-section {
+.placar {
   display: flex;
   height: 100%;
   flex-direction: column;
+  justify-content: flex-end;
   background-color: var(--preto);
-}
-
-.placar {
-  width: 100%;
-  background-color: var(--preto);
-  display: flex;
-  flex: 1 1 auto;
   padding: var(--px-20);
- 
-  &-marcador {
+  padding-top: 0;
+
+  &-placar {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    max-width: var(--px-40);
-    padding-top: 2.25rem;
-
-    button {
-      width: var(--px-40);
-      height: 100px;
-      border-radius: var(--canto);
-      flex: 1 1 auto;
-      max-height: 100px;
-      background: var(--verde) url('../../../assets/svg/adicionar.svg') no-repeat center;
-    }
-
-    button:last-of-type {
-      max-height: var(--px-40);
-      margin-top: var(--px-10);
-      background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
-    }
+    flex: 1 1 auto;
+    padding-bottom: var(--px-20);
   }
 
   &-mandante,
   &-visitante {
+    height: 100%;
     flex: 1 1 auto;
-    text-align: right;
-    margin-left: var(--px-20);
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
     p {
-      font-size: 1.5em;
-      color: var(--branco);
+      text-align: center;
+    }
+
+    h1 {
+      font-family: var(--digital);
+      font-size: 160px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--cinza);
+    }
+
+    h1:last-of-type {
+      z-index: 9;
+      color: var(--amarelo);
     }
   }
 
-  &-visitante {
-    text-align: left;
-    margin: 0 var(--px-20) 0 0;
+  &-relogio {
+    font-family: var(--digital);
+    position: relative;
+    width: 100%;
+    height: 80px;
+    padding: var(--px-20);
+
+    p {
+      font-size: 30px;
+      position: absolute;
+      color: var(--preto);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    p:last-of-type {
+      z-index: 9;
+      color: var(--azul);
+    }
   }
 
-  &-pontos {
-    background-color: var(--cinza);
-    padding: 0 var(--px-10) var(--px-10);
-    border-radius: var(--canto);
-    line-height: 32vh;
-    text-align: center;
-    font-size: 32vh;
-    font-family: var(--lcd);
-    color: var(--amarelo);
-  }
-
-  &-centro {
+  &-teclado {
+    width: 100%;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
-    margin: 0 var(--px-10);
-    max-width: 18.125rem;
-    padding-top: 2.25rem;
   }
 
-  &-timer,
-  &-tempo {
-    font-size: 6vh;
-    line-height: 6vh;
-    text-align: center;
-    color: var(--azul);
-    font-family: var(--lcd);
-    background-color: var(--cinza);
-    padding: var(--px-16);
-    border-radius: var(--canto);
+  &-marcador {
+    display: flex;
+
+    button {
+      height: var(--px-40);
+      width: calc(var(--px-40)*2);
+      margin: 0 var(--px-10);
+      border-radius: var(--canto);
+      background: var(--verde) url('../../../assets/svg/adicionar.svg') no-repeat center;
+    }
+
+    button:last-of-type {
+      width: var(--px-40);
+      background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
+    }
   }
 
-  &-tempo {
-    align-self: center;
-    margin-top: var(--px-10);
-  }
-}
+  &-marcador:last-of-type {
+    button {
+      width: var(--px-40);
+      background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
+    }
 
-.relogio {
-  display: flex;
-  align-self: flex-end;
-  justify-content: center;
-  height: 40px;
-  width: 100%;
-  margin-bottom: var(--px-20);
+    button:last-of-type {
+      width: calc(var(--px-40)*2);
+      background: var(--verde) url('../../../assets/svg/adicionar.svg') no-repeat center;
+    }
+  }
 }
