@@ -1,29 +1,27 @@
 .placar {
-  display: flex;
+  width: 100%;
   height: 100%;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: flex;
   background-color: var(--preto);
-  padding: var(--px-20);
-  padding-top: 0;
-
-  &-placar {
-    width: 100%;
-    display: flex;
-    flex: 1 1 auto;
-    padding-bottom: var(--px-20);
-  }
 
   &-mandante,
+  &-relogio,
   &-visitante {
-    height: 100%;
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    position: relative;
+    justify-content: flex-end;
+    padding-top: var(--px-20);
 
     p {
+      font-size: var(--px-20);
       text-align: center;
+      color: var(--branco);
+    }
+
+    div {
+      position: relative;
+      height: 70%;
     }
 
     h1 {
@@ -33,9 +31,6 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       color: var(--cinza);
     }
 
@@ -43,14 +38,27 @@
       z-index: 9;
       color: var(--amarelo);
     }
+
+    button {
+      align-self: center;
+      height: var(--px-40);
+      width: var(--px-40);
+      margin: var(--px-20);
+      border-radius: var(--canto);
+      background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
+    }
   }
 
   &-relogio {
+    max-width: 150px;
     font-family: var(--digital);
-    position: relative;
-    width: 100%;
-    height: 80px;
-    padding: var(--px-20);
+
+    div {
+      position: relative;
+      background-color: var(--cinza);
+      height: 60px;
+      border-radius: var(--canto);
+    }
 
     p {
       font-size: 30px;
@@ -65,40 +73,11 @@
       z-index: 9;
       color: var(--azul);
     }
-  }
 
-  &-teclado {
-    width: 100%;
+    app-relogio{
     justify-content: center;
     display: flex;
-  }
-
-  &-marcador {
-    display: flex;
-
-    button {
-      height: var(--px-40);
-      width: calc(var(--px-40)*2);
-      margin: 0 var(--px-10);
-      border-radius: var(--canto);
-      background: var(--verde) url('../../../assets/svg/adicionar.svg') no-repeat center;
-    }
-
-    button:last-of-type {
-      width: var(--px-40);
-      background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
-    }
-  }
-
-  &-marcador:last-of-type {
-    button {
-      width: var(--px-40);
-      background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
-    }
-
-    button:last-of-type {
-      width: calc(var(--px-40)*2);
-      background: var(--verde) url('../../../assets/svg/adicionar.svg') no-repeat center;
+    margin: var(--px-20) 0;
     }
   }
 }

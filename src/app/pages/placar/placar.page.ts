@@ -14,7 +14,7 @@ export class PlacarPage implements OnInit, OnDestroy {
   placarVisitante = 0;
   placarMandanteReal = '00';
   placarVisitanteReal = '00';
-  placarRelogio = '00:00:00';
+  placarRelogio = '00:00';
   placarTempo: number = 1;
   nomeMandante: string = 'Mandante';
   nomeVisitante: string = 'Visitante';
@@ -26,17 +26,11 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    this.insomnia.keepAwake().then(
-      () => console.log('success'),
-      () => console.log('error')
-    );
+    this.insomnia.keepAwake();
   }
 
   ngOnDestroy() {
-    this.insomnia.allowSleepAgain().then(
-      () => console.log('success'),
-      () => console.log('error')
-    );
+    this.insomnia.allowSleepAgain();
   }
 
   adicionarMandante(): void {
