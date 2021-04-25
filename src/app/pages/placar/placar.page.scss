@@ -7,6 +7,7 @@
   &-mandante,
   &-relogio,
   &-visitante {
+    width: 33.67%;
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
@@ -22,12 +23,15 @@
     div {
       position: relative;
       height: 70%;
+      margin-bottom: 20px;
     }
 
     h1 {
       font-family: var(--led);
       font-size: 160px;
       position: absolute;
+      width: 100%;
+      text-align: center;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -61,7 +65,7 @@
 
     p {
       font-family: var(--led);
-      font-size: 30px;
+      font-size: 40px;
       position: absolute;
       color: var(--preto);
       top: 50%;
