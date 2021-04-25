@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { Insomnia } from '@ionic-native/insomnia/ngx';
 
 @Component({
   selector: 'app-placar',
   templateUrl: './placar.page.html',
   styleUrls: ['./placar.page.scss'],
 })
-export class PlacarPage implements OnInit {
+export class PlacarPage implements OnInit, OnDestroy {
   readonly textoCabecalho = '';
 
   placarMandante = 0;
@@ -19,11 +20,23 @@ export class PlacarPage implements OnInit {
   nomeVisitante: string = 'Visitante';
 
   constructor(
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
+    private insomnia: Insomnia
   ) { }
 
   ngOnInit() {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    this.insomnia.keepAwake().then(
+      () => console.log('success'),
+      () => console.log('error')
+    );
+  }
+
+  ngOnDestroy() {
+    this.insomnia.allowSleepAgain().then(
+      () => console.log('success'),
+      () => console.log('error')
+    );
   }
 
   adicionarMandante(): void {
