@@ -43,6 +43,10 @@
       color: var(--amarelo);
     }
 
+    h1:last-of-type:active {
+      color: var(--vermelho);
+    }
+
     button {
       align-self: center;
       height: var(--px-40);
@@ -58,14 +62,12 @@
 
     div {
       position: relative;
-      background-color: var(--cinza);
       height: 60px;
-      border-radius: var(--canto);
     }
 
     p {
       font-family: var(--led);
-      font-size: 40px;
+      font-size: 60px;
       position: absolute;
       color: var(--preto);
       top: 50%;

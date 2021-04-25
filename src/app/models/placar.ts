@@ -1,8 +1,8 @@
 export class Placar {
-  mandante: string = 'Mandante';
-  visitante: string = 'Visitante';
-  cronometro: boolean = true;
-  periodos?: number = 2;
-  duracao?: number = 45;
+  mandante = 'Mandante';
+  visitante = 'Visitante';
+  cronometro = true;
+  periodos?= 2;
+  duracao?= 45;
 }
 

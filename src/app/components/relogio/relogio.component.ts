@@ -8,10 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class RelogioComponent implements OnInit {
   @Output() relogioResposta = new EventEmitter();
 
-  isRodando: boolean = false;
+  isRodando = false;
 
   tempo: any;
-  intervalo: number = 1000;
+  intervalo = 1000;
   hh = 0;
   mm = 0;
   ss = 0;
@@ -47,11 +47,11 @@ export class RelogioComponent implements OnInit {
   timer(): void {
     this.ss++;
 
-    if (this.ss == 59) {
+    if (this.ss === 59) {
       this.ss = 0;
       this.mm++;
 
-      if (this.mm == 59) {
+      if (this.mm === 59) {
         this.mm = 0;
         this.hh++;
       }

@@ -13,7 +13,7 @@ export class BotaoComponent implements OnInit {
 
   ngOnInit() { }
 
-  cliqueBotao(): void { 
+  cliqueBotao(): void {
     this.bataoResposta.emit(this.texto);
   }
 

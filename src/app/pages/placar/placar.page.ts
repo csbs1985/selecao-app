@@ -15,9 +15,9 @@ export class PlacarPage implements OnInit, OnDestroy {
   placarMandanteReal = '00';
   placarVisitanteReal = '00';
   placarRelogio = '00:00';
-  placarTempo: number = 1;
-  nomeMandante: string = 'Mandante';
-  nomeVisitante: string = 'Visitante';
+  placarTempo = 1;
+  nomeMandante = 'Mandante';
+  nomeVisitante = 'Visitante';
 
   constructor(
     private screenOrientation: ScreenOrientation,
@@ -30,6 +30,7 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.insomnia.allowSleepAgain();
   }
 

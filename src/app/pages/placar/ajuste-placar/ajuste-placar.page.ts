@@ -21,7 +21,7 @@ export class AjustePlacarPage implements OnInit {
     valor: [
       1, 2
     ]
-  }
+  };
 
   duracaoArray = {
     name: 'duracao',
@@ -29,7 +29,7 @@ export class AjustePlacarPage implements OnInit {
     valor: [
       10, 15, 20, 25, 30, 35, 40, 45
     ]
-  }
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,7 +47,7 @@ export class AjustePlacarPage implements OnInit {
       cronometro: [placar.cronometro],
       periodos: [placar.periodos],
       duracao: [placar.duracao]
-    })
+    });
   }
 
   bataoResposta(): void {
