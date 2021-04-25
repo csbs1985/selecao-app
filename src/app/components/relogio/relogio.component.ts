@@ -11,7 +11,7 @@ export class RelogioComponent implements OnInit {
   isIniciar: boolean = true;
 
   tempo: any;
-  intervalo: number = 1000;
+  intervalo: number = 60;
   mm = 0;
   ss = 0;
   ms = 0;
