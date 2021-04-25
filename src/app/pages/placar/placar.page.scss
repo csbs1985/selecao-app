@@ -25,7 +25,7 @@
     }
 
     h1 {
-      font-family: var(--digital);
+      font-family: var(--led);
       font-size: 160px;
       position: absolute;
       top: 50%;
@@ -51,7 +51,6 @@
 
   &-relogio {
     max-width: 150px;
-    font-family: var(--digital);
 
     div {
       position: relative;
@@ -61,6 +60,7 @@
     }
 
     p {
+      font-family: var(--led);
       font-size: 30px;
       position: absolute;
       color: var(--preto);
@@ -74,10 +74,10 @@
       color: var(--azul);
     }
 
-    app-relogio{
-    justify-content: center;
-    display: flex;
-    margin: var(--px-20) 0;
+    app-relogio {
+      justify-content: center;
+      display: flex;
+      margin: var(--px-20) 0;
     }
   }
 }
