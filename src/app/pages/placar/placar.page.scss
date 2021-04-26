@@ -13,66 +13,42 @@
   }
 
   &-coluna {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     position: relative;
-    flex: 1 1 auto;
+    width: 50%;
 
     p {
-      font-size: var(--px-20);
+      font-size: var(--px-30);
       color: var(--branco);
-      align-self: center;
+      text-align: center;
     }
 
     div {
-      align-self: flex-end;
+      align-self: center;
       display: flex;
       position: relative;
+      text-align: center;
 
       h1 {
-        font-family: var(--led);
         font-size: var(--px-160);
         color: var(--cinza);
         margin: 0;
-      }
-
-      h1:last-of-type {
-        position: absolute;
-        bottom: 0;
         color: var(--vermelho);
       }
-
-      h1:last-of-type:active {
-        color: var(--ativo);
-      }
     }
   }
 
-  &-coluna:nth-child(2) {
-    flex-direction: row;
-
-    p {
-      align-self: flex-end;
-      font-family: var(--led);
-      font-size: var(--px-60);
-      color: var(--cinza);
-    }
-
-    p:last-of-type {
-      position: absolute;
-      bottom: 0;
-      color: var(--verde);
-    }
-  }
-
-  &-coluna:nth-child(3) div h1:last-of-type {
+  &-coluna:last-of-type div h1 {
     color: var(--amarelo);
   }
 
-  &-coluna:nth-child(3) div h1:last-of-type:active {
-    color: var(--ativo);
+  &-relogio {
+    align-self: flex-end;
+    text-align: center;
+    font-size: var(--px-60);
+    color: var(--verde);
   }
 
   &-teclado {
@@ -82,6 +58,7 @@
     justify-content: center;
 
     button:nth-child(1) {
+      margin-left: 0;
       background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
     }
 
@@ -109,9 +86,4 @@
       background: var(--amarelo) url('../../../assets/svg/diminuir.svg') no-repeat center;
     }
   }
-}
-
-.botao-desabilitado {
-  pointer-events: none;
-  background: var(--branco);
 }

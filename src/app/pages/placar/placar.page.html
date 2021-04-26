@@ -5,20 +5,15 @@
       <div class="placar-coluna">
         <p>{{ nomeMandante }}</p>
         <div>
-          <h1>88</h1>
           <h1 (click)="adicionarMandante()">{{ placarMandanteReal }}</h1>
         </div>
       </div>
 
-      <div class="placar-coluna">
-        <p>88:88</p>
-        <p>{{ placarRelogio }}</p>
-      </div>
+      <div class="placar-relogio">{{ placarRelogio }}</div>
 
       <div class="placar-coluna">
         <p>{{ nomeVisitante }}</p>
         <div>
-          <h1>88</h1>
           <h1 (click)="adicionarVisitante()">{{ placarVisitanteReal }}</h1>
         </div>
       </div>
@@ -27,8 +22,8 @@
     <div class="placar-teclado">
       <button class="botao-peq" (click)="diminuirMandante()"></button>
       <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="inicarRelogio()"></button>
-      <button class="botao-peq" [class.desabilitado]="!isIniciado"  (click)="pausarRelogio()"></button>
-      <button class="botao-peq" [class.desabilitado]="!isIniciado"  (click)="pararRelogio()"></button>
+      <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pausarRelogio()"></button>
+      <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pararRelogio()"></button>
       <button class="botao-peq" (click)="ajustePagina()"></button>
       <button class="botao-peq" (click)="resumoPagina()"></button>
       <button class="botao-peq" (click)="diminuirVisitante()"></button>
