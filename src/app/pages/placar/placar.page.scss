@@ -7,48 +7,51 @@
 
   &-conteudo {
     flex: 1 1 auto;
-    height: 100%;
     width: 100%;
     display: flex;
+    background-color: var(--preto);
   }
 
   &-coluna {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    position: relative;
-    width: 50%;
+    flex: 1 1 auto;
+    text-align: center;
+    align-self: flex-end;
 
     p {
-      font-size: var(--px-30);
+      font-size: 3vw;
       color: var(--branco);
-      text-align: center;
     }
 
     div {
+      width: 30vw;
       align-self: center;
-      display: flex;
-      position: relative;
-      text-align: center;
 
       h1 {
-        font-size: var(--px-160);
-        color: var(--cinza);
+        align-self: center;
+        font-size: 15vw;
         margin: 0;
         color: var(--vermelho);
+        background-color: var(--cinza);
+        border-radius: var(--canto);
+        padding: var(--px-20);
       }
     }
   }
 
-  &-coluna:last-of-type div h1 {
-    color: var(--amarelo);
+  &-coluna:nth-of-type(2) {
+    background-color: var(--cinza);
+    border-radius: var(--canto);
+    justify-self: center;
+    font-size: 4vw;
+    padding: var(--px-10) 0;
+    color: var(--verde);
+    width: 5.625rem; // 90px
   }
 
-  &-relogio {
-    align-self: flex-end;
-    text-align: center;
-    font-size: var(--px-60);
-    color: var(--verde);
+  &-coluna:nth-of-type(3) div h1 {
+    color: var(--amarelo);
   }
 
   &-teclado {
