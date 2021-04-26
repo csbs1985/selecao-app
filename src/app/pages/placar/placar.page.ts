@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-placar',
@@ -21,7 +22,8 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   constructor(
     private screenOrientation: ScreenOrientation,
-    private insomnia: Insomnia
+    private insomnia: Insomnia,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -80,5 +82,13 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   relogioResposta(resposta): void {
     this.placarRelogio = resposta;
+  }
+
+  ajustePagina(): void {
+    this.router.navigate(['/ajuste-placar']);
+  }
+
+  resumoPagina(): void {
+    // this.router.navigate(['/ajuste-placar']);
   }
 }
