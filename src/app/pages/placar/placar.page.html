@@ -1,30 +1,36 @@
   <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
   <div class="placar">
-    <div class="placar-mandante">
-      <p>{{ nomeMandante }}</p>
-      <div>
-        <h1>88</h1>
-        <h1 (click)="adicionarMandante()">{{ placarMandanteReal }}</h1>
+    <div class="placar-conteudo">
+      <div class="placar-coluna">
+        <p>{{ nomeMandante }}</p>
+        <div>
+          <h1>88</h1>
+          <h1 (click)="adicionarMandante()">{{ placarMandanteReal }}</h1>
+        </div>
       </div>
-      <button (click)="diminuirMandante()"></button>
-    </div>
 
-    <div class="placar-relogio">
-      <div>
+      <div class="placar-coluna">
         <p>88:88</p>
         <p>{{ placarRelogio }}</p>
       </div>
 
-      <app-relogio (relogioResposta)="relogioResposta($event)"></app-relogio>
+      <div class="placar-coluna">
+        <p>{{ nomeVisitante }}</p>
+        <div>
+          <h1>88</h1>
+          <h1 (click)="adicionarVisitante()">{{ placarVisitanteReal }}</h1>
+        </div>
+      </div>
     </div>
 
-    <div class="placar-visitante">
-      <p>{{ nomeVisitante }}</p>
-      <div>
-        <h1>88</h1>
-        <h1 (click)="adicionarVisitante()">{{ placarVisitanteReal }}</h1>
-      </div>
-      <button (click)="diminuirVisitante()"></button>
+    <div class="placar-teclado">
+      <button class="botao-peq" (click)="diminuirMandante()"></button>
+      <button class="botao-peq desabilitado" (click)="inicarRelogio()"></button>
+      <button class="botao-peq" (click)="pausarRelogio()"></button>
+      <button class="botao-peq" (click)="pararRelogio()"></button>
+      <button class="botao-peq" (click)="ajustePagina()"></button>
+      <button class="botao-peq" (click)="resumoPagina()"></button>
+      <button class="botao-peq" (click)="diminuirVisitante()"></button>
     </div>
   </div>

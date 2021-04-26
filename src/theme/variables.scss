@@ -1,6 +1,7 @@
 @import './fonts';
 @import './base';
 @import './inputs';
+@import './botao';
 
 /*na_trave*/
 :root {
@@ -11,6 +12,7 @@
   --azul: #688DE2;
   --amarelo: #FDD549;
   --vermelho: #DA714F;
+  --ativo: #4b0082;
 
   // rem = 1px / 16
   --px-2: 0.125rem;

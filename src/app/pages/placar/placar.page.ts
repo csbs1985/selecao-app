@@ -80,6 +80,12 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.placarVisitanteReal = this.placarVisitante.toString();
   }
 
+  inicarRelogio(): void{}
+
+  pausarRelogio(): void{}
+
+  pararRelogio(): void{}
+
   relogioResposta(resposta): void {
     this.placarRelogio = resposta;
   }

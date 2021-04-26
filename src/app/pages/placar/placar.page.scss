@@ -1,89 +1,117 @@
 .placar {
   width: 100%;
   height: 100%;
-  display: flex;
   background-color: var(--preto);
+  display: flex;
+  flex-direction: column;
 
-  &-mandante,
-  &-relogio,
-  &-visitante {
-    width: 33.67%;
+  &-conteudo {
     flex: 1 1 auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+
+  &-coluna {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: var(--px-20);
+    position: relative;
+    flex: 1 1 auto;
 
     p {
       font-size: var(--px-20);
-      text-align: center;
       color: var(--branco);
+      align-self: center;
     }
 
     div {
+      align-self: flex-end;
+      display: flex;
       position: relative;
-      height: 70%;
-      margin-bottom: 20px;
-    }
 
-    h1 {
+      h1 {
+        font-family: var(--led);
+        font-size: var(--px-160);
+        color: var(--cinza);
+        margin: 0;
+      }
+
+      h1:last-of-type {
+        position: absolute;
+        bottom: 0;
+        color: var(--vermelho);
+      }
+
+      h1:last-of-type:active {
+        color: var(--ativo);
+      }
+    }
+  }
+
+  &-coluna:nth-child(2) {
+    flex-direction: row;
+
+    p {
+      align-self: flex-end;
       font-family: var(--led);
-      font-size: 160px;
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      font-size: var(--px-60);
       color: var(--cinza);
     }
 
-    h1:last-of-type {
-      z-index: 9;
-      color: var(--amarelo);
+    p:last-of-type {
+      position: absolute;
+      bottom: 0;
+      color: var(--verde);
     }
+  }
 
-    h1:last-of-type:active {
-      color: var(--vermelho);
-    }
+  &-coluna:nth-child(3) div h1:last-of-type {
+    color: var(--amarelo);
+  }
 
-    button {
-      align-self: center;
-      height: var(--px-40);
-      width: var(--px-40);
-      margin: var(--px-20);
-      border-radius: var(--canto);
+  &-coluna:nth-child(3) div h1:last-of-type:active {
+    color: var(--ativo);
+  }
+
+  &-teclado {
+    height: 6.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    button:nth-child(1) {
       background: var(--vermelho) url('../../../assets/svg/diminuir.svg') no-repeat center;
     }
-  }
 
-  &-relogio {
-    max-width: 150px;
-
-    div {
-      position: relative;
-      height: 60px;
+    button:nth-child(2) {
+      background: var(--verde) url('../../../assets/svg/iniciar.svg') no-repeat center;
     }
 
-    p {
-      font-family: var(--led);
-      font-size: 60px;
-      position: absolute;
-      color: var(--preto);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    button:nth-child(3) {
+      background: var(--verde) url('../../../assets/svg/pausar.svg') no-repeat center;
     }
 
-    p:last-of-type {
-      z-index: 9;
-      color: var(--azul);
+    button:nth-child(4) {
+      background: var(--verde) url('../../../assets/svg/parar.svg') no-repeat center;
     }
 
-    app-relogio {
-      justify-content: center;
-      display: flex;
-      margin: var(--px-20) 0;
+    button:nth-child(5) {
+      background: var(--azul) url('../../../assets/svg/ajuste.svg') no-repeat center;
+    }
+
+    button:nth-child(6) {
+      background: var(--azul) url('../../../assets/svg/resumo.svg') no-repeat center;
+    }
+
+    button:nth-child(7) {
+      background: var(--amarelo) url('../../../assets/svg/diminuir.svg') no-repeat center;
     }
   }
+}
+
+.botao-desabilitado {
+  pointer-events: none;
+  background: var(--branco);
 }

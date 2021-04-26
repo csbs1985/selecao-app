@@ -1,0 +1,19 @@
+.botao {
+  &-peq {
+    height: var(--px-40);
+    width: var(--px-40);
+    margin: var(--px-20);
+    margin-right: 0;
+    border-radius: var(--canto);
+  }
+
+  &-peq:active {
+    background-color: yellow;
+  }
+}
+
+.desabilitado {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
