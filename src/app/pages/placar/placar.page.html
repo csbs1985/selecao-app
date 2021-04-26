@@ -26,9 +26,9 @@
 
     <div class="placar-teclado">
       <button class="botao-peq" (click)="diminuirMandante()"></button>
-      <button class="botao-peq desabilitado" (click)="inicarRelogio()"></button>
-      <button class="botao-peq" (click)="pausarRelogio()"></button>
-      <button class="botao-peq" (click)="pararRelogio()"></button>
+      <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="inicarRelogio()"></button>
+      <button class="botao-peq" [class.desabilitado]="!isIniciado"  (click)="pausarRelogio()"></button>
+      <button class="botao-peq" [class.desabilitado]="!isIniciado"  (click)="pararRelogio()"></button>
       <button class="botao-peq" (click)="ajustePagina()"></button>
       <button class="botao-peq" (click)="resumoPagina()"></button>
       <button class="botao-peq" (click)="diminuirVisitante()"></button>

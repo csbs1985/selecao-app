@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Router } from '@angular/router';
+import { RelogioService } from 'src/app/services/relogio.service';
 
 @Component({
   selector: 'app-placar',
@@ -13,17 +14,19 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   placarMandante = 0;
   placarVisitante = 0;
+  
   placarMandanteReal = '00';
   placarVisitanteReal = '00';
-  placarRelogio = '00:00';
-  placarTempo = 1;
   nomeMandante = 'Mandante';
   nomeVisitante = 'Visitante';
+
+  isIniciado = false;
 
   constructor(
     private screenOrientation: ScreenOrientation,
     private insomnia: Insomnia,
-    private router: Router
+    private router: Router,
+    private relogioService: RelogioService
   ) { }
 
   ngOnInit() {
@@ -65,6 +68,11 @@ export class PlacarPage implements OnInit, OnDestroy {
       }
       return;
     }
+    if (this.placarMandante >= 99) {
+      this.placarMandante = 99;
+      this.placarMandanteReal = '99';
+      return;
+    }
     this.placarMandanteReal = this.placarMandante.toString();
   }
 
@@ -77,17 +85,31 @@ export class PlacarPage implements OnInit, OnDestroy {
       }
       return;
     }
+    if (this.placarVisitante >= 99) {
+      this.placarVisitante = 99;
+      this.placarVisitanteReal = '99';
+      return;
+    }
     this.placarVisitanteReal = this.placarVisitante.toString();
   }
 
-  inicarRelogio(): void{}
+  inicarRelogio(): void {
+    this.relogioService.inciar();
+    this.isIniciado = true;
+  }
 
-  pausarRelogio(): void{}
+  pausarRelogio(): void { 
+    this.relogioService.pausar();
+    this.isIniciado = false;
+  }
 
-  pararRelogio(): void{}
+  pararRelogio(): void { 
+    this.relogioService.parar();
+    this.isIniciado = false;
+  }
 
-  relogioResposta(resposta): void {
-    this.placarRelogio = resposta;
+  get placarRelogio(): string {
+    return this.relogioService.tempo || '00:00';
   }
 
   ajustePagina(): void {
