@@ -7,6 +7,7 @@ import { AjustePlacarPage } from './ajuste-placar/ajuste-placar.page';
 import { PlacarPage } from './placar.page';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
+import { ResumoPage } from './resumo/resumo.page';
 
 @NgModule({
   imports: [
@@ -18,11 +19,13 @@ import { Insomnia } from '@ionic-native/insomnia/ngx';
   ],
   declarations: [
     PlacarPage,
-    AjustePlacarPage
+    AjustePlacarPage,
+    ResumoPage
   ],
   exports: [
     PlacarPage,
-    AjustePlacarPage
+    AjustePlacarPage,
+    ResumoPage
   ],
   providers: [
     ScreenOrientation,

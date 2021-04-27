@@ -105,6 +105,6 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   resumoPagina(): void {
-    // this.router.navigate(['/ajuste-placar']);
+    this.router.navigate(['/resumo']);
   }
 }
