@@ -4,7 +4,11 @@
     <div class="placar-cronometro">
       <div class="placar-periodo" (click)="periodoTrocar()">{{ periodo }}T</div>
 
-      <div class="placar-relogio" (click)="relogioIniciar()">{{ relogioTemporario }}</div>
+      <div class="placar-relogio">
+        <p *ngIf="statusRelogio === 'inativo'">{{ placarRelogio }}</p>
+        <app-relogio  #relogio (relogioResposta)="relogioResposta($event)">
+        </app-relogio>
+      </div>
     </div>
 
     <div class="placar-placar">
@@ -24,9 +28,9 @@
     <div class="placar-teclado">
       <div class="placar-superior">
         <button class="botao-peq" (click)="periodoTrocar()"></button>
-        <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="inicarRelogio()"></button>
-        <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pausarRelogio()"></button>
-        <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pararRelogio()"></button>
+        <button class="botao-peq" [class.desabilitado]="statusRelogio === 'iniciado'" (click)="relogio.inciar()"></button>
+        <button class="botao-peq" [class.desabilitado]="statusRelogio === 'parado' || statusRelogio === 'inativo'" (click)="relogio.pausar()"></button>
+        <button class="botao-peq" [class.desabilitado]="statusRelogio === 'parado' || statusRelogio === 'inativo'" (click)="relogio.parar()"></button>
         <button class="botao-peq" (click)="ajustePagina()"></button>
         <button class="botao-peq" (click)="resumoPagina()"></button>
       </div>

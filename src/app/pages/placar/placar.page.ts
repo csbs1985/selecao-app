@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Router } from '@angular/router';
-import { RelogioService } from 'src/app/services/relogio.service';
 
 @Component({
   selector: 'app-placar',
@@ -13,21 +12,20 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   placarMandante = 0;
   placarVisitante = 0;
+  periodo = 1;
 
+  placarRelogio = '00:00:00';
   placarMandanteReal = '00';
   placarVisitanteReal = '00';
   nomeMandante = 'Mandante';
   nomeVisitante = 'Visitante';
-  periodo = 1;
+  statusRelogio = 'inativo';
 
   isIniciado = false;
 
-  relogioTemporario = '00:00:00';
-
   constructor(
     private insomnia: Insomnia,
-    private router: Router,
-    private relogioService: RelogioService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -98,23 +96,8 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   relogioIniciar(): void { }
 
-  inicarRelogio(): void {
-    this.relogioService.inciar();
-    this.isIniciado = true;
-  }
-
-  pausarRelogio(): void {
-    this.relogioService.pausar();
-    this.isIniciado = false;
-  }
-
-  pararRelogio(): void {
-    this.relogioService.parar();
-    this.isIniciado = false;
-  }
-
-  get placarRelogio(): string {
-    return this.relogioService.tempo || '00:00';
+  relogioResposta(resposta): void {
+    this.statusRelogio = resposta;
   }
 
   ajustePagina(): void {

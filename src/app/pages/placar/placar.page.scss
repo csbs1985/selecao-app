@@ -27,7 +27,12 @@
   &-relogio {
     flex: 1 1 auto;
     margin-left: var(--px-20);
-    color: var(--azul);
+
+    p {
+      color: var(--azul);
+      font-family: var(--led);
+      font-size: 1.75rem; // 28px 
+    }
   }
 
   &-placar {
