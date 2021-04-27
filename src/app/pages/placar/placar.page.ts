@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Router } from '@angular/router';
 import { RelogioService } from 'src/app/services/relogio.service';
@@ -14,29 +13,33 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   placarMandante = 0;
   placarVisitante = 0;
-  
+
   placarMandanteReal = '00';
   placarVisitanteReal = '00';
   nomeMandante = 'Mandante';
   nomeVisitante = 'Visitante';
+  periodo = 1;
 
   isIniciado = false;
 
+  relogioTemporario = '00:00:00';
+
   constructor(
-    private screenOrientation: ScreenOrientation,
     private insomnia: Insomnia,
     private router: Router,
     private relogioService: RelogioService
   ) { }
 
   ngOnInit() {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.insomnia.keepAwake();
   }
 
   ngOnDestroy() {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.insomnia.allowSleepAgain();
+  }
+
+  periodoTrocar(): void {
+    this.periodo === 1 ? this.periodo = 2 : this.periodo = 1;
   }
 
   adicionarMandante(): void {
@@ -93,17 +96,19 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.placarVisitanteReal = this.placarVisitante.toString();
   }
 
+  relogioIniciar(): void { }
+
   inicarRelogio(): void {
     this.relogioService.inciar();
     this.isIniciado = true;
   }
 
-  pausarRelogio(): void { 
+  pausarRelogio(): void {
     this.relogioService.pausar();
     this.isIniciado = false;
   }
 
-  pararRelogio(): void { 
+  pararRelogio(): void {
     this.relogioService.parar();
     this.isIniciado = false;
   }

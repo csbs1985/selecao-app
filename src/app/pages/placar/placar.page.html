@@ -1,31 +1,43 @@
   <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
   <div class="placar">
-    <div class="placar-conteudo">
+    <div class="placar-cronometro">
+      <div class="placar-periodo" (click)="periodoTrocar()">{{ periodo }}T</div>
+
+      <div class="placar-relogio" (click)="relogioIniciar()">{{ relogioTemporario }}</div>
+    </div>
+
+    <div class="placar-placar">
       <div class="placar-coluna">
         <p>{{ nomeMandante }}</p>
-        <div>
-          <h1 (click)="adicionarMandante()">{{ placarMandanteReal }}</h1>
-        </div>
-      </div>
 
-      <div class="placar-coluna">{{ placarRelogio }}</div>
+        <h1 (click)="adicionarMandante()">{{ placarMandanteReal }}</h1>
+      </div>
 
       <div class="placar-coluna">
         <p>{{ nomeVisitante }}</p>
-        <div>
-          <h1 (click)="adicionarVisitante()">{{ placarVisitanteReal }}</h1>
-        </div>
+
+        <h1 (click)="adicionarVisitante()">{{ placarVisitanteReal }}</h1>
       </div>
     </div>
 
     <div class="placar-teclado">
-      <button class="botao-peq" (click)="diminuirMandante()"></button>
-      <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="inicarRelogio()"></button>
-      <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pausarRelogio()"></button>
-      <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pararRelogio()"></button>
-      <button class="botao-peq" (click)="ajustePagina()"></button>
-      <button class="botao-peq" (click)="resumoPagina()"></button>
-      <button class="botao-peq" (click)="diminuirVisitante()"></button>
+      <div class="placar-superior">
+        <button class="botao-peq" (click)="periodoTrocar()"></button>
+        <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="inicarRelogio()"></button>
+        <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pausarRelogio()"></button>
+        <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="pararRelogio()"></button>
+        <button class="botao-peq" (click)="ajustePagina()"></button>
+        <button class="botao-peq" (click)="resumoPagina()"></button>
+      </div>
+
+      <div class="placar-inferior">
+        <button class="botao-peq" (click)="adicionarMandante()"></button>
+        <button class="botao-peq" (click)="diminuirMandante()"></button>
+        <button class="botao-peq" (click)="diminuirVisitante()"></button>
+        <button class="botao-peq" (click)="adicionarVisitante()"></button>
+      </div>
     </div>
+
+    <div class="placar-complemento"></div>
   </div>
