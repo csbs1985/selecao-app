@@ -11,46 +11,33 @@ export class RelogioComponent implements OnInit {
   status = 'inativo';
 
   tempo: any;
-  intervalo = 60;
+  intervalo = 100;
   mm = 0;
   ss = 0;
-  ms = 0;
+  ms = 1;
 
   constructor() { }
 
-  ngOnInit() { 
-    console.log(this.status); 
-  }
+  ngOnInit() { }
 
   inciar(): void {
-    this.tempo = setInterval(() => {
-      this.timer();
-
-      if (this.status === 'inativo') {
-        this.status = 'iniciado';
-        console.log(this.status); 
-        this.relogioResposta.emit(this.status);
-      }
-    }, this.intervalo);
+    this.tempo = window.setInterval(() => { this.timer(); }, this.intervalo);
+    this.relogioResposta.emit(this.status = 'iniciado');
   }
 
   pausar(): void {
-    clearInterval(this.tempo);
-    this.status = 'parado';
-    console.log(this.status); 
-    this.relogioResposta.emit(this.status);
+    window.clearInterval(this.tempo);
+    this.relogioResposta.emit(this.status = 'parado');
   }
 
   parar(): void {
-    clearInterval(this.tempo);
+    window.clearInterval(this.tempo);
     this.mm = 0;
     this.ss = 0;
     this.ms = 0;
     this.tempo = '00:00:00';
 
-    this.status = 'parado';
-    console.log(this.status); 
-    this.relogioResposta.emit(this.status);
+    this.relogioResposta.emit(this.status = 'parado');
   }
 
   timer(): void {
@@ -66,13 +53,10 @@ export class RelogioComponent implements OnInit {
       }
     }
 
-    this.formatar();
-  }
-
-  formatar(): void {
     const minuto = (this.mm < 10 ? '0' + this.mm : this.mm);
     const segundo = (this.ss < 10 ? '0' + this.ss : this.ss);
     const milessimo = (this.ms < 10 ? '0' + this.ms : this.ms);
+
     this.tempo = minuto + ':' + segundo + ':' + milessimo;
   }
 }

@@ -2,7 +2,7 @@
 
   <div class="placar">
     <div class="placar-cronometro">
-      <div class="placar-periodo" (click)="periodoTrocar()">{{ periodo }}T</div>
+      <div class="placar-periodo">{{ periodo }}T</div>
 
       <div class="placar-relogio">
         <p *ngIf="statusRelogio === 'inativo'">{{ placarRelogio }}</p>
@@ -42,6 +42,4 @@
         <button class="botao-peq" (click)="adicionarVisitante()"></button>
       </div>
     </div>
-
-    <div class="placar-complemento"></div>
   </div>
