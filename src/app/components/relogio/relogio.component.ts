@@ -43,11 +43,11 @@ export class RelogioComponent implements OnInit {
   timer(): void {
     this.ms++;
 
-    if (this.ms == 59) {
+    if (this.ms === 59) {
       this.ms = 0;
       this.ss++;
 
-      if (this.ss == 59) {
+      if (this.ss === 59) {
         this.ss = 0;
         this.mm++;
       }

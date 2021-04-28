@@ -37,7 +37,12 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   periodoTrocar(): void {
-    this.periodo === 1 ? this.periodo = 2 : this.periodo = 1;
+    if (this.periodo === 1) {
+      this.periodo = 2;
+      return;
+    }
+
+    this.periodo = 1;
   }
 
   adicionarMandante(): void {
