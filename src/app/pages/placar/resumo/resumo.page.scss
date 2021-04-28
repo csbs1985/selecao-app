@@ -6,7 +6,8 @@
   flex-direction: column;
 
   &-placar {
-    padding: 0 var(--px-20);
+    padding: var(--px-20);
+    padding-bottom: 0;
 
     p,
     span {
