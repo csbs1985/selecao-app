@@ -3,18 +3,18 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-relogio',
   templateUrl: './relogio.component.html',
-  styles: ['p { color: var(--azul); font-family: var(--led); font-size: 1.75rem; }']
+  styleUrls: ['./relogio.component.scss']
 })
 export class RelogioComponent implements OnInit {
   @Output() relogioResposta = new EventEmitter();
 
   status = 'inativo';
 
-  tempo: any;
-  intervalo = 100;
+  tempo: any = '00:00:00';
+  intervalo = 10;
   mm = 0;
   ss = 0;
-  ms = 1;
+  ms = 0;
 
   constructor() { }
 
