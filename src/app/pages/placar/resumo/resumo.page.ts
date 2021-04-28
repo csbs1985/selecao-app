@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumoPage implements OnInit {
 
-  constructor() { }
+  readonly textoCabecalho = 'Resumão da partida';
+  readonly textoBotao = 'Voltar ao jogo';
 
-  ngOnInit() {
+  mandanteNome = 'Mandante';
+  visitanteNome = 'Visitante';
+  mandantePonto = 2;
+  visitantePonto = 1;
+
+  resumoArray = [
+    {
+      tipo: 'final',
+      placar: '0 x 0',
+      texto: 'Inicio',
+      data: '1° tempo',
+      cronometro: '14:28'
+    },
+    {
+      tipo: 'mandante',
+      placar: '0 x 0',
+      texto: 'Inicio',
+      data: '1° tempo',
+      cronometro: '14:28'
+    },
+    {
+      tipo: 'visitante',
+      placar: '0 x 0',
+      texto: 'Inicio',
+      data: '1° tempo',
+      cronometro: '14:28'
+    }, {
+      tipo: 'inicio',
+      placar: '0 x 0',
+      texto: 'Inicio',
+      data: '1° tempo',
+      cronometro: '14:28'
+    }
+  ];
+
+  constructor(
+    private location: Location
+  ) { }
+
+  ngOnInit() { }
+
+  botaoVoltar(): void {
+    this.location.back();
   }
-
 }

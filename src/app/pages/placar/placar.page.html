@@ -2,7 +2,7 @@
 
   <div class="placar">
     <div class="placar-cronometro">
-      <div class="placar-periodo">{{ periodo }}T</div>
+      <div class="placar-periodo" (click)="periodoTrocar()">{{ periodo }}T</div>
 
       <div class="placar-relogio">
         <app-relogio #relogio (relogioResposta)="relogioResposta($event)">

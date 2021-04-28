@@ -1,0 +1,35 @@
+.resumo {
+  width: 100%;
+  height: 100%;
+  background-color: var(--preto);
+  display: flex;
+  flex-direction: column;
+
+  &-placar {
+    padding: 0 var(--px-20);
+
+    p,
+    span {
+      background-color: var(--cinza);
+      text-align: center;
+      line-height: var(--px-40);
+      text-transform: uppercase;
+      color: var(--branco);
+      font-size: var(--px-14);
+      font-family: var(--led);
+
+      span {
+        color: var(--vermelho);
+      }
+
+      span:last-of-type {
+        color: var(--amarelo);
+      }
+    }
+  }
+
+  &-conteudo {
+    overflow-y: scroll;
+    padding: var(--px-20);
+  }
+}

@@ -1,9 +1,13 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>resumo</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
-<ion-content>
+<div class="resumo">
+  <div class="resumo-placar">
+    <p>
+      <span>{{ mandanteNome }} {{ mandantePonto }}</span> vs <span>{{ visitantePonto }} {{ visitanteNome }}</span>
+    </p>
+  </div>
 
-</ion-content>
+  <div class="resumo-conteudo">
+    <app-resumo-centro [resumoInput]="resumoArray"></app-resumo-centro>
+  </div>
+</div>

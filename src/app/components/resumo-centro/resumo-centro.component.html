@@ -1,0 +1,13 @@
+<section *ngFor="let item of resumoInput">
+  <div class="resumo-item" [ngClass]="item.tipo">
+    <div class="resumo-item-linha"></div>
+
+    <div class="resumo-item-placar">{{ item.placar }}</div>
+
+    <div class="resumo-item-icone"></div>
+
+    <p>{{ item.texto }}</p>
+
+    <p> - {{ item.cronometro }}</p>
+  </div>
+</section>
