@@ -1,13 +1,12 @@
 .cabecalho {
   background-color: var(--preto);
-  padding: var(--px-10) var(--px-20);
+  padding: 0 var(--px-20);
   color: white;
+  line-height: var(--px-40);
+  display: flex;
 
   .svg {
-    margin-bottom: var(--px-20);
-  }
-
-  &-texto {
-    color: var(--branco);
+    align-self: center;
+    margin-right: var(--px-20);
   }
 }

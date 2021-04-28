@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./placar.page.scss'],
 })
 export class PlacarPage implements OnInit, OnDestroy {
-  readonly textoCabecalho = '';
+  readonly textoCabecalho = 'Placar e Cronômetro';
 
   placarMandante = 0;
   placarVisitante = 0;
