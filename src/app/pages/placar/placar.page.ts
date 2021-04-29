@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Router } from '@angular/router';
+import { RelogioService } from 'src/app/services/relogio.service';
 
 @Component({
   selector: 'app-placar',
@@ -19,13 +20,11 @@ export class PlacarPage implements OnInit, OnDestroy {
   placarVisitanteReal = '00';
   nomeMandante = 'Mandante';
   nomeVisitante = 'Visitante';
-  statusRelogio = 'inativo';
-
-  isIniciado = false;
 
   constructor(
     private insomnia: Insomnia,
-    private router: Router
+    private router: Router,
+    public relogioService: RelogioService
   ) { }
 
   ngOnInit() {
@@ -37,17 +36,23 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   periodoTrocar(): void {
-    if (this.periodo === 1) {
-      this.periodo = 2;
-      return;
-    }
+    if (this.periodo === 1) { this.periodo = 2; return; }
 
     this.periodo = 1;
+  }
+
+  relogioClick(): void {
+    if (this.relogioService.status === 'inativo') {
+      return this.relogioService.inciar();
+    }
+
+    this.relogioService.pausar();
   }
 
   adicionarMandante(): void {
     this.placarMandante++;
     this.formatarPontosMandante();
+    this.popularResumo();
   }
 
   diminuirMandante(): void {
@@ -99,8 +104,8 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.placarVisitanteReal = this.placarVisitante.toString();
   }
 
-  relogioResposta(resposta): void {
-    this.statusRelogio = resposta;
+  popularResumo(): void {
+    // this.relogio
   }
 
   ajustePagina(): void {
@@ -109,5 +114,21 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   resumoPagina(): void {
     this.router.navigate(['/resumo']);
+  }
+
+  get tempoCorrido(): void {
+    return this.relogioService.tempo;
+  }
+
+  get isIniciado(): boolean {
+    if (this.relogioService.status === 'inativo') {
+      return false;
+    };
+
+    return true;
+  }
+
+  get statusRelogio(): string {
+    return this.relogioService.status || 'inativo';
   }
 }

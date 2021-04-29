@@ -4,10 +4,7 @@
     <div class="placar-cronometro">
       <div class="placar-periodo" (click)="periodoTrocar()">{{ periodo }}T</div>
 
-      <div class="placar-relogio">
-        <app-relogio #relogio (relogioResposta)="relogioResposta($event)">
-        </app-relogio>
-      </div>
+      <div class="placar-relogio" (click)="relogioClick()"> {{ tempoCorrido }} </div>
     </div>
 
     <div class="placar-placar">
@@ -27,12 +24,9 @@
     <div class="placar-teclado">
       <div class="placar-superior">
         <button class="botao-peq" (click)="periodoTrocar()"></button>
-        <button class="botao-peq" [class.desabilitado]="statusRelogio === 'iniciado'"
-          (click)="relogio.inciar()"></button>
-        <button class="botao-peq" [class.desabilitado]="statusRelogio === 'parado' || statusRelogio === 'inativo'"
-          (click)="relogio.pausar()"></button>
-        <button class="botao-peq" [class.desabilitado]="statusRelogio === 'parado' || statusRelogio === 'inativo'"
-          (click)="relogio.parar()"></button>
+        <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="relogioService.inciar()"></button>
+        <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="relogioService.pausar()"></button>
+        <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="relogioService.parar()"></button>
         <button class="botao-peq" (click)="ajustePagina()"></button>
         <button class="botao-peq" (click)="resumoPagina()"></button>
       </div>
