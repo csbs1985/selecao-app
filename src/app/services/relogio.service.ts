@@ -7,52 +7,54 @@ export class RelogioService {
 
   status = 'inativo';
 
-  tempo: any = '00:00:00';
-  intervalo = 100;
+  hh = 0;
   mm = 0;
   ss = 0;
-  ms = 0;
+
+  intervalo = 100;
+  tempo: any = '00:00:00';
+  crom: any;
 
   constructor() { }
 
   inciar(): void {
-    this.tempo = setInterval(() => { this.timer(); }, this.intervalo);
+    this.crom = setInterval(() => { this.timer(); }, this.intervalo);
     this.status = 'iniciado';
   }
 
   pausar(): void {
-    window.clearInterval(this.tempo);
+    clearInterval(this.crom);
     this.status = 'parado';
   }
 
   parar(): void {
-    window.clearInterval(this.tempo);
+    clearInterval(this.crom);
 
+    this.hh = 0;
     this.mm = 0;
     this.ss = 0;
-    this.ms = 0;
-    this.tempo = '00:00:00';
 
+    this.tempo = '00:00:00';
     this.status = 'parado';
   }
 
-  timer(): string {
-    this.ms++;
+  timer(): void {
+    this.ss++;
 
-    if (this.ms === 59) {
-      this.ms = 0;
-      this.ss++;
+    if (this.ss === 59) {
+      this.ss = 0;
+      this.mm++;
 
-      if (this.ss === 59) {
-        this.ss = 0;
-        this.mm++;
+      if (this.mm === 59) {
+        this.mm = 0;
+        this.hh++;
       }
     }
 
+    const hora = (this.hh < 10 ? '0' + this.hh : this.hh);
     const minuto = (this.mm < 10 ? '0' + this.mm : this.mm);
     const segundo = (this.ss < 10 ? '0' + this.ss : this.ss);
-    const milessimo = (this.ms < 10 ? '0' + this.ms : this.ms);
 
-    return this.tempo = minuto + ':' + segundo + ':' + milessimo;
+    this.tempo = hora + ':' + minuto + ':' + segundo;
   }
 }

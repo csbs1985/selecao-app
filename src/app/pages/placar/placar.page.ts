@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Router } from '@angular/router';
 import { RelogioService } from 'src/app/services/relogio.service';
+import { MemoriaService } from 'src/app/services/memoria.service';
 
 @Component({
   selector: 'app-placar',
@@ -22,6 +23,7 @@ export class PlacarPage implements OnInit, OnDestroy {
   nomeVisitante = 'Visitante';
 
   constructor(
+    private memoriaService: MemoriaService,
     private insomnia: Insomnia,
     private router: Router,
     public relogioService: RelogioService
@@ -29,6 +31,7 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.insomnia.keepAwake();
+    this.popularPlacar();
   }
 
   ngOnDestroy() {
@@ -37,7 +40,6 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   periodoTrocar(): void {
     if (this.periodo === 1) { this.periodo = 2; return; }
-
     this.periodo = 1;
   }
 
@@ -45,29 +47,31 @@ export class PlacarPage implements OnInit, OnDestroy {
     if (this.relogioService.status === 'inativo') {
       return this.relogioService.inciar();
     }
-
     this.relogioService.pausar();
   }
 
   adicionarMandante(): void {
     this.placarMandante++;
     this.formatarPontosMandante();
-    this.popularResumo();
+    this.popularResumo('mandante');
   }
 
   diminuirMandante(): void {
     this.placarMandante--;
     this.formatarPontosMandante();
+    this.popularResumo('mandante');
   }
 
   adicionarVisitante(): void {
     this.placarVisitante++;
     this.formatarPontosVisitante();
+    this.popularResumo('visitante');
   }
 
   diminuirVisitante(): void {
     this.placarVisitante--;
     this.formatarPontosVisitante();
+    this.popularResumo('visitante');
   }
 
   formatarPontosMandante(): void {
@@ -104,8 +108,27 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.placarVisitanteReal = this.placarVisitante.toString();
   }
 
-  popularResumo(): void {
-    // this.relogio
+  popularResumo(time: string): void {
+    const resumoArray = {
+      tipo: time,
+      placar: this.placarMandante + ' x ' + this.placarVisitante,
+      texto: time,
+      cronometro: this.relogioService.tempo
+    };
+
+    this.memoriaService.resumoMemoria(resumoArray);
+    this.popularPlacar();
+  }
+
+  popularPlacar(): void {
+    const placar = {
+      mandanteNome: this.nomeMandante || 'Mandante',
+      mandantePonto: this.placarMandante || 0,
+      visitanteNome: this.nomeVisitante || 'Visitante',
+      visitantePonto: this.placarVisitante || 0
+    };
+
+    this.memoriaService.placarMemoria(placar);
   }
 
   ajustePagina(): void {
@@ -121,14 +144,16 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   get isIniciado(): boolean {
-    if (this.relogioService.status === 'inativo') {
-      return false;
-    };
-
+    if (this.relogioService.status === 'inativo' || this.relogioService.status === 'parado') { return false; };
     return true;
   }
 
-  get statusRelogio(): string {
-    return this.relogioService.status || 'inativo';
+  get isResumo(): boolean {
+    if (this.placarVisitante <= 0 && this.placarMandante <= 0) {
+      if (this.relogioService.status === 'inativo') {
+        return false;
+      }
+    }
+    return true;
   }
 }
