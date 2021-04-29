@@ -36,6 +36,7 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.insomnia.allowSleepAgain();
+    this.relogioService.parar();
   }
 
   periodoTrocar(): void {

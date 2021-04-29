@@ -9,13 +9,13 @@
 
     <div class="placar-placar">
       <div class="placar-coluna">
-        <p>{{ nomeMandante }}</p>
+        <p (click)="ajustePagina()">{{ nomeMandante }}</p>
 
         <h1 (click)="adicionarMandante()">{{ placarMandanteReal }}</h1>
       </div>
 
       <div class="placar-coluna">
-        <p>{{ nomeVisitante }}</p>
+        <p (click)="ajustePagina()">{{ nomeVisitante }}</p>
 
         <h1 (click)="adicionarVisitante()">{{ placarVisitanteReal }}</h1>
       </div>
