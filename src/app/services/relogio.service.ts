@@ -11,7 +11,7 @@ export class RelogioService {
   mm = 0;
   ss = 0;
 
-  intervalo = 100;
+  intervalo = 1000;
   tempo: any = '00:00:00';
   crom: any;
 

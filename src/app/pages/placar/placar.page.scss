@@ -25,9 +25,8 @@
   }
 
   &-relogio {
-    width: 100%;
-    align-self: center;
     flex: 1 1 auto;
+    text-align: center;
     margin-left: var(--px-20);
     color: var(--azul);
   }
