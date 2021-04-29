@@ -13,7 +13,7 @@ export class MemoriaService {
   constructor() { }
 
   resumoMemoria(resumoArray: Resumo): void {
-    this.memoriaResumo.push(resumoArray)
+    this.memoriaResumo.push(resumoArray);
   }
 
   placarMemoria(placar: Placar): void {

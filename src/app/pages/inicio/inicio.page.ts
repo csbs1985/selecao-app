@@ -15,7 +15,7 @@ export class InicioPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.statusBar.backgroundColorByHexString('#58B187');
+    // this.statusBar.backgroundColorByHexString('#58B187');
   }
 
   rotaAjustePlacar(): void {
