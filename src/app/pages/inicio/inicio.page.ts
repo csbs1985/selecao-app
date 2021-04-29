@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class InicioPage implements OnInit, OnDestroy {
 
   constructor(
     private statusBar: StatusBar,
@@ -15,7 +15,11 @@ export class InicioPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.statusBar.backgroundColorByHexString('#58B187');
+    this.statusBar.backgroundColorByHexString('#58B187');
+  }
+
+  ngOnDestroy() {
+    this.statusBar.backgroundColorByHexString('#2A2A2A');
   }
 
   rotaAjustePlacar(): void {

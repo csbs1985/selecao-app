@@ -150,11 +150,7 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   get isResumo(): boolean {
-    if (this.placarVisitante <= 0 && this.placarMandante <= 0) {
-      if (this.relogioService.status === 'inativo') {
-        return false;
-      }
-    }
+    if (this.relogioService.status === 'inativo') { return false; }
     return true;
   }
 }
