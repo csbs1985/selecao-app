@@ -3,4 +3,5 @@ export class Resumo {
   placar: string;
   texto?: string;
   cronometro?: string;
+  data: number;
 }

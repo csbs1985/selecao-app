@@ -24,7 +24,7 @@
     <div class="placar-teclado">
       <div class="placar-superior">
         <button class="botao-peq" (click)="periodoTrocar()"></button>
-        <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="relogioService.inciar()"></button>
+        <button class="botao-peq" [class.desabilitado]="isIniciado" (click)="relogioClick()"></button>
         <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="relogioService.pausar()"></button>
         <button class="botao-peq" [class.desabilitado]="!isIniciado" (click)="relogioService.parar()"></button>
         <button class="botao-peq" (click)="ajustePagina()"></button>

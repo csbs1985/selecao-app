@@ -9,14 +9,9 @@ import { MemoriaService } from 'src/app/services/memoria.service';
   styleUrls: ['./resumo.page.scss'],
 })
 export class ResumoPage implements OnInit {
-
   readonly textoCabecalho = 'Resumão da partida';
-  readonly textoBotao = 'Voltar ao jogo';
 
-  resumoArray = [];
-
-  // memoriaResumo = this.memoriaService.memoriaResumo;
-  resumoItens: Resumo;
+  resumoItens: Resumo[];
 
   mandanteNome = this.memoriaService.memoriaPlacar.mandanteNome;
   mandantePonto = this.memoriaService.memoriaPlacar.mandantePonto;
@@ -33,19 +28,9 @@ export class ResumoPage implements OnInit {
   }
 
   popularResumo(): void {
-    if (this.memoriaService.memoriaResumo.length <= 0) {
-      const itemInicio = {
-        tipo: 'inicio',
-        placar: 0 + ' x ' + 0,
-        texto: 'Inicio',
-        cronometro: '1° tempo'
-      };
-
-      this.resumoArray.push(itemInicio);
-      return;
-    }
-
-    this.resumoArray.push(this.memoriaService.memoriaResumo);
+    this.resumoItens = this.memoriaService.memoriaResumo.sort((a, b) =>
+      b.data < a.data ? -1 : b.data > a.data ? 1 : 0
+    );
   }
 
   botaoVoltar(): void {

@@ -36,8 +36,9 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.insomnia.allowSleepAgain();
-    this.relogioService.parar();
-    this.relogioService.status = 'inativo';
+    // this.relogioService.parar();
+    // this.relogioService.status = 'inativo';
+    // this.memoriaService.memoriaResumo = null;
   }
 
   periodoTrocar(): void {
@@ -47,7 +48,9 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   relogioClick(): void {
     if (this.relogioService.status === 'inativo') {
-      return this.relogioService.inciar();
+      this.relogioService.inciar();
+      this.popularResumo('inicio');
+      return;
     }
     this.relogioService.pausar();
   }
@@ -115,7 +118,8 @@ export class PlacarPage implements OnInit, OnDestroy {
       tipo: time,
       placar: this.placarMandante + ' x ' + this.placarVisitante,
       texto: time,
-      cronometro: this.relogioService.tempo
+      cronometro: this.relogioService.tempo,
+      data: new Date().getTime()
     };
 
     this.memoriaService.resumoMemoria(resumoArray);
