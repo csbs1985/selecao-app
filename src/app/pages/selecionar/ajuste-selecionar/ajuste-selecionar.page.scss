@@ -1,0 +1,17 @@
+.selecionar {
+  height: 100%;
+  background-color: var(--preto);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  form {
+    width: 100%;
+    overflow: scroll;
+  }
+
+  &-botao {
+    align-self: flex-end;
+    width: 100%;
+  }
+}

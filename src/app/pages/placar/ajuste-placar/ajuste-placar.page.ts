@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Placar } from 'src/app/models/placar';
+import { Placar } from 'src/app/classes/placar';
 
 @Component({
   selector: 'app-ajuste-placar',
@@ -9,26 +9,21 @@ import { Placar } from 'src/app/models/placar';
   styleUrls: ['./ajuste-placar.page.scss'],
 })
 export class AjustePlacarPage implements OnInit {
-
-  formPlacar: FormGroup;
-
   readonly textoCabecalho = 'Ajustar placa e cronômetro';
   readonly textoBotao = 'Confirmar';
+  
+  formPlacar: FormGroup;
 
   periodosArray = {
     name: 'periodos',
     checked: 2,
-    valor: [
-      1, 2
-    ]
+    valor: [1, 2]
   };
 
   duracaoArray = {
     name: 'duracao',
     checked: 45,
-    valor: [
-      10, 15, 20, 25, 30, 35, 40, 45
-    ]
+    valor: [10, 15, 20, 25, 30, 35, 40, 45]
   };
 
   constructor(
@@ -54,7 +49,7 @@ export class AjustePlacarPage implements OnInit {
     console.log(this.formPlacar.value);
 
     // Usar o método reset para limpar os controles na tela
-    // this.formCliente.reset(new Cliente());
+    // this.formPlacar.reset(new Placar());
 
     this.router.navigate(['/placar']);
   }

@@ -4,6 +4,7 @@
   margin: 0;
 
   &-linha {
+    margin-left: 20px;
     width: var(--px-10);
     background: url('../../../assets/svg/ponto.svg') no-repeat center top;
   }

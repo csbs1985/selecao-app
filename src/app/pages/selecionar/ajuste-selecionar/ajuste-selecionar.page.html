@@ -1,1 +1,39 @@
-<p>ajuste-selecionar</p>
+<app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
+
+<div class="selecionar">
+  <form [formGroup]="formTime">
+    <div class="input-text">
+      <label for="">Jogadores</label>
+      <tag-input [(ngModel)]="itemsAsObjects" name="jogadores" formControlName="jogadores"></tag-input>
+    </div>
+
+    <div class="input-radio">
+      <label for="">Times</label>
+      <p>Quantidade de times.</p>
+
+      <div>
+        <div class="input-radio-item" *ngFor="let item of qtdTimesArray.valor">
+          <input type="radio" 
+            [id]="item" 
+            [value]="item" 
+            [name]="qtdTimesArray.name"
+            [checked]="item === qtdTimesArray.checked" 
+            formControlName="qtdTime">
+          <label [for]="item">{{ item }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-toggle">
+      <div class="input-toggle-div">
+        <label for="">Goleiro</label>
+        <p>Habilitar ordem de goleiros.</p>
+      </div>
+      <ion-toggle checked formControlName="goleiro"></ion-toggle>
+    </div>
+  </form>
+
+  <div class="selecionar-botao">
+    <app-botao [texto]="textoBotao" (click)="botaoConfirmar()"></app-botao>
+  </div>
+</div>

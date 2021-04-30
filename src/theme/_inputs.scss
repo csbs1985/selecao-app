@@ -97,11 +97,11 @@
 
     label {
       box-sizing: border-box;
-      border-radius: var(--canto);
       color: var(--branco);
       flex: 1 1 auto;
-      line-height: var(--px-30);
-      margin: 0 0 var(--px-4);
+      line-height: var(--px-40);
+
+      margin-bottom: 0;
       font-size: var(--px-14);
       text-align: center;
       transition: border-color .15s ease-out,
