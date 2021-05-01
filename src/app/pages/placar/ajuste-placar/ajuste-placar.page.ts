@@ -47,10 +47,6 @@ export class AjustePlacarPage implements OnInit {
 
   bataoResposta(): void {
     console.log(this.formPlacar.value);
-
-    // Usar o método reset para limpar os controles na tela
-    // this.formPlacar.reset(new Placar());
-
     this.router.navigate(['/placar']);
   }
 

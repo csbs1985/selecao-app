@@ -55,8 +55,8 @@
       background-size: 10px;
     }
 
-    span {
-      color: var(--azul);
+    input:first-of-type {
+      display: none;
     }
 
     input {

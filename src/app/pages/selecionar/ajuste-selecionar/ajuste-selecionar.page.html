@@ -2,9 +2,14 @@
 
 <div class="selecionar">
   <form [formGroup]="formTime">
-    <div class="input-text">
-      <label for="">Jogadores</label>
-      <input [(ngModel)]="itemsAsObjects" name="jogadores" formControlName="jogadores">
+    <div class="input-tag">
+      <label for="">Jogadores <span *ngIf="numAtletas > 0">- {{ numAtletas }}</span></label>
+      <div>
+        <p *ngFor="let item of formTime.value.jogadores" (click)="removerAtleta(item)">{{ item }}</p>
+        <input formArrayName="jogadores">
+        <input [(ngModel)]="atleta" name="jogadores" (keyup.enter)="adicionarAtleta()"
+          [ngModelOptions]="{standalone: true}" placeholder="{{ placeholder }}" maxlength="12">
+      </div>
     </div>
 
     <div class="input-radio">

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { Time } from 'src/app/classes/time';
-import { Jogador } from 'src/app/models/jogador.model';
 
 @Component({
   selector: 'app-ajuste-selecionar',
@@ -10,12 +8,12 @@ import { Jogador } from 'src/app/models/jogador.model';
   styleUrls: ['./ajuste-selecionar.page.scss'],
 })
 export class AjusteSelecionarPage implements OnInit {
-  readonly textoCabecalho = 'Ajuste de selesção de times';
+  readonly textoCabecalho = 'Ajuste e seleção de times';
   readonly textoBotao = 'Confirmar';
 
-  formTime: FormGroup
+  formTime: FormGroup;
 
-  itemsAsObjects = [];
+  atleta = '';
 
   qtdTimesArray = {
     name: 'qtdTime',
@@ -27,33 +25,39 @@ export class AjusteSelecionarPage implements OnInit {
     private formBuilder: FormBuilder
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.criarForm(new Time());
   }
 
   criarForm(time: Time) {
     this.formTime = this.formBuilder.group({
       qtdTime: [time.qtdTime],
-      jogadores: [time.jogadores],
+      jogadores: this.formBuilder.array([time.jogadores]),
       goleiro: [time.goleiro]
     });
   }
 
-  onAdding(tag: Jogador): Observable<Jogador> {
-    const confirm = window.confirm('Do you really want to add this tag?');
-    return Observable.call(tag)
-      .of(tag)
-      .filter(() => confirm);
+  adicionarAtleta(): void {
+    this.formTime.value.jogadores.push(this.atleta);
+    this.atleta = '';
   }
 
-  onRemoving(tag: Jogador): Observable<Jogador> {
-    const confirm = window.confirm('Do you really want to remove this tag?');
-    return Observable.call(tag)
-      .of(tag)
-      .filter(() => confirm);
+  removerAtleta(atleta): void {
+    const index = this.formTime.value.jogadores.indexOf(atleta, 0);
+    if (index > -1) {
+      this.formTime.value.jogadores.splice(index, 1);
+    }
   }
 
-  botaoConfirmar(): void { 
+  botaoConfirmar(): void {
     console.log(this.formTime.value);
+  }
+
+  get placeholder(): string {
+    return this.formTime.value.jogadores <= 0 ? 'Quem vai joga?' : '+1';
+  }
+
+  get numAtletas(): number {
+    return this.formTime.value.jogadores.l;
   }
 }
