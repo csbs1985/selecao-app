@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Placar } from '../models/placar.model';
 import { Resumo } from '../models/resumo.model';
+import { Time } from '../models/time.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class MemoriaService {
 
   memoriaResumo = [];
   memoriaPlacar: Placar;
+  memoriaTime;
 
   constructor() { }
 
@@ -18,5 +20,10 @@ export class MemoriaService {
 
   placarMemoria(placar: Placar): void {
     this.memoriaPlacar = placar;
+  }
+
+  timeMemoria(time: Time): void {
+    this.memoriaTime = time;
+    console.log(this.memoriaTime);
   }
 }

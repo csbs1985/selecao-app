@@ -3,7 +3,7 @@
 <div class="selecionar">
   <form [formGroup]="formTime">
     <div class="input-tag">
-      <label for="">Jogadores <span *ngIf="numAtletas > 0">- {{ numAtletas }}</span></label>
+      <label for="">Jogadores <span *ngIf="numAtletas">- {{ numAtletas }}</span></label>
       <div>
         <p 
           *ngFor="let item of formTime.value.jogadores" 
@@ -30,7 +30,6 @@
             [id]="item" 
             [value]="item" 
             [name]="qtdTimesArray.name"
-            [checked]="item === qtdTimesArray.checked" 
             formControlName="qtdTime">
           <label [for]="item">{{ item }}</label>
         </div>
@@ -42,7 +41,7 @@
         <label for="">Goleiro</label>
         <p>Habilitar ordem de goleiros.</p>
       </div>
-      <ion-toggle checked formControlName="goleiro"></ion-toggle>
+      <ion-toggle formControlName="goleiro"></ion-toggle>
     </div>
   </form>
 

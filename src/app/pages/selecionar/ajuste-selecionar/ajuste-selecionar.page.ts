@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Time } from 'src/app/classes/time';
+import { Router } from '@angular/router';
+import { MemoriaService } from 'src/app/services/memoria.service';
 
 @Component({
   selector: 'app-ajuste-selecionar',
@@ -17,29 +18,32 @@ export class AjusteSelecionarPage implements OnInit {
 
   qtdTimesArray = {
     name: 'qtdTime',
-    checked: 2,
     valor: [1, 2, 3, 4, 5, 6]
   };
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private memoriaService: MemoriaService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.criarForm(new Time());
+    this.criarForm();
   }
 
-  criarForm(time: Time) {
+  criarForm() {
     this.formTime = this.formBuilder.group({
-      qtdTime: ['', Validators.required],
-      goleiro: ['', Validators.required],
+      qtdTime: [2, Validators.required],
+      goleiro: [true, Validators.required],
       jogadores: this.formBuilder.array([])
     });
   }
 
   adicionarAtleta(): void {
-    this.formTime.value.jogadores.push(this.atleta);
-    this.atleta = '';
+    if (this.atleta !== undefined && this.atleta !== '') {
+      this.formTime.value.jogadores.push(this.atleta);
+      this.atleta = '';
+    }
   }
 
   removerAtleta(atleta): void {
@@ -50,7 +54,8 @@ export class AjusteSelecionarPage implements OnInit {
   }
 
   botaoConfirmar(): void {
-    console.log(this.formTime.value);
+    this.memoriaService.timeMemoria(this.formTime.value);
+    this.router.navigate(['/selecionar']);
   }
 
   get placeholder(): string {
@@ -58,7 +63,7 @@ export class AjusteSelecionarPage implements OnInit {
   }
 
   get numAtletas(): number {
-    return this.formTime.value.jogadores.l;
+    return this.formTime.value.jogadores.length;
   }
 
   get isBotaoConfirmar(): boolean {
