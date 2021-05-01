@@ -5,10 +5,17 @@
     <div class="input-tag">
       <label for="">Jogadores <span *ngIf="numAtletas > 0">- {{ numAtletas }}</span></label>
       <div>
-        <p *ngFor="let item of formTime.value.jogadores" (click)="removerAtleta(item)">{{ item }}</p>
+        <p 
+          *ngFor="let item of formTime.value.jogadores" 
+          (click)="removerAtleta(item)">{{ item }}</p>
         <input formArrayName="jogadores">
-        <input [(ngModel)]="atleta" name="jogadores" (keyup.enter)="adicionarAtleta()"
-          [ngModelOptions]="{standalone: true}" placeholder="{{ placeholder }}" maxlength="12">
+        <input 
+          [(ngModel)]="atleta" 
+          name="jogadores" 
+          (keyup.enter)="adicionarAtleta()"
+          [ngModelOptions]="{standalone: true}" 
+          placeholder="{{ placeholder }}" 
+          maxlength="12">
       </div>
     </div>
 
@@ -18,7 +25,8 @@
 
       <div>
         <div class="input-radio-item" *ngFor="let item of qtdTimesArray.valor">
-          <input type="radio" 
+          <input 
+            type="radio" 
             [id]="item" 
             [value]="item" 
             [name]="qtdTimesArray.name"
@@ -39,6 +47,10 @@
   </form>
 
   <div class="selecionar-botao">
-    <app-botao [texto]="textoBotao" (click)="botaoConfirmar()"></app-botao>
+    <app-botao
+      [texto]="textoBotao" 
+      (click)="botaoConfirmar()" 
+      [class.desabilitado]="!isBotaoConfirmar">
+    </app-botao>
   </div>
 </div>

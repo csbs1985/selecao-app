@@ -9,5 +9,12 @@
 .desabilitado {
   pointer-events: none;
   opacity: 0.5;
+
+  div{
+    button {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
 }
 

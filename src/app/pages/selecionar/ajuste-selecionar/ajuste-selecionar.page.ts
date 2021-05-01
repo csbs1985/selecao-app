@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Time } from 'src/app/classes/time';
 
 @Component({
@@ -13,7 +13,7 @@ export class AjusteSelecionarPage implements OnInit {
 
   formTime: FormGroup;
 
-  atleta = '';
+  atleta: string;
 
   qtdTimesArray = {
     name: 'qtdTime',
@@ -31,9 +31,9 @@ export class AjusteSelecionarPage implements OnInit {
 
   criarForm(time: Time) {
     this.formTime = this.formBuilder.group({
-      qtdTime: [time.qtdTime],
-      jogadores: this.formBuilder.array([time.jogadores]),
-      goleiro: [time.goleiro]
+      qtdTime: ['', Validators.required],
+      goleiro: ['', Validators.required],
+      jogadores: this.formBuilder.array([])
     });
   }
 
@@ -59,5 +59,9 @@ export class AjusteSelecionarPage implements OnInit {
 
   get numAtletas(): number {
     return this.formTime.value.jogadores.l;
+  }
+
+  get isBotaoConfirmar(): boolean {
+    return this.formTime.value.jogadores <= 0 ? false : true;
   }
 }
