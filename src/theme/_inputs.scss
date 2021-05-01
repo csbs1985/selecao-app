@@ -17,7 +17,8 @@
   color: var(--branco);
 }
 
-.input-text {
+.input-text,
+.input-tag {
   @include input;
 
   label {
@@ -33,6 +34,37 @@
 
   input:focus {
     border-bottom-color: var(--verde);
+  }
+}
+
+.input-tag {
+  div {
+    display: flex;
+    justify-content: flex-start;
+    height: auto;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+
+    p {
+      color: var(--branco);
+      line-height: 30px;
+      margin: 4px 4px 0 0;
+      padding: 0 30px 0 10px;
+      border-radius: var(--canto);
+      background: var(--azul) url('../assets/svg/fechar.svg') no-repeat center right 10px;
+      background-size: 10px;
+    }
+
+    span {
+      color: var(--azul);
+    }
+
+    input {
+      flex-grow: 1;
+      width: 60px;
+      margin-top: 4px;
+      line-height: 30px;
+    }
   }
 }
 

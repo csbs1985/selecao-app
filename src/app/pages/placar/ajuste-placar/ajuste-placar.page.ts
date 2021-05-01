@@ -11,7 +11,7 @@ import { Placar } from 'src/app/classes/placar';
 export class AjustePlacarPage implements OnInit {
   readonly textoCabecalho = 'Ajustar placa e cronômetro';
   readonly textoBotao = 'Confirmar';
-  
+
   formPlacar: FormGroup;
 
   periodosArray = {
