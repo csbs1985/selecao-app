@@ -24,6 +24,5 @@ export class MemoriaService {
 
   timeMemoria(time: Time): void {
     this.memoriaTime = time;
-    console.log(this.memoriaTime);
   }
 }

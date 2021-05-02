@@ -1,8 +1,17 @@
 <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
-<ion-content>
-  <div class="time">
-    {{ teste }}
-  </div>
+<div class="time">
+  <p *ngIf="isGoleiro">Por ordem de goleiros.</p>
 
-</ion-content>
+  <div class="time-conta">
+    <div class="time-card" *ngFor="let item of times">
+      <h6>{{ item.time }}</h6>
+      <p *ngFor="let a of item.atletas">{{ a.atleta }} </p>
+    </div>
+  </div>
+</div>
+
+<ion-footer class="multi">
+  <app-botao [texto]="textoBotaoNovamente" (bataoResposta)="novamente()"></app-botao>
+  <app-botao [texto]="textoBotaoOK" (bataoResposta)="confirmar()"></app-botao>
+</ion-footer>

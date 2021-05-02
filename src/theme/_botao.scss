@@ -18,3 +18,13 @@
   }
 }
 
+.multi {
+  app-botao {
+    div:last-of-type {
+      button {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+

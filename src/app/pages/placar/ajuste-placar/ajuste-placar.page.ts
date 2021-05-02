@@ -46,7 +46,6 @@ export class AjustePlacarPage implements OnInit {
   }
 
   bataoResposta(): void {
-    console.log(this.formPlacar.value);
     this.router.navigate(['/placar']);
   }
 
