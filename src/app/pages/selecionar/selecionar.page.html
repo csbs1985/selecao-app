@@ -1,7 +1,7 @@
 <app-cabecalho [texto]="textoCabecalho"></app-cabecalho>
 
 <div class="time">
-  <p *ngIf="isGoleiro">Por ordem de goleiros.</p>
+  <div class="time-goleiro" *ngIf="isGoleiro">Por ordem de goleiros.</div>
 
   <div class="time-conta">
     <div class="time-card" *ngFor="let item of times">

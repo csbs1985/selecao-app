@@ -8,7 +8,7 @@ import { MemoriaService } from 'src/app/services/memoria.service';
   styleUrls: ['./selecionar.page.scss'],
 })
 export class SelecionarPage implements OnInit {
-  readonly textoCabecalho = 'Estes são os times selecionados';
+  readonly textoCabecalho = 'Estes são os times sorteados';
   readonly textoBotaoNovamente = 'Sortear Novamente';
   readonly textoBotaoOK = 'Confirmar';
 
