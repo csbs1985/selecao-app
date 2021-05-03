@@ -13,12 +13,11 @@ export class AjusteSelecionarPage implements OnInit {
   readonly textoBotao = 'Confirmar';
 
   formTime: FormGroup;
-
   atleta: string;
 
-  qtdTimesArray = {
-    name: 'qtdTime',
-    valor: [1, 2, 3, 4, 5, 6]
+  qtdPorTimeArray = {
+    name: 'qtdPorTime',
+    valor: [5, 6, 7, 8, 9, 10, 11]
   };
 
   constructor(
@@ -33,7 +32,7 @@ export class AjusteSelecionarPage implements OnInit {
 
   criarForm() {
     this.formTime = this.formBuilder.group({
-      qtdTime: [2, Validators.required],
+      qtdPorTime: [5, Validators.required],
       goleiro: [true, Validators.required],
       jogadores: this.formBuilder.array([])
     });

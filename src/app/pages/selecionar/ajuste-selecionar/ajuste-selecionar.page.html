@@ -20,17 +20,17 @@
     </div>
 
     <div class="input-radio">
-      <label for="">Times</label>
-      <p>Quantidade de times.</p>
+      <label for="">Por times</label>
+      <p>Quantidade de jogadores por time.</p>
 
       <div>
-        <div class="input-radio-item" *ngFor="let item of qtdTimesArray.valor">
+        <div class="input-radio-item" *ngFor="let item of qtdPorTimeArray.valor">
           <input 
             type="radio" 
             [id]="item" 
             [value]="item" 
-            [name]="qtdTimesArray.name"
-            formControlName="qtdTime">
+            [name]="qtdPorTimeArray.name"
+            formControlName="qtdPorTime">
           <label [for]="item">{{ item }}</label>
         </div>
       </div>

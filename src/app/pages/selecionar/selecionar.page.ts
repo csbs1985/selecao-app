@@ -13,10 +13,11 @@ export class SelecionarPage implements OnInit {
   readonly textoBotaoOK = 'Confirmar';
 
   isGoleiro = this.memoriaService.memoriaTime.goleiro;
+  jogadoresTemp = this.memoriaService.memoriaTime.jogadores;
+  qtdPorTime = this.memoriaService.memoriaTime.qtdPorTime;
+  qtdAtletas = this.jogadoresTemp.length;
 
   times = [];
-  atletas = [];
-  jogadores = [];
 
   constructor(
     private memoriaService: MemoriaService,
@@ -28,38 +29,38 @@ export class SelecionarPage implements OnInit {
   }
 
   ordenarAleatorio() {
-    const atletas = this.memoriaService.memoriaTime.jogadores;
-    for (let i = atletas.length - 1; i > 0; i--) {
+    for (let i = this.qtdAtletas.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [atletas[i], atletas[j]] = [atletas[j], atletas[i]];
+      [this.qtdAtletas[i], this.qtdAtletas[j]] = [this.qtdAtletas[j], this.qtdAtletas[i]];
     }
 
-    this.atletas = atletas;
+    this.formatarAtletas();
+  }
+
+  formatarAtletas(): void {
+    let numAtleta = 1;
+
+    this.jogadoresTemp.forEach(item => {
+      item.atleta = numAtleta + ' - ' + item.atleta;
+      if (numAtleta >= this.qtdPorTime) { return numAtleta = 1; } numAtleta++;
+    });
+
     this.montarTimes();
   }
 
   montarTimes(): void {
-    const qtdTimes = this.memoriaService.memoriaTime.qtdTime;
-    const qtdAtlestas = this.memoriaService.memoriaTime.jogadores.length;
-    let ordemGoleiros = 1;
+    let numTime = 1;
 
-    if (qtdTimes === 1) {
-      for (let i = 0; i < qtdAtlestas; i++) {
-        this.jogadores.push({ atleta: ordemGoleiros + ' - ' + this.atletas[i].atleta });
-        ordemGoleiros++;
-      }
-
-      this.times = [
-        {
-          time: 'Time - 1',
-          atletas: this.jogadores
-        }
-      ];
+    for (let i = 0; i < this.qtdAtletas; i = i + this.qtdPorTime) {
+      this.times.push({
+        time: 'Time - ' + numTime++,
+        jogadores: this.jogadoresTemp.slice(i, i + this.qtdPorTime)
+      });
     }
   }
 
   novamente(): void {
-    this.jogadores = [];
+    this.times = [];
     this.ordenarAleatorio();
   }
 
