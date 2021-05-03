@@ -7,7 +7,7 @@
       <div>
         <p 
           *ngFor="let item of formTime.value.jogadores" 
-          (click)="removerAtleta(item)">{{ item.atleta }}</p>
+          (click)="removerAtleta(item)">{{ item }}</p>
         <input formArrayName="jogadores">
         <input 
           [(ngModel)]="atleta" 

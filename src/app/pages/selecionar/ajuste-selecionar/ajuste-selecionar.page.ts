@@ -40,7 +40,7 @@ export class AjusteSelecionarPage implements OnInit {
 
   adicionarAtleta(): void {
     if (this.atleta !== undefined && this.atleta !== '') {
-      this.formTime.value.jogadores.push({ atleta: this.atleta });
+      this.formTime.value.jogadores.push(this.atleta);
       this.atleta = '';
     }
   }

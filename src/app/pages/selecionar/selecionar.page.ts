@@ -9,15 +9,15 @@ import { MemoriaService } from 'src/app/services/memoria.service';
 })
 export class SelecionarPage implements OnInit {
   readonly textoCabecalho = 'Estes são os times sorteados';
-  readonly textoBotaoNovamente = 'Sortear Novamente';
-  readonly textoBotaoOK = 'Confirmar';
-
-  isGoleiro = this.memoriaService.memoriaTime.goleiro;
-  jogadoresTemp = this.memoriaService.memoriaTime.jogadores;
-  qtdPorTime = this.memoriaService.memoriaTime.qtdPorTime;
-  qtdAtletas = this.jogadoresTemp.length;
+  readonly textoBotao = 'Confirmar';
 
   times = [];
+
+  jogadoresTemp = Object.assign([], this.memoriaService.memoriaTime.jogadores);
+
+  isGoleiro = this.memoriaService.memoriaTime.goleiro;
+  qtdPorTime = this.memoriaService.memoriaTime.qtdPorTime;
+  qtdAtletas = this.jogadoresTemp.length;
 
   constructor(
     private memoriaService: MemoriaService,
@@ -29,9 +29,9 @@ export class SelecionarPage implements OnInit {
   }
 
   ordenarAleatorio() {
-    for (let i = this.qtdAtletas.length - 1; i > 0; i--) {
+    for (let i = this.qtdAtletas - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [this.qtdAtletas[i], this.qtdAtletas[j]] = [this.qtdAtletas[j], this.qtdAtletas[i]];
+      [this.jogadoresTemp[i], this.jogadoresTemp[j]] = [this.jogadoresTemp[j], this.jogadoresTemp[i]];
     }
 
     this.formatarAtletas();
@@ -40,10 +40,14 @@ export class SelecionarPage implements OnInit {
   formatarAtletas(): void {
     let numAtleta = 1;
 
-    this.jogadoresTemp.forEach(item => {
-      item.atleta = numAtleta + ' - ' + item.atleta;
-      if (numAtleta >= this.qtdPorTime) { return numAtleta = 1; } numAtleta++;
-    });
+    for (let i = 0; i < this.qtdAtletas; i++) {
+      this.jogadoresTemp[i] = numAtleta + ' - ' + this.jogadoresTemp[i];
+      if (numAtleta >= this.qtdPorTime) {
+        numAtleta = 1;
+      } else {
+        numAtleta++;
+      }
+    }
 
     this.montarTimes();
   }
@@ -57,11 +61,6 @@ export class SelecionarPage implements OnInit {
         jogadores: this.jogadoresTemp.slice(i, i + this.qtdPorTime)
       });
     }
-  }
-
-  novamente(): void {
-    this.times = [];
-    this.ordenarAleatorio();
   }
 
   confirmar(): void {
