@@ -1,70 +1,71 @@
-ion-content {
-  --ion-background-color: var(--verde);
-}
-
 .inicio {
-  position: absolute;
-  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--preto);
   display: flex;
   flex-direction: column;
-  padding: var(--px-20) var(--px-20);
+  justify-content: flex-end;
+  padding: var(--px-20);
 
-  h1,
-  p,
-  span {
-    font-family: var(--bold);
-    font-size: var(--px-30);
-  }
+  &-card {
+    background-color: var(--amarelo);
+    border-radius: var(--canto);
+    width: 100%;
+    flex-grow: 1;
+    margin-bottom: var(--px-20);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--px-20);
+    color: var(--preto);
 
-  h1 {
-    color: var(--cinza);
-    font-size: var(--px-60);
-  }
+    h1,
+    span,
+    p {
+      font-size: 6vw;
+      font-family: var(--bold);
+      text-transform: uppercase;
+    }
 
-  p {
-    color: var(--amarelo);
-    text-transform: uppercase;
-    line-height: var(--px-40);
-    letter-spacing: var(--px-4);
-  }
+    h1 {
+      text-transform: none;
+      font-size: 3.125rem;
+    }
 
-  span {
-    background-color: var(--azul);
-    padding: 0 var(--px-4);
+    span {
+      background-color: var(--verde);
+    }
   }
 
   button {
-    align-self: flex-end;
-    background: var(--azul) url('../../../assets/svg/seta.svg') no-repeat right var(--px-20) center;
-    color: var(--branco);
-    font-size: var(--px-20);
-    height: var(--px-70);
-    margin: var(--px-20) 0 0;
-    padding: 0 var(--px-60) 0 var(--px-20);
-    text-align: left;
+    height: 4.375rem;
+    width: 100%;
+    border-radius: var(--canto);
+    color: var(--preto);
+    font-family: var(--bold);
+    margin-bottom: var(--px-20);
+    background-color: var(--azul);
+    text-transform: uppercase;
   }
 
   button:last-of-type {
     background-color: var(--vermelho);
-    margin-bottom: 0;
-  }
-}
-
-@media (min-width: 361px) {
-  .inicio {
-    padding: var(--px-40) var(--px-20);
   }
 
-  p {
-    line-height: var(--px-60);
-  }
+  &-feito {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-  h1 {
-    color: var(--cinza);
-    font-size: var(--px-70);
-  }
+    img {
+      height: .75rem;
+      margin-right: var(--px-10);
+    }
 
-  button {
-    margin: var(--px-40) var(--px-20);
+    p {
+      font-size: .75rem;
+      line-height: .75rem;
+      color: var(--branco);
+    }
   }
 }
