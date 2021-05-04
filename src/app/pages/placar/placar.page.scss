@@ -1,7 +1,7 @@
 .placar {
   display: flex;
   flex-direction: column;
-  padding: var(--px-20);
+  padding: 0 var(--px-20);
   height: 100%;
   background-color: var(--preto);
 
@@ -15,6 +15,7 @@
     background-color: var(--cinza);
     padding: var(--px-20) 10px;
     font-size: 1.75rem; // 28px
+    line-height: 1.75rem; // 28px
     font-family: var(--led);
     text-align: center;
   }
@@ -46,7 +47,6 @@
       text-align: center;
       color: var(--vermelho);
       font-family: var(--led);
-      font-size: var(--px-14);
       margin: 0;
     }
 

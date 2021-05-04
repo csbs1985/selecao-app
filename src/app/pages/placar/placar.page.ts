@@ -158,4 +158,11 @@ export class PlacarPage implements OnInit, OnDestroy {
     if (this.relogioService.status === 'inativo') { return false; }
     return true;
   }
+
+
+
+
+  get isCronometro(): boolean {
+    return false;
+  }
 }

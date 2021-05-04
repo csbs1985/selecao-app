@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Placar } from 'src/app/classes/placar';
+import { MemoriaService } from 'src/app/services/memoria.service';
 
 @Component({
   selector: 'app-ajuste-placar',
@@ -14,12 +14,6 @@ export class AjustePlacarPage implements OnInit {
 
   formPlacar: FormGroup;
 
-  periodosArray = {
-    name: 'periodos',
-    checked: 2,
-    valor: [1, 2]
-  };
-
   duracaoArray = {
     name: 'duracao',
     checked: 45,
@@ -28,29 +22,30 @@ export class AjustePlacarPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private memoriaService: MemoriaService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.criarForm(new Placar());
+    this.criarForm();
   }
 
-  criarForm(placar: Placar) {
+  criarForm() {
     this.formPlacar = this.formBuilder.group({
-      mandante: [placar.mandante],
-      visitante: [placar.visitante],
-      cronometro: [placar.cronometro],
-      periodos: [placar.periodos],
-      duracao: [placar.duracao]
+      mandante: ['Mandante', Validators.required],
+      visitante: ['Visitante', Validators.required],
+      cronometro: [true, Validators.required],
+      toque: [true, Validators.required],
+      duracao: [45, Validators.required]
     });
   }
 
-  bataoResposta(): void {
+  confirmar(): void {
+    this.memoriaService.placarMemoria(this.formPlacar.value);
     this.router.navigate(['/placar']);
   }
 
   get isCronometro(): any {
     return this.formPlacar.get('cronometro').value;
   }
-
 }
