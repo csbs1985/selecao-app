@@ -3,15 +3,21 @@
   background-color: var(--preto);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   form {
     width: 100%;
     overflow: scroll;
   }
 
+  .input-tag {
+    margin-top: 0;
+  }
+
   &-botao {
-    align-self: flex-end;
     width: 100%;
+  }
+
+  app-botao{
+    margin-top: 20px;
   }
 }

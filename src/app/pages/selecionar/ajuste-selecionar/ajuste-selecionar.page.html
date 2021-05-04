@@ -45,11 +45,9 @@
     </div>
   </form>
 
-  <div class="selecionar-botao">
-    <app-botao
-      [texto]="textoBotao" 
-      (click)="botaoConfirmar()" 
-      [class.desabilitado]="!isBotaoConfirmar">
-    </app-botao>
-  </div>
+  <app-botao
+    [texto]="textoBotao" 
+    (click)="botaoConfirmar()" 
+    [class.desabilitado]="!isBotaoConfirmar">
+  </app-botao>
 </div>

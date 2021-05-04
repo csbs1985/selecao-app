@@ -39,7 +39,8 @@ export class AjusteSelecionarPage implements OnInit {
   }
 
   adicionarAtleta(): void {
-    if (this.atleta !== undefined && this.atleta !== '') {
+    if (this.atleta !== undefined &&
+      this.atleta !== '') {
       this.formTime.value.jogadores.push(this.atleta);
       this.atleta = '';
     }
@@ -47,9 +48,7 @@ export class AjusteSelecionarPage implements OnInit {
 
   removerAtleta(atleta): void {
     const index = this.formTime.value.jogadores.indexOf(atleta, 0);
-    if (index > -1) {
-      this.formTime.value.jogadores.splice(index, 1);
-    }
+    if (index > -1) { this.formTime.value.jogadores.splice(index, 1); }
   }
 
   botaoConfirmar(): void {

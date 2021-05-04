@@ -54,15 +54,8 @@
   }
 
   h6 {
-    line-height: 12px;
-    font-size: 12px;
+    line-height: .75rem;
+    font-size: .75rem;
     margin-bottom: var(--px-10);
-  }
-
-  &-teclado {
-    margin-top: auto;
-    width: 100%;
-    align-self: flex-end;
-    background-color: var(--preto);
   }
 }
