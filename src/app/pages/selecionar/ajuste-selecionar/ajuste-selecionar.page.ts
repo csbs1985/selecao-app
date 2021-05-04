@@ -58,7 +58,7 @@ export class AjusteSelecionarPage implements OnInit {
   }
 
   get placeholder(): string {
-    return this.formTime.value.jogadores <= 0 ? 'Quem vai joga?' : '+1';
+    return this.formTime.value.jogadores <= 0 ? 'Quem vai jogar?' : '+1';
   }
 
   get numAtletas(): number {
