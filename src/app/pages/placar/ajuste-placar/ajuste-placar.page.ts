@@ -31,12 +31,23 @@ export class AjustePlacarPage implements OnInit {
   }
 
   criarForm() {
+    let mandanteNome = '';
+    let visitanteNome = '';
+    let cronometro = true;
+    let duracao = 45;
+
+    if (this.memoriaService.memoriaPlacar) {
+      mandanteNome = this.memoriaService.memoriaPlacar.mandanteNome;
+      visitanteNome = this.memoriaService.memoriaPlacar.visitanteNome;
+      cronometro = this.memoriaService.memoriaPlacar.cronometro;
+      duracao = this.memoriaService.memoriaPlacar.duracao;
+    }
+
     this.formPlacar = this.formBuilder.group({
-      mandante: ['Mandante', Validators.required],
-      visitante: ['Visitante', Validators.required],
-      cronometro: [true, Validators.required],
-      toque: [true, Validators.required],
-      duracao: [45, Validators.required]
+      mandanteNome: [mandanteNome, Validators.required],
+      visitanteNome: [visitanteNome, Validators.required],
+      cronometro: [cronometro, Validators.required],
+      duracao: [duracao, Validators.required]
     });
   }
 

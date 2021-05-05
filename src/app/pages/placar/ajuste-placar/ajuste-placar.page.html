@@ -3,12 +3,12 @@
 <form [formGroup]="formPlacar" class="ajuste-placar">
   <div class="input-text">
     <label for="">Time Mandante</label>
-    <input type="text" placeholder="Mandante" formControlName="mandante" maxlength="12">
+    <input type="text" placeholder="Mandante" formControlName="mandanteNome" maxlength="12">
   </div>
 
   <div class="input-text">
     <label for="">Time Visitante</label>
-    <input type="text" placeholder="Visitante" formControlName="visitante" maxlength="10">
+    <input type="text" placeholder="Visitante" formControlName="visitanteNome" maxlength="12">
   </div>
 
   <div class="input-toggle">
@@ -30,14 +30,6 @@
         <label class="label" [for]="item">{{ item }}</label>
       </div>
     </div>
-  </div>
-
-  <div class="input-toggle">
-    <div class="input-toggle-div">
-      <label for="">Toque</label>
-      <p>Habilitar toque nos textos.</p>
-    </div>
-    <ion-toggle checked formControlName="toque"></ion-toggle>
   </div>
 
   <app-botao [texto]="textoBotao" (click)="confirmar()"></app-botao>

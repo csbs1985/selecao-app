@@ -17,7 +17,7 @@ export class RelogioService {
 
   constructor() { }
 
-  inciar(): void {
+  iniciar(): void {
     this.crom = setInterval(() => { this.timer(); }, this.intervalo);
     this.status = 'iniciado';
   }
