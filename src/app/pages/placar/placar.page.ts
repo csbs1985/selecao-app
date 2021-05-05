@@ -3,6 +3,8 @@ import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Router } from '@angular/router';
 import { RelogioService } from 'src/app/services/relogio.service';
 import { MemoriaService } from 'src/app/services/memoria.service';
+import { TipoEquipe } from 'src/app/models/tipo-equipe.enum';
+import { TipoRelogio } from 'src/app/models/tipo-relorio.enum';
 
 @Component({
   selector: 'app-placar',
@@ -36,7 +38,7 @@ export class PlacarPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.insomnia.allowSleepAgain();
     this.relogioService.parar();
-    this.relogioService.status = 'inativo';
+    this.relogioService.status = TipoRelogio.INATIVO;
     this.memoriaService.memoriaResumo = null;
   }
 
@@ -45,12 +47,59 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.periodo = 1;
   }
 
+  aumentarPonto(time): void {
+    time === TipoEquipe.MANDANTE ? this.placarMandante++ : this.placarVisitante++;
+    this.formatarPontos(time);
+  }
+
+  dimimuirPonto(time): void {
+    time === TipoEquipe.MANDANTE ? this.placarMandante-- : this.placarVisitante--;
+    this.formatarPontos(time);
+  }
+
+  formatarPontos(time: TipoEquipe): void {
+    let equipePonto = this.placarMandante;
+    let ponto = this.mandantePonto;
+
+    if (time === TipoEquipe.VISITANTE) {
+      equipePonto = this.placarVisitante;
+      ponto = this.visitantePonto;
+    }
+    if (equipePonto < 1) {
+      equipePonto = 0;
+      ponto = '00';
+    }
+    if (equipePonto >= 99) {
+      equipePonto = 99;
+      ponto = '99';
+    }
+    ponto = equipePonto.toString().padStart(2, '0');
+
+    if (time === TipoEquipe.MANDANTE) {
+      this.placarMandante = equipePonto;
+      this.mandantePonto = ponto;
+    } else {
+      this.placarVisitante = equipePonto;
+      this.visitantePonto = ponto;
+    }
+
+    this.popularResumo(time);
+  }
+
+  ajustePagina(): void {
+    this.router.navigate(['/ajuste-placar']);
+  }
+
+  resumoPagina(): void {
+    this.router.navigate(['/resumo']);
+  }
+
   get mandanteNome(): string {
     if (this.memoriaService.memoriaPlacar &&
       this.memoriaService.memoriaPlacar.mandanteNome) {
       return this.memoriaService.memoriaPlacar.mandanteNome;
     }
-    return 'Mandante';
+    return TipoEquipe.MANDANTE;
   }
 
   get visitanteNome(): string {
@@ -58,7 +107,7 @@ export class PlacarPage implements OnInit, OnDestroy {
       this.memoriaService.memoriaPlacar.visitanteNome) {
       return this.memoriaService.memoriaPlacar.visitanteNome;
     }
-    return 'Visitante';
+    return TipoEquipe.VISITANTE;
   }
 
   get isCronometro(): boolean {
@@ -78,81 +127,15 @@ export class PlacarPage implements OnInit, OnDestroy {
     return this.relogioService.tempo;
   }
 
-  adicionarMandante(): void {
-    this.placarMandante++;
-    this.formatarPontosMandante();
-    this.popularResumo('mandante');
-  }
-
-  diminuirMandante(): void {
-    this.placarMandante--;
-    this.formatarPontosMandante();
-    this.popularResumo('mandante');
-  }
-
-  adicionarVisitante(): void {
-    this.placarVisitante++;
-    this.formatarPontosVisitante();
-    this.popularResumo('visitante');
-  }
-
-  diminuirVisitante(): void {
-    this.placarVisitante--;
-    this.formatarPontosVisitante();
-    this.popularResumo('visitante');
-  }
-
-  formatarPontosMandante(): void {
-    if (this.placarMandante < 10) {
-      this.mandantePonto = this.placarMandante.toString().padStart(2, '0');
-      if (this.placarMandante < 1) {
-        this.placarMandante = 0;
-        this.mandantePonto = '00';
-      }
-      return;
-    }
-    if (this.placarMandante >= 99) {
-      this.placarMandante = 99;
-      this.mandantePonto = '99';
-      return;
-    }
-    this.mandantePonto = this.placarMandante.toString();
-  }
-
-  formatarPontosVisitante(): void {
-    if (this.placarVisitante < 10) {
-      this.visitantePonto = this.placarVisitante.toString().padStart(2, '0');
-      if (this.placarVisitante < 1) {
-        this.placarVisitante = 0;
-        this.visitantePonto = '00';
-      }
-      return;
-    }
-    if (this.placarVisitante >= 99) {
-      this.placarVisitante = 99;
-      this.visitantePonto = '99';
-      return;
-    }
-    this.visitantePonto = this.placarVisitante.toString();
-  }
-
-  ajustePagina(): void {
-    this.router.navigate(['/ajuste-placar']);
-  }
-
-  resumoPagina(): void {
-    this.router.navigate(['/resumo']);
-  }
-
   get isIniciado(): boolean {
-    if (this.relogioService.status === 'inativo' || this.relogioService.status === 'parado') { return false; };
+    if (this.relogioService.status === TipoRelogio.INATIVO || this.relogioService.status === TipoRelogio.PARADO) { return false; };
     return true;
   }
 
 
 
 
-  
+
 
   popularResumo(time: string): void {
     const resumoArray = {

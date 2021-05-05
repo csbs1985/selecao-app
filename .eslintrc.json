@@ -1,8 +1,8 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
-  "overrides": [
-    {
+  "plugins": ["chai-friendly"],
+  "overrides": [{
       "files": ["*.ts"],
       "parserOptions": {
         "project": ["tsconfig.json", "e2e/tsconfig.json"],
@@ -14,6 +14,7 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "chai-friendly/no-unused-expressions": 2,
         "@angular-eslint/component-class-suffix": [
           "error",
           {
@@ -35,7 +36,16 @@
             "prefix": "app",
             "style": "camelCase"
           }
-        ]
+        ],
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            "selector": "variable",
+            "format": ["camelCase"]
+          }
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"]
       }
     },
     {

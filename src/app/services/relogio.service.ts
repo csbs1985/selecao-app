@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { TipoRelogio } from '../models/tipo-relorio.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RelogioService {
 
-  status = 'inativo';
+  status = TipoRelogio.INATIVO;
 
   hh = 0;
   mm = 0;
@@ -19,12 +20,12 @@ export class RelogioService {
 
   iniciar(): void {
     this.crom = setInterval(() => { this.timer(); }, this.intervalo);
-    this.status = 'iniciado';
+    this.status = TipoRelogio.INICIADO;
   }
 
   pausar(): void {
     clearInterval(this.crom);
-    this.status = 'parado';
+    this.status = TipoRelogio.PARADO;
   }
 
   parar(): void {
@@ -35,7 +36,7 @@ export class RelogioService {
     this.ss = 0;
 
     this.tempo = '00:00:00';
-    this.status = 'parado';
+    this.status = TipoRelogio.PARADO;
   }
 
   timer(): void {
