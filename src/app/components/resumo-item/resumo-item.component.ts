@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Resumo } from 'src/app/models/resumo.model';
 
 @Component({
   selector: 'app-resumo-item',

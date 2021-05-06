@@ -43,8 +43,7 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   periodoTrocar(): void {
-    if (this.periodo === 1) { this.periodo = 2; return; }
-    this.periodo = 1;
+    this.periodo = this.periodo === 1 ? 2 : 1;
   }
 
   aumentarPonto(time): void {
@@ -84,6 +83,19 @@ export class PlacarPage implements OnInit, OnDestroy {
     }
 
     this.popularResumo(time);
+  }
+
+  popularResumo(time: string): void {
+    const resumoArray = {
+      equipe: time,
+      placarMandante: this.placarMandante,
+      placarVisitante: this.placarVisitante,
+      periodo: this.periodo,
+      cronometro: this.relogioService.tempo,
+      data: new Date().getTime()
+    };
+
+    // this.memoriaService.resumoMemoria(resumoArray);
   }
 
   ajustePagina(): void {
@@ -132,20 +144,10 @@ export class PlacarPage implements OnInit, OnDestroy {
     return true;
   }
 
-
-
-
-
-
-  popularResumo(time: string): void {
-    const resumoArray = {
-      tipo: time,
-      placar: this.placarMandante + ' x ' + this.placarVisitante,
-      texto: time,
-      cronometro: this.relogioService.tempo,
-      data: new Date().getTime()
-    };
-
-    this.memoriaService.resumoMemoria(resumoArray);
+  get isResumo(): boolean {
+    if (this.placarMandante === 0 && this.placarVisitante === 0) {
+      return false;
+    }
+    return true;
   }
 }

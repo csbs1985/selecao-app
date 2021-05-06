@@ -1,7 +1,8 @@
 export class Resumo {
-  tipo: string;
-  placar: string;
-  texto?: string;
+  equipe: string;
+  placarMandante: string;
+  placarVisitante: string;
+  periodo?: string;
   cronometro?: string;
   data: number;
 }

@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Resumo } from 'src/app/models/resumo.model';
+import { TipoEquipe } from 'src/app/models/tipo-equipe.enum';
 import { MemoriaService } from 'src/app/services/memoria.service';
 
 @Component({
@@ -12,11 +13,6 @@ export class ResumoPage implements OnInit {
   readonly textoCabecalho = 'Resumão da partida';
 
   resumoItens: Resumo[];
-
-  mandanteNome = this.memoriaService.memoriaPlacar.mandanteNome;
-  mandantePonto = this.memoriaService.memoriaPlacar.mandantePonto;
-  visitanteNome = this.memoriaService.memoriaPlacar.visitanteNome;
-  visitantePonto = this.memoriaService.memoriaPlacar.visitantePonto;
 
   constructor(
     private location: Location,
@@ -35,5 +31,37 @@ export class ResumoPage implements OnInit {
 
   botaoVoltar(): void {
     this.location.back();
+  }
+
+  get mandanteNome(): string {
+    if (this.memoriaService.memoriaPlacar &&
+      this.memoriaService.memoriaPlacar.mandanteNome) {
+      return this.memoriaService.memoriaPlacar.mandanteNome;
+    }
+    return TipoEquipe.MANDANTE;
+  }
+
+  get mandantePonto(): number {
+    if (this.memoriaService.memoriaPlacar &&
+      this.memoriaService.memoriaPlacar.mandantePonto) {
+      return this.memoriaService.memoriaPlacar.mandantePonto;
+    }
+    return 0;
+  }
+
+  get visitanteNome(): string {
+    if (this.memoriaService.memoriaPlacar &&
+      this.memoriaService.memoriaPlacar.visitanteNome) {
+      return this.memoriaService.memoriaPlacar.visitanteNome;
+    }
+    return TipoEquipe.VISITANTE;
+  }
+
+  get visitantePonto(): number {
+    if (this.memoriaService.memoriaPlacar &&
+      this.memoriaService.memoriaPlacar.visitantePonto) {
+      return this.memoriaService.memoriaPlacar.visitantePonto;
+    }
+    return 0;
   }
 }
