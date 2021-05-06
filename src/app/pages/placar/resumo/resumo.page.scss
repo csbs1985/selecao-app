@@ -6,8 +6,8 @@
   flex-direction: column;
 
   &-placar {
-    padding: var(--px-20);
-    padding-bottom: 0;
+    padding: 0 var(--px-20);
+    margin-bottom: 4px;
 
     p,
     span {
@@ -31,6 +31,16 @@
 
   &-conteudo {
     overflow-y: scroll;
-    padding: 0 var(--px-20) var(--px-40);
+    padding: 0 var(--px-20);
+    background: url('../../../../assets/svg/linha.svg') repeat-y center;
+    margin: 0;
+    margin-bottom: 60px;
+  }
+
+  &-ponto {
+    width: 100%;
+    height: 10px;
+    background: url('../../../../assets/svg/ponto.svg') no-repeat center;
+    margin: 0;
   }
 }

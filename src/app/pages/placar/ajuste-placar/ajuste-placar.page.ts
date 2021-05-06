@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TipoEquipe } from 'src/app/models/tipo-equipe.enum';
 import { MemoriaService } from 'src/app/services/memoria.service';
 
 @Component({
@@ -31,29 +32,28 @@ export class AjustePlacarPage implements OnInit {
   }
 
   criarForm() {
-    let mandanteNome = '';
-    let visitanteNome = '';
-    let cronometro = true;
-    let duracao = 45;
-
-    if (this.memoriaService.memoriaPlacar) {
-      mandanteNome = this.memoriaService.memoriaPlacar.mandanteNome;
-      visitanteNome = this.memoriaService.memoriaPlacar.visitanteNome;
-      cronometro = this.memoriaService.memoriaPlacar.cronometro;
-      duracao = this.memoriaService.memoriaPlacar.duracao;
-    }
-
     this.formPlacar = this.formBuilder.group({
-      mandanteNome: [mandanteNome, Validators.required],
-      visitanteNome: [visitanteNome, Validators.required],
-      cronometro: [cronometro, Validators.required],
-      duracao: [duracao, Validators.required]
+      mandanteNome: ['', Validators.required],
+      visitanteNome: ['', Validators.required],
+      cronometro: [true, Validators.required],
+      duracao: [45, Validators.required]
     });
   }
 
   confirmar(): void {
+    this.validarForm();
     this.memoriaService.placarMemoria(this.formPlacar.value);
     this.router.navigate(['/placar']);
+  }
+
+  validarForm(): void {
+    if (this.formPlacar.value.mandanteNome === '') {
+      this.formPlacar.value.mandanteNome = TipoEquipe.MANDANTE;
+    }
+
+    if (this.formPlacar.value.visitanteNome === '') {
+      this.formPlacar.value.visitanteNome = TipoEquipe.VISITANTE;
+    }
   }
 
   get isCronometro(): any {

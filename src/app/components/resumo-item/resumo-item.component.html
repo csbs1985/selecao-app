@@ -1,15 +1,9 @@
-<section *ngFor="let item of resumoInput">
-  <div class="resumo-item" [ngClass]="item.tipo">
-    <div class="resumo-item-linha"></div>
+<section *ngFor="let item of resumoItem">
+  <div class="resumo-item">
+    <p [class.gambiarra]="item.equipe === 'visitante'">{{ item.data }}</p>
 
-    <div class="resumo-item-icone"></div>
+    <div class="resumo-item-placar" [ngClass]="item.equipe">{{ item.placar }}</div>
 
-    <div class="resumo-item-placar">{{ item.placar }}</div>
-
-
-
-    <p>{{ item.texto }}</p>
-
-    <p> - {{ item.cronometro }}</p>
+    <p [class.gambiarra]="item.equipe === 'mandante'"> {{ item.data }}</p>
   </div>
 </section>

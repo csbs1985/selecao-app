@@ -1,75 +1,31 @@
 .resumo-item {
   display: flex;
-  height: 3.75rem;
-  margin: 0;
-
-  &-linha {
-    margin-left: 20px;
-    width: var(--px-10);
-    background: url('../../../assets/svg/ponto.svg') no-repeat center top;
-  }
+  width: 100%;
+  margin: var(--px-20) 0;
+  justify-content: center;
 
   &-placar {
     align-self: center;
     font-family: var(--led);
-    color: var(--branco);
-    background-color: var(--azul);
+    color: var(--preto);
     padding: var(--px-10);
-    margin-left: var(--px-10);
-    font-size: var(--px-12);
-    line-height: var(--px-12);
-    text-transform: uppercase;
-  }
-
-  &-icone {
-    height: var(--px-20);
-    width: var(--px-20);
-    align-self: center;
-    margin-left: var(--px-10);
-    background: url('../../../assets/svg/apito.svg') no-repeat center;
+    margin: 0 var(--px-10);
   }
 
   p {
     align-self: center;
-    margin-left: var(--px-10);
     color: var(--branco);
   }
-
-  p:last-of-type {
-    margin-left: var(--px-4);
-  }
 }
 
-.final {
-  .resumo-item {
-    &-linha {
-      transform: rotate(180deg);
-    }
-  }
-}
-
-.mandante,
-.visitante {
-  .resumo-item {
-    &-linha {
-      background: url('../../../assets/svg/trecho.svg') no-repeat center top;
-    }
-
-    &-placar {
-      background-color: var(--vermelho);
-      color: var(--preto);
-    }
-
-    &-icone {
-      background: url('../../../assets/svg/bola.svg') no-repeat center;
-    }
-  }
+.mandante {
+  background-color: var(--vermelho);
 }
 
 .visitante {
-  .resumo-item {
-    &-placar {
-      background-color: var(--amarelo);
-    }
-  }
+  background-color: var(--amarelo);
+}
+
+.gambiarra {
+  color: var(--preto) !important;
 }

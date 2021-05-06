@@ -5,6 +5,7 @@ import { RelogioService } from 'src/app/services/relogio.service';
 import { MemoriaService } from 'src/app/services/memoria.service';
 import { TipoEquipe } from 'src/app/models/tipo-equipe.enum';
 import { TipoRelogio } from 'src/app/models/tipo-relorio.enum';
+import { Resumo } from 'src/app/models/resumo.model';
 
 @Component({
   selector: 'app-placar',
@@ -20,8 +21,9 @@ export class PlacarPage implements OnInit, OnDestroy {
   mandantePonto = '00';
   visitantePonto = '00';
 
-  cronometro: true;
-  duracao: 45;
+  mandanteNome = this.memoriaService.memoriaPlacar.mandanteNome;
+  visitanteNome = this.memoriaService.memoriaPlacar.visitanteNome;
+
   periodo = 1;
 
   constructor(
@@ -86,16 +88,21 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   popularResumo(time: string): void {
-    const resumoArray = {
+    const resumoArray: Resumo = {
       equipe: time,
-      placarMandante: this.placarMandante,
-      placarVisitante: this.placarVisitante,
+      placarMandante: this.mandantePonto,
+      placarVisitante: this.visitantePonto,
       periodo: this.periodo,
       cronometro: this.relogioService.tempo,
       data: new Date().getTime()
     };
 
-    // this.memoriaService.resumoMemoria(resumoArray);
+    this.memoriaService.resumoMemoria(resumoArray);
+
+    if (resumoArray.equipe === TipoEquipe.MANDANTE) {
+      this.memoriaService.memoriaPlacar.mandantePonto = this.placarMandante; return;
+    }
+    this.memoriaService.memoriaPlacar.visitantePonto = this.placarVisitante;
   }
 
   ajustePagina(): void {
@@ -106,27 +113,10 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.router.navigate(['/resumo']);
   }
 
-  get mandanteNome(): string {
-    if (this.memoriaService.memoriaPlacar &&
-      this.memoriaService.memoriaPlacar.mandanteNome) {
-      return this.memoriaService.memoriaPlacar.mandanteNome;
-    }
-    return TipoEquipe.MANDANTE;
-  }
-
-  get visitanteNome(): string {
-    if (this.memoriaService.memoriaPlacar &&
-      this.memoriaService.memoriaPlacar.visitanteNome) {
-      return this.memoriaService.memoriaPlacar.visitanteNome;
-    }
-    return TipoEquipe.VISITANTE;
-  }
-
   get isCronometro(): boolean {
     if (this.memoriaService.memoriaPlacar) {
       return this.memoriaService.memoriaPlacar.cronometro;
     }
-    return true;
   }
 
   get tempoCorrido(): string {

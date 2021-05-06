@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Placar } from '../models/placar.model';
 import { Resumo } from '../models/resumo.model';
 import { Time } from '../models/time.model';
+import { TipoEquipe } from '../models/tipo-equipe.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,17 @@ import { Time } from '../models/time.model';
 export class MemoriaService {
 
   memoriaResumo = [];
-  memoriaPlacar: Placar;
   memoriaTime;
+
+  memoriaPlacar: Placar = {
+    mandanteNome: TipoEquipe.MANDANTE,
+    mandantePonto: 0,
+    visitanteNome: TipoEquipe.VISITANTE,
+    visitantePonto: 0,
+    cronometro: true,
+    duracao: 45,
+    periodo: 1
+  };
 
   constructor() { }
 

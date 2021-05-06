@@ -2,7 +2,7 @@ export class Resumo {
   equipe: string;
   placarMandante: string;
   placarVisitante: string;
-  periodo?: string;
+  periodo?: number;
   cronometro?: string;
-  data: number;
+  data?: number;
 }
