@@ -57,7 +57,7 @@ export class AjusteSelecionarPage implements OnInit {
   }
 
   botaoVoltar(): void {
-    this.router.navigate(['/ajuste-placar']);
+    this.router.navigate(['/inicio']);
   }
 
   get placeholder(): string {
