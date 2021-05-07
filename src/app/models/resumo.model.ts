@@ -3,6 +3,7 @@ export class Resumo {
   placarMandante: string;
   placarVisitante: string;
   periodo?: number;
-  cronometro?: string;
+  cronometro?: boolean;
+  tempo?: string;
   data?: number;
 }

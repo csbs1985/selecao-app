@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MemoriaService } from 'src/app/services/memoria.service';
 @Component({
   selector: 'app-resumo-item',
   templateUrl: './resumo-item.component.html',
@@ -10,7 +11,9 @@ export class ResumoItemComponent implements OnInit {
 
   resumoItem = [];
 
-  constructor() { }
+  constructor(
+    public memoriaService: MemoriaService
+  ) { }
 
   ngOnInit() {
     this.popularResumoItem();
@@ -20,7 +23,7 @@ export class ResumoItemComponent implements OnInit {
     this.resumoInput.forEach(item => {
       this.resumoItem.push({
         equipe: item.equipe,
-        data: item.cronometro.substring(3) + ' - ' + item.periodo + '° T',
+        data: this.memoriaService.memoriaPlacar.cronometro ? item.tempo.substring(3) + ' - ' + item.periodo + '° T' : '',
         placar: item.placarMandante + ' x ' + item.placarVisitante
       });
     });

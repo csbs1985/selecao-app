@@ -4,6 +4,7 @@ export class Placar {
   visitanteNome?: string;
   visitantePonto?: number;
   cronometro?: boolean;
+  tempo?: string;
   duracao?: number;
   periodo?: number;
 }

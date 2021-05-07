@@ -92,7 +92,8 @@ export class PlacarPage implements OnInit, OnDestroy {
       placarMandante: this.mandantePonto,
       placarVisitante: this.visitantePonto,
       periodo: this.periodo,
-      cronometro: this.relogioService.tempo,
+      cronometro: this.memoriaService.memoriaPlacar.cronometro ? this.memoriaService.memoriaPlacar.cronometro : true,
+      tempo: this.relogioService.tempo,
       data: new Date().getTime()
     };
 
@@ -163,14 +164,4 @@ export class PlacarPage implements OnInit, OnDestroy {
     }
     return this.relogioService.tempo;
   }
-
-  // get isModal(): boolean {
-  //   const tempo = new Date((this.memoriaService.memoriaPlacar.duracao * 60) * 1000).toISOString().substr(11, 8);
-  //   if (this.memoriaService.memoriaPlacar && tempo === this.relogioService.tempo) {
-  //     this.relogioService.parar();
-  //     return true;
-  //   }
-
-  //   return false;
-  // }
 }
