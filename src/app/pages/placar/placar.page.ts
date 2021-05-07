@@ -48,12 +48,12 @@ export class PlacarPage implements OnInit, OnDestroy {
   }
 
   aumentarPonto(time): void {
-    time === TipoEquipe.MANDANTE ? this.placarMandante++ : this.placarVisitante++;
+    if (time === TipoEquipe.MANDANTE) { this.placarMandante++; } else { this.placarVisitante++; }
     this.formatarPontos(time);
   }
 
   dimimuirPonto(time): void {
-    time === TipoEquipe.MANDANTE ? this.placarMandante-- : this.placarVisitante--;
+    if (time === TipoEquipe.MANDANTE) { this.placarMandante--; } else { this.placarVisitante--; }
     this.formatarPontos(time);
   }
 

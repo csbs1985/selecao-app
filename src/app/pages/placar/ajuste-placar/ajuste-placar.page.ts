@@ -40,7 +40,7 @@ export class AjustePlacarPage implements OnInit {
     if (this.memoriaService.memoriaPlacar) {
       mandanteNome = this.memoriaService.memoriaPlacar.mandanteNome || TipoEquipe.MANDANTE;
       visitanteNome = this.memoriaService.memoriaPlacar.visitanteNome || TipoEquipe.VISITANTE;
-      cronometro = this.memoriaService.memoriaPlacar.cronometro || true;
+      cronometro = this.memoriaService.memoriaPlacar.cronometro;
       duracao = this.memoriaService.memoriaPlacar.duracao || 45;
     }
 

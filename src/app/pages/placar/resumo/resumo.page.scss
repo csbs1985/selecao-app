@@ -6,26 +6,32 @@
   flex-direction: column;
 
   &-placar {
-    padding: 0 var(--px-20);
+    margin: 0 var(--px-20);
     margin-bottom: 4px;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--cinza);
+    color: var(--branco);
+    padding: var(--px-10);
 
-    p,
-    span {
-      background-color: var(--cinza);
-      text-align: center;
-      line-height: var(--px-40);
-      text-transform: uppercase;
-      color: var(--branco);
+    p {
       font-size: var(--px-14);
+      line-height: var(--px-14);
       font-family: var(--led);
+      width: 10%;
+      text-align: center;
+    }
 
-      span {
-        color: var(--vermelho);
-      }
+    p:first-of-type {
+      color: var(--vermelho);
+      width: 45%;
+      text-align: right;
+    }
 
-      span:last-of-type {
-        color: var(--amarelo);
-      }
+    p:last-of-type {
+      color: var(--amarelo);
+      width: 45%;
+      text-align: left;
     }
   }
 

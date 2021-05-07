@@ -2,14 +2,14 @@
 
 <div class="resumo">
   <div class="resumo-placar">
-    <p>
-      <span>{{ mandanteNome }} {{ mandantePonto }}</span> vs <span>{{ visitantePonto }} {{ visitanteNome }}</span>
-    </p>
+    <p>{{ mandanteNome }} {{ mandantePonto }} </p>
+    <p> vs </p>
+    <p>{{ visitantePonto }} {{ visitanteNome }}</p>
   </div>
 
   <div class="resumo-conteudo">
     <div class="resumo-ponto"></div>
-    
+
     <app-resumo-item [resumoInput]="resumoItens"></app-resumo-item>
 
     <div class="resumo-ponto"></div>
