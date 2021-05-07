@@ -30,7 +30,7 @@ export class ResumoPage implements OnInit {
   }
 
   botaoVoltar(): void {
-    this.router.navigate(['/ajuste-placar']);
+    this.router.navigate(['/placar']);
   }
 
   get mandanteNome(): string {

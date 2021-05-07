@@ -54,6 +54,10 @@ export class AjustePlacarPage implements OnInit {
     this.router.navigate(['/placar']);
   }
 
+  botaoVoltar(): void {
+    this.router.navigate(['/placar']);
+  }
+
   validarForm(): void {
     if (this.formPlacar.value.mandanteNome === '') {
       this.formPlacar.value.mandanteNome = TipoEquipe.MANDANTE;
