@@ -21,9 +21,6 @@ export class PlacarPage implements OnInit, OnDestroy {
   mandantePonto = '00';
   visitantePonto = '00';
 
-  mandanteNome = this.memoriaService.memoriaPlacar.mandanteNome;
-  visitanteNome = this.memoriaService.memoriaPlacar.visitanteNome;
-
   periodo = 1;
 
   constructor(
@@ -111,6 +108,22 @@ export class PlacarPage implements OnInit, OnDestroy {
 
   resumoPagina(): void {
     this.router.navigate(['/resumo']);
+  }
+
+  get mandanteNome(): string {
+    if (this.memoriaService.memoriaPlacar &&
+      this.memoriaService.memoriaPlacar.mandanteNome) {
+      return this.memoriaService.memoriaPlacar.mandanteNome;
+    }
+    return TipoEquipe.MANDANTE;
+  }
+
+  get visitanteNome(): string {
+    if (this.memoriaService.memoriaPlacar &&
+      this.memoriaService.memoriaPlacar.visitanteNome) {
+      return this.memoriaService.memoriaPlacar.visitanteNome;
+    }
+    return TipoEquipe.VISITANTE;
   }
 
   get isCronometro(): boolean {
