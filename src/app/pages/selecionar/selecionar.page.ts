@@ -66,4 +66,8 @@ export class SelecionarPage implements OnInit {
   confirmar(): void {
     this.router.navigate(['/inicio']);
   }
+
+  botaoVoltar(): void {
+    this.router.navigate(['/ajuste-selecionar']);
+  }
 }

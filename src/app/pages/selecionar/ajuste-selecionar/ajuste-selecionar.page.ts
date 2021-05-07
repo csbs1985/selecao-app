@@ -56,6 +56,10 @@ export class AjusteSelecionarPage implements OnInit {
     this.router.navigate(['/selecionar']);
   }
 
+  botaoVoltar(): void {
+    this.router.navigate(['/ajuste-placar']);
+  }
+
   get placeholder(): string {
     return this.formTime.value.jogadores <= 0 ? 'Quem vai jogar?' : '+1';
   }

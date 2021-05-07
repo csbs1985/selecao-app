@@ -110,6 +110,10 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.router.navigate(['/resumo']);
   }
 
+  botaoVoltar(): void {
+    this.router.navigate(['/inicio']);
+  }
+
   get mandanteNome(): string {
     if (this.memoriaService.memoriaPlacar &&
       this.memoriaService.memoriaPlacar.mandanteNome) {

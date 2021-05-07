@@ -13,7 +13,7 @@ export class InicioPage {
   ) { }
 
   rotaAjustePlacar(): void {
-    this.router.navigate(['/ajuste-placar']);
+    this.router.navigate(['/placar']);
   }
 
   rotaAjusteSelecionar(): void {

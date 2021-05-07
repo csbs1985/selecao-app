@@ -1,5 +1,5 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Resumo } from 'src/app/models/resumo.model';
 import { TipoEquipe } from 'src/app/models/tipo-equipe.enum';
 import { MemoriaService } from 'src/app/services/memoria.service';
@@ -15,8 +15,8 @@ export class ResumoPage implements OnInit {
   resumoItens: Resumo[];
 
   constructor(
-    private location: Location,
-    private memoriaService: MemoriaService
+    private memoriaService: MemoriaService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class ResumoPage implements OnInit {
   }
 
   botaoVoltar(): void {
-    this.location.back();
+    this.router.navigate(['/ajuste-placar']);
   }
 
   get mandanteNome(): string {
