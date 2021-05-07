@@ -21,12 +21,14 @@ export class PlacarPage implements OnInit, OnDestroy {
   mandantePonto = '00';
   visitantePonto = '00';
 
+  isModal = false;
+
   periodo = 1;
 
   constructor(
-    private memoriaService: MemoriaService,
     private insomnia: Insomnia,
     private router: Router,
+    public memoriaService: MemoriaService,
     public relogioService: RelogioService
   ) { }
 
@@ -114,6 +116,10 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.router.navigate(['/inicio']);
   }
 
+  RespostaModal(): void {
+    this.memoriaService.relogioMemoria(false);
+  }
+
   get mandanteNome(): string {
     if (this.memoriaService.memoriaPlacar &&
       this.memoriaService.memoriaPlacar.mandanteNome) {
@@ -136,16 +142,6 @@ export class PlacarPage implements OnInit, OnDestroy {
     }
   }
 
-  get tempoCorrido(): string {
-    if (this.memoriaService.memoriaPlacar &&
-      !this.memoriaService.memoriaPlacar.cronometro) {
-      this.periodo = 1;
-      this.relogioService.parar();
-      return '00:00:00';
-    }
-    return this.relogioService.tempo;
-  }
-
   get isIniciado(): boolean {
     if (this.relogioService.status === TipoRelogio.INATIVO || this.relogioService.status === TipoRelogio.PARADO) { return false; };
     return true;
@@ -157,4 +153,24 @@ export class PlacarPage implements OnInit, OnDestroy {
     }
     return true;
   }
+
+  get tempoCorrido(): string {
+    if (this.memoriaService.memoriaPlacar &&
+      !this.memoriaService.memoriaPlacar.cronometro) {
+      this.periodo = 1;
+      this.relogioService.parar();
+      return '00:00:00';
+    }
+    return this.relogioService.tempo;
+  }
+
+  // get isModal(): boolean {
+  //   const tempo = new Date((this.memoriaService.memoriaPlacar.duracao * 60) * 1000).toISOString().substr(11, 8);
+  //   if (this.memoriaService.memoriaPlacar && tempo === this.relogioService.tempo) {
+  //     this.relogioService.parar();
+  //     return true;
+  //   }
+
+  //   return false;
+  // }
 }

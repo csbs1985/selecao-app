@@ -1,0 +1,35 @@
+.modal {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  &-overlay {
+    height: 100%;
+    width: 100%;
+    background-color: var(--preto);
+    opacity: var(--opacidade);
+    position: absolute;
+  }
+
+  &-conteudo {
+    align-self: center;
+  }
+
+  &-card {
+    background-color: var(--vermelho);
+    border-radius: var(--canto);
+    margin: var(--px-20);
+    margin-bottom: 0;
+    padding: var(--px-20);
+    color: var(--preto);
+  }
+
+  h1 {
+    margin: 0 0 var(--px-10) 0;
+    font-size: var(--px-20);
+  }
+}

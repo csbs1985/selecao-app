@@ -11,6 +11,7 @@ export class MemoriaService {
 
   memoriaResumo = [];
   memoriaTime;
+  memoriaRelogio: boolean;
 
   memoriaPlacar: Placar = {
     mandanteNome: TipoEquipe.MANDANTE,
@@ -34,5 +35,9 @@ export class MemoriaService {
 
   timeMemoria(time: Time): void {
     this.memoriaTime = time;
+  }
+
+  relogioMemoria(notificacao: boolean): void {
+    this.memoriaRelogio = notificacao;
   }
 }

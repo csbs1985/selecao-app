@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { TipoRelogio } from '../models/tipo-relorio.enum';
+import { MemoriaService } from './memoria.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RelogioService {
-
   status = TipoRelogio.INATIVO;
 
   hh = 0;
@@ -16,7 +16,9 @@ export class RelogioService {
   tempo: any = '00:00:00';
   crom: any;
 
-  constructor() { }
+  constructor(
+    private memoriaService: MemoriaService
+  ) { }
 
   iniciar(): void {
     this.crom = setInterval(() => { this.timer(); }, this.intervalo);
@@ -57,5 +59,18 @@ export class RelogioService {
     const segundo = (this.ss < 10 ? '0' + this.ss : this.ss);
 
     this.tempo = hora + ':' + minuto + ':' + segundo;
+
+    this.notificacao();
+  }
+
+  notificacao(): void {
+    const tempo = new Date((this.memoriaService.memoriaPlacar.duracao * 60) * 1000).toISOString().substr(11, 8);
+    if (this.memoriaService.memoriaPlacar && tempo === this.tempo) {
+      this.parar();
+      this.memoriaService.relogioMemoria(true);
+      return;
+    }
+
+    this.memoriaService.relogioMemoria(false);
   }
 }
