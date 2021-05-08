@@ -17,7 +17,7 @@ export class AjusteSelecionarPage implements OnInit {
 
   qtdPorTimeArray = {
     name: 'qtdPorTime',
-    valor: [5, 6, 7, 8, 9, 10, 11]
+    valor: [2, 3, 5, 6, 7, 8, 9, 10, 11]
   };
 
   constructor(
