@@ -65,7 +65,7 @@ export class RelogioService {
 
   validar(): void {
     const tempo = new Date((this.memoriaService.memoriaPlacar.duracao * 60) * 1000).toISOString().substr(11, 8);
-    if (this.memoriaService.memoriaPlacar && (tempo === this.tempo || this.tempo === '00:59:59' || this.tempo === '00:00:01')) {
+    if (this.memoriaService.memoriaPlacar && (tempo === this.tempo || this.tempo === '00:59:59')) {
       this.parar();
       this.memoriaService.relogioMemoria(true);
       return;

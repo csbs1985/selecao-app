@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AnimationController } from '@ionic/angular';
 import { MemoriaService } from 'src/app/services/memoria.service';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-modal',
@@ -15,19 +15,14 @@ export class ModalComponent implements OnInit {
   textoModal: string;
 
   constructor(
-    private animationCtrl: AnimationController,
-    private memoriaService: MemoriaService
-  ) {
-    this.animationCtrl.create()
-      .addElement(document.querySelector('.modal-conteudo'))
-      .duration(1000)
-      .iterations(Infinity)
-      .fromTo('transform', 'translateY(-100%)', 'translateY(0)');
-  }
+    private memoriaService: MemoriaService,
+    private vibration: Vibration
+  ) {  }
 
   ngOnInit() {
     const duracao = this.memoriaService.memoriaPlacar.duracao;
     this.textoModal = 'Os ' + duracao + ' minutos estipulados acabaram.';
+    this.vibration.vibrate([1000, 500, 1000, 500, 1000]);
   }
 
   botaoFechar(): void {
