@@ -24,9 +24,7 @@ export class ResumoPage implements OnInit {
   }
 
   popularResumo(): void {
-    this.resumoItens = this.memoriaService.memoriaResumo.sort((a, b) =>
-      b.data < a.data ? -1 : b.data > a.data ? 1 : 0
-    );
+    this.resumoItens = this.memoriaService.memoriaResumo;
   }
 
   botaoVoltar(): void {

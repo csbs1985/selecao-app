@@ -18,19 +18,20 @@
       font-size: var(--px-14);
       line-height: var(--px-14);
       font-family: var(--led);
-      width: 10%;
+      flex: 0 1 auto;
       text-align: center;
+      margin: 0 var(--px-4);
     }
 
     p:first-of-type {
       color: var(--vermelho);
-      width: 45%;
+      flex: 1 1 auto;
       text-align: right;
     }
 
     p:last-of-type {
       color: var(--amarelo);
-      width: 45%;
+      flex: 1 1 auto;
       text-align: left;
     }
   }
