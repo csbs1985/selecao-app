@@ -27,14 +27,13 @@ export class ResumoItemComponent implements OnInit {
     const arrayTemp = [];
 
     this.resumoInput.forEach(item => {
-      if (item.equipe === TipoEquipe.MANDANTE) {
-        placarMandante++;
-      } else { placarVisitante++; }
+      if (item.equipe === TipoEquipe.MANDANTE) { placarMandante++; } else { placarVisitante++; }
 
       arrayTemp.push({
         equipe: item.equipe,
-        data: this.memoriaService.memoriaPlacar.cronometro ? item.tempo.substring(3) + ' - ' + item.periodo + '° T' : '',
-        placar: placarMandante + ' x ' + placarVisitante
+        tempo: this.memoriaService.memoriaPlacar.cronometro ? item.tempo.substring(3) + ' - ' + item.periodo + '° T' : '',
+        placar: placarMandante + ' x ' + placarVisitante,
+        data: item.data
       });
     });
 

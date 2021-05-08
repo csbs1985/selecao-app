@@ -7,7 +7,6 @@
 
   &-placar {
     margin: 0 var(--px-20);
-    margin-bottom: 4px;
     display: flex;
     justify-content: space-around;
     background-color: var(--cinza);
@@ -15,10 +14,10 @@
     padding: var(--px-10);
 
     p {
-      font-size: var(--px-14);
-      line-height: var(--px-14);
+      font-size: var(--px-12);
+      line-height: var(--px-12);
       font-family: var(--led);
-      flex: 0 1 auto;
+      width: 10%;
       text-align: center;
       margin: 0 var(--px-4);
     }
@@ -40,8 +39,7 @@
     overflow-y: scroll;
     padding: 0 var(--px-20);
     background: url('../../../../assets/svg/linha.svg') repeat-y center;
-    margin: 0;
-    margin-bottom: 60px;
+    margin: var(--px-20) 0 var(--px-60);
   }
 
   &-ponto {

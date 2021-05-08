@@ -47,13 +47,13 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.periodo = this.periodo === 1 ? 2 : 1;
   }
 
-  aumentarPonto(time): void {
+  aumentarPonto(time: TipoEquipe): void {
     if (time === TipoEquipe.MANDANTE) { this.placarMandante++; } else { this.placarVisitante++; }
     this.formatarPontos(time);
     this.adicionarItemResumo(time);
   }
 
-  dimimuirPonto(time): void {
+  dimimuirPonto(time: TipoEquipe): void {
     if (time === TipoEquipe.MANDANTE) { this.placarMandante--; } else { this.placarVisitante--; }
     this.formatarPontos(time);
     this.removerItemResumo(time);
@@ -86,7 +86,7 @@ export class PlacarPage implements OnInit, OnDestroy {
     }
   }
 
-  adicionarItemResumo(time: string): void {
+  adicionarItemResumo(time: TipoEquipe): void {
     const resumoArray: Resumo = {
       equipe: time,
       periodo: this.periodo,
@@ -96,14 +96,10 @@ export class PlacarPage implements OnInit, OnDestroy {
     };
 
     this.memoriaService.resumoMemoria(resumoArray);
-
-    if (resumoArray.equipe === TipoEquipe.MANDANTE) {
-      this.memoriaService.memoriaPlacar.mandantePonto = this.placarMandante; return;
-    }
-    this.memoriaService.memoriaPlacar.visitantePonto = this.placarVisitante;
+    this.alterarPlacar();
   }
 
-  removerItemResumo(time): any {
+  removerItemResumo(time: TipoEquipe): any {
     const resumo = this.memoriaService.memoriaResumo.filter(item => item.equipe === time);
     const arrayTemp = [];
     this.memoriaService.memoriaResumo.forEach(item => {
@@ -112,6 +108,12 @@ export class PlacarPage implements OnInit, OnDestroy {
       }
     });
     this.memoriaService.memoriaResumo = arrayTemp;
+    this.alterarPlacar();
+  }
+
+  alterarPlacar(): void {
+    this.memoriaService.memoriaPlacar.mandantePonto = this.placarMandante;
+    this.memoriaService.memoriaPlacar.visitantePonto = this.placarVisitante;
   }
 
   ajustePagina(): void {

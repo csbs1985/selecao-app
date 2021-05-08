@@ -1,9 +1,9 @@
 <section *ngFor="let item of resumoItem">
   <div class="resumo-item">
-    <p [class.gambiarra]="item.equipe === 'visitante'">{{ item.data }}</p>
+    <p [class.gambiarra]="item.equipe === 'visitante'">{{ item.tempo }}</p>
 
     <div class="resumo-item-placar" [ngClass]="item.equipe">{{ item.placar }}</div>
 
-    <p [class.gambiarra]="item.equipe === 'mandante'"> {{ item.data }}</p>
+    <p [class.gambiarra]="item.equipe === 'mandante'"> {{ item.tempo }}</p>
   </div>
 </section>
