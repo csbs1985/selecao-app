@@ -39,12 +39,12 @@ export class ResumoPage implements OnInit {
     return TipoEquipe.MANDANTE;
   }
 
-  get mandantePonto(): number {
+  get mandantePonto(): string {
     if (this.memoriaService.memoriaPlacar &&
       this.memoriaService.memoriaPlacar.mandantePonto) {
-      return this.memoriaService.memoriaPlacar.mandantePonto;
+      return this.memoriaService.memoriaPlacar.mandantePonto.toString().padStart(2, '0');
     }
-    return 0;
+    return '00';
   }
 
   get visitanteNome(): string {
@@ -55,11 +55,11 @@ export class ResumoPage implements OnInit {
     return TipoEquipe.VISITANTE;
   }
 
-  get visitantePonto(): number {
+  get visitantePonto(): string {
     if (this.memoriaService.memoriaPlacar &&
       this.memoriaService.memoriaPlacar.visitantePonto) {
-      return this.memoriaService.memoriaPlacar.visitantePonto;
+      return this.memoriaService.memoriaPlacar.visitantePonto.toString().padStart(2, '0');
     }
-    return 0;
+    return '00';
   }
 }

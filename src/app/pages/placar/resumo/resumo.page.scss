@@ -7,31 +7,27 @@
 
   &-placar {
     margin: 0 var(--px-20);
-    display: flex;
-    justify-content: space-around;
     background-color: var(--cinza);
     color: var(--branco);
-    padding: var(--px-10);
+    padding: var(--px-10) var(--px-20);
 
-    p {
-      font-size: var(--px-12);
-      line-height: var(--px-12);
+    div {
       font-family: var(--led);
-      width: 10%;
-      text-align: center;
-      margin: 0 var(--px-4);
-    }
-
-    p:first-of-type {
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
       color: var(--vermelho);
-      flex: 1 1 auto;
-      text-align: right;
+      line-height: 1rem;
     }
 
-    p:last-of-type {
+    div:last-of-type {
+      margin-top: 10px;
       color: var(--amarelo);
-      flex: 1 1 auto;
-      text-align: left;
+    }
+
+    span {
+      align-self: flex-end;
+      font-family: var(--led);
     }
   }
 
