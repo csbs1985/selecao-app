@@ -21,8 +21,6 @@ export class PlacarPage implements OnInit, OnDestroy {
   mandantePonto = '00';
   visitantePonto = '00';
 
-  isModal = false;
-
   periodo = 1;
 
   constructor(
@@ -47,13 +45,13 @@ export class PlacarPage implements OnInit, OnDestroy {
     this.periodo = this.periodo === 1 ? 2 : 1;
   }
 
-  aumentarPonto(time: TipoEquipe): void {
+  aumentarPonto(time): void {
     if (time === TipoEquipe.MANDANTE) { this.placarMandante++; } else { this.placarVisitante++; }
     this.formatarPontos(time);
     this.adicionarItemResumo(time);
   }
 
-  dimimuirPonto(time: TipoEquipe): void {
+  dimimuirPonto(time): void {
     if (time === TipoEquipe.MANDANTE) { this.placarMandante--; } else { this.placarVisitante--; }
     this.formatarPontos(time);
     this.removerItemResumo(time);

@@ -9,7 +9,6 @@ import { PlacarPageModule } from './pages/placar/placar.module';
 import { SelecionarPageModule } from './pages/selecionar/selecionar.module';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { ComponentsModule } from './components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -31,7 +30,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     StatusBar,
     ScreenOrientation,
-    SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppPage],
