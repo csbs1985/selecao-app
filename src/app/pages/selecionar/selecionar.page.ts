@@ -20,6 +20,7 @@ export class SelecionarPage implements OnInit {
   qtdPorTime = this.memoriaService.memoriaTime.qtdPorTime;
   qtdJogadores = this.jogadoresArray.length;
   qtdEstrelas = this.estrelasArray.length;
+  qtdTotalAtleta = this.qtdJogadores + this.qtdEstrelas;
 
   constructor(
     private memoriaService: MemoriaService,
@@ -31,7 +32,7 @@ export class SelecionarPage implements OnInit {
   }
 
   ordenarAleatorio() {
-    if (this.qtdEstrelas) {
+    if (this.qtdEstrelas > 0) {
       for (let i = this.qtdEstrelas - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [this.estrelasArray[i], this.estrelasArray[j]] = [this.estrelasArray[j], this.estrelasArray[i]];
@@ -43,21 +44,27 @@ export class SelecionarPage implements OnInit {
       [this.jogadoresArray[i], this.jogadoresArray[j]] = [this.jogadoresArray[j], this.jogadoresArray[i]];
     }
 
-    if (this.qtdEstrelas) {
+    if (this.qtdEstrelas > 0) {
       this.juntarAtletas();
     } else {
-      this.formatarAtletas();
+      this.numerarAtletas();
     }
   }
 
   juntarAtletas(): void {
-    this.formatarAtletas();
+    let count = 0;
+    for (let i = 0; i < this.qtdEstrelas; i++) {
+      this.jogadoresArray.splice(count, 0, this.estrelasArray[i]);
+      count += this.qtdPorTime;
+    }
+
+    this.numerarAtletas();
   }
 
-  formatarAtletas(): void {
+  numerarAtletas(): void {
     let numAtleta = 1;
 
-    for (let i = 0; i < this.qtdJogadores; i++) {
+    for (let i = 0; i < this.qtdTotalAtleta; i++) {
       this.jogadoresArray[i] = numAtleta + ' - ' + this.jogadoresArray[i];
       if (numAtleta >= this.qtdPorTime) {
         numAtleta = 1;
@@ -66,13 +73,13 @@ export class SelecionarPage implements OnInit {
       }
     }
 
-    this.montarTimes();
+    this.separarTimes();
   }
 
-  montarTimes(): void {
+  separarTimes(): void {
     let numTime = 1;
 
-    for (let i = 0; i < this.qtdJogadores; i = i + this.qtdPorTime) {
+    for (let i = 0; i < this.qtdTotalAtleta; i = i + this.qtdPorTime) {
       this.times.push({
         time: 'Time - ' + numTime++,
         jogadores: this.jogadoresArray.slice(i, i + this.qtdPorTime)
