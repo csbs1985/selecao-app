@@ -13,11 +13,13 @@ export class SelecionarPage implements OnInit {
 
   times = [];
 
-  jogadoresTemp = Object.assign([], this.memoriaService.memoriaTime.jogadores);
+  jogadoresArray = Object.assign([], this.memoriaService.memoriaTime.jogadores);
+  estrelasArray = Object.assign([], this.memoriaService.memoriaTime.estrelas);
 
   isGoleiro = this.memoriaService.memoriaTime.goleiro;
   qtdPorTime = this.memoriaService.memoriaTime.qtdPorTime;
-  qtdAtletas = this.jogadoresTemp.length;
+  qtdJogadores = this.jogadoresArray.length;
+  qtdEstrelas = this.estrelasArray.length;
 
   constructor(
     private memoriaService: MemoriaService,
@@ -29,19 +31,34 @@ export class SelecionarPage implements OnInit {
   }
 
   ordenarAleatorio() {
-    for (let i = this.qtdAtletas - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [this.jogadoresTemp[i], this.jogadoresTemp[j]] = [this.jogadoresTemp[j], this.jogadoresTemp[i]];
+    if (this.qtdEstrelas) {
+      for (let i = this.qtdEstrelas - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [this.estrelasArray[i], this.estrelasArray[j]] = [this.estrelasArray[j], this.estrelasArray[i]];
+      }
     }
 
+    for (let i = this.qtdJogadores - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.jogadoresArray[i], this.jogadoresArray[j]] = [this.jogadoresArray[j], this.jogadoresArray[i]];
+    }
+
+    if (this.qtdEstrelas) {
+      this.juntarAtletas();
+    } else {
+      this.formatarAtletas();
+    }
+  }
+
+  juntarAtletas(): void {
     this.formatarAtletas();
   }
 
   formatarAtletas(): void {
     let numAtleta = 1;
 
-    for (let i = 0; i < this.qtdAtletas; i++) {
-      this.jogadoresTemp[i] = numAtleta + ' - ' + this.jogadoresTemp[i];
+    for (let i = 0; i < this.qtdJogadores; i++) {
+      this.jogadoresArray[i] = numAtleta + ' - ' + this.jogadoresArray[i];
       if (numAtleta >= this.qtdPorTime) {
         numAtleta = 1;
       } else {
@@ -55,10 +72,10 @@ export class SelecionarPage implements OnInit {
   montarTimes(): void {
     let numTime = 1;
 
-    for (let i = 0; i < this.qtdAtletas; i = i + this.qtdPorTime) {
+    for (let i = 0; i < this.qtdJogadores; i = i + this.qtdPorTime) {
       this.times.push({
         time: 'Time - ' + numTime++,
-        jogadores: this.jogadoresTemp.slice(i, i + this.qtdPorTime)
+        jogadores: this.jogadoresArray.slice(i, i + this.qtdPorTime)
       });
     }
   }
