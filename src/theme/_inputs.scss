@@ -38,6 +38,10 @@
 }
 
 .input-tag {
+  p {
+    @include p;
+  }
+
   div {
     display: flex;
     justify-content: flex-start;
@@ -46,6 +50,7 @@
     flex-wrap: wrap;
 
     p {
+      flex: 0 1 auto;
       color: var(--branco);
       line-height: 30px;
       margin: 4px 4px 0 0;

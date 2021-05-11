@@ -14,6 +14,7 @@ export class AjusteSelecionarPage implements OnInit {
 
   formTime: FormGroup;
   atleta: string;
+  estrela: string;
 
   qtdPorTimeArray = {
     name: 'qtdPorTime',
@@ -34,7 +35,8 @@ export class AjusteSelecionarPage implements OnInit {
     this.formTime = this.formBuilder.group({
       qtdPorTime: [5, Validators.required],
       goleiro: [true, Validators.required],
-      jogadores: this.formBuilder.array([])
+      jogadores: this.formBuilder.array([]),
+      estrelas: this.formBuilder.array([])
     });
   }
 
@@ -51,6 +53,19 @@ export class AjusteSelecionarPage implements OnInit {
     if (index > -1) { this.formTime.value.jogadores.splice(index, 1); }
   }
 
+  adicionarEstrela(): void {
+    if (this.estrela !== undefined &&
+      this.estrela !== '') {
+      this.formTime.value.estrelas.push(this.estrela);
+      this.estrela = '';
+    }
+  }
+
+  removerEstrela(estrela): void {
+    const index = this.formTime.value.estrelas.indexOf(estrela, 0);
+    if (index > -1) { this.formTime.value.estrelas.splice(index, 1); }
+  }
+
   botaoConfirmar(): void {
     this.memoriaService.timeMemoria(this.formTime.value);
     this.router.navigate(['/selecionar']);
@@ -60,12 +75,20 @@ export class AjusteSelecionarPage implements OnInit {
     this.router.navigate(['/inicio']);
   }
 
-  get placeholder(): string {
+  get placeholderJogador(): string {
     return this.formTime.value.jogadores <= 0 ? 'Quem vai jogar?' : '+1';
+  }
+
+  get placeholderEstrela(): string {
+    return this.formTime.value.estrelas <= 0 ? 'Quem são eles?' : '+1';
   }
 
   get numAtletas(): number {
     return this.formTime.value.jogadores.length;
+  }
+
+  get numEstrelas(): number {
+    return this.formTime.value.estrelas.length;
   }
 
   get isBotaoConfirmar(): boolean {

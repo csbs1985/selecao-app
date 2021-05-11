@@ -14,7 +14,25 @@
           name="jogadores" 
           (keyup.enter)="adicionarAtleta()"
           [ngModelOptions]="{standalone: true}" 
-          placeholder="{{ placeholder }}" 
+          placeholder="{{ placeholderJogador }}" 
+          maxlength="12">
+      </div>
+    </div>
+
+    <div class="input-tag">
+      <label for="">Estrelas <span *ngIf="numEstrelas">- {{ numEstrelas }}</span></label>
+      <p>Jogadores que não podem jogar juntos.</p>
+      <div>
+        <p 
+          *ngFor="let item of formTime.value.estrelas" 
+          (click)="removerEstrela(item)">{{ item }}</p>
+        <input formArrayName="estrelas">
+        <input 
+          [(ngModel)]="estrela" 
+          name="estrelas" 
+          (keyup.enter)="adicionarEstrela()"
+          [ngModelOptions]="{standalone: true}" 
+          placeholder="{{ placeholderEstrela }}" 
           maxlength="12">
       </div>
     </div>
