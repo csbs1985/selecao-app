@@ -20,7 +20,7 @@ export class SelecionarPage implements OnInit {
   qtdPorTime = this.memoriaService.memoriaTime.qtdPorTime;
   qtdJogadores = this.jogadoresArray.length;
   qtdEstrelas = this.estrelasArray.length;
-  qtdTotalAtletas = this.qtdJogadores + this.qtdEstrelas;
+  qtdTotalAtleta = this.qtdJogadores + this.qtdEstrelas;
 
   constructor(
     private memoriaService: MemoriaService,
@@ -28,10 +28,10 @@ export class SelecionarPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ordenarAtletas();
+    this.ordenarAleatorio();
   }
 
-  ordenarAtletas() {
+  ordenarAleatorio() {
     if (this.qtdEstrelas > 0) {
       for (let i = this.qtdEstrelas - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -47,15 +47,30 @@ export class SelecionarPage implements OnInit {
     if (this.qtdEstrelas > 0) {
       this.juntarAtletas();
     } else {
-      this.separarTimes();
+      this.numerarAtletas();
     }
   }
 
   juntarAtletas(): void {
-    let index = 0;
+    let count = 0;
     for (let i = 0; i < this.qtdEstrelas; i++) {
-      this.jogadoresArray.splice(index, 0, this.estrelasArray[i]);
-      index += this.qtdPorTime;
+      this.jogadoresArray.splice(count, 0, this.estrelasArray[i]);
+      count += this.qtdPorTime;
+    }
+
+    this.numerarAtletas();
+  }
+
+  numerarAtletas(): void {
+    let numAtleta = 1;
+
+    for (let i = 0; i < this.qtdTotalAtleta; i++) {
+      this.jogadoresArray[i] = numAtleta + ' - ' + this.jogadoresArray[i];
+      if (numAtleta >= this.qtdPorTime) {
+        numAtleta = 1;
+      } else {
+        numAtleta++;
+      }
     }
 
     this.separarTimes();
@@ -64,36 +79,12 @@ export class SelecionarPage implements OnInit {
   separarTimes(): void {
     let numTime = 1;
 
-    for (let i = 0; i < this.qtdTotalAtletas; i = i + this.qtdPorTime) {
+    for (let i = 0; i < this.qtdTotalAtleta; i = i + this.qtdPorTime) {
       this.times.push({
         time: 'Time - ' + numTime++,
         jogadores: this.jogadoresArray.slice(i, i + this.qtdPorTime)
       });
     }
-
-    this.ordenarTimes();
-  }
-
-  ordenarTimes(): void {
-    this.times.forEach(item => {
-      for (let e = item.jogadores.length - 1; e > 0; e--) {
-        const j = Math.floor(Math.random() * (e + 1));
-        [item.jogadores[e], item.jogadores[j]] = [item.jogadores[j], item.jogadores[e]];
-      }
-    });
-
-    this.numerarAtletas();
-  }
-
-  numerarAtletas(): void {
-    let numAtleta = 1;
-
-    this.times.forEach(item => {
-      for (let i = 0; i < this.qtdPorTime; i++) {
-        item.jogadores[i] = numAtleta + ' - ' + item.jogadores[i];
-        if (numAtleta >= this.qtdPorTime) { numAtleta = 1; } else { numAtleta++; }
-      }
-    });
   }
 
   confirmar(): void {
