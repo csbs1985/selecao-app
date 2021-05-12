@@ -1,7 +1,8 @@
 {
   "name": "na_trave",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
