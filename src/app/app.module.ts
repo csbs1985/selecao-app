@@ -12,6 +12,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { ComponentsModule } from './components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @NgModule({
   declarations: [AppPage],
@@ -29,6 +30,7 @@ import { Vibration } from '@ionic-native/vibration/ngx';
     ComponentsModule
   ],
   providers: [
+    SplashScreen,
     StatusBar,
     ScreenOrientation,
     Vibration,

@@ -1,28 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Router } from '@angular/router';
-import { Plugins } from '@capacitor/core';
-
-const { SplashScreen } = Plugins;
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.page.html',
   styleUrls: ['app.page.scss'],
 })
-export class AppPage implements OnInit {
+export class AppPage {
   constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private screenOrientation: ScreenOrientation,
     private route: Router
   ) {
-    SplashScreen.hide();
+    this.iniciarApp();
   }
 
-  ngOnInit() {
-    this.statusBar.backgroundColorByHexString('#2A2A2A');
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    this.route.navigateByUrl('splash');
+  iniciarApp() {
+    this.platform.ready().then(() => {
+      this.splashScreen.hide();
+      this.statusBar.backgroundColorByHexString('#2A2A2A');
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.route.navigateByUrl('splash');
+    });
   }
 }
