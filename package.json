@@ -11,7 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "emulador": "ionic capacitor run android -l --external",
-    "apk": "ionic build --prod && npx cap add android && npx cap open android"
+    "apk": "ionic build --prod && npx cap open android",
+    "res": "cordova-res && cordova-res ios --skip-config --copy && cordova-res android --skip-config --copy"
   },
   "private": true,
   "dependencies": {
