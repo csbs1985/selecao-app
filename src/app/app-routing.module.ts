@@ -6,7 +6,6 @@ import { PlacarPage } from './pages/placar/placar.page';
 import { ResumoPage } from './pages/placar/resumo/resumo.page';
 import { AjusteSelecionarPage } from './pages/selecionar/ajuste-selecionar/ajuste-selecionar.page';
 import { SelecionarPage } from './pages/selecionar/selecionar.page';
-import { SplashPage } from './pages/splash/splash.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -16,8 +15,7 @@ const routes: Routes = [
   { path: 'ajuste-placar', component: AjustePlacarPage },
   { path: 'selecionar', component: SelecionarPage },
   { path: 'ajuste-selecionar', component: AjusteSelecionarPage },
-  { path: 'resumo', component: ResumoPage },
-  { path: 'splash', component: SplashPage }
+  { path: 'resumo', component: ResumoPage }
 ];
 
 @NgModule({

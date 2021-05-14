@@ -22,14 +22,15 @@ export class AppPage {
   }
 
   iniciarApp() {
+    this.statusBar.backgroundColorByHexString('#2A2A2A');
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
     this.platform.ready().then(() => {
       setTimeout(() => {
         this.splashScreen.hide();
-        this.router.navigate(['/inicio']);
       }, 1000);
     });
 
-    this.statusBar.backgroundColorByHexString('#2A2A2A');
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    this.router.navigate(['/inicio']);
   }
 }
