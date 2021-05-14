@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "emulador": "ionic capacitor run android -l --external",
-    "apk": "ionic build --prod && rm -rf android && npx cap add android && npx cap open android"
+    "apk": "ionic build --prod && npx cap add android && npx cap open android"
   },
   "private": true,
   "dependencies": {
