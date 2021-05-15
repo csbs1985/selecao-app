@@ -223,8 +223,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "VYYF");
 /* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "0QAI");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "54vc");
 
 
 
@@ -233,31 +233,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { SplashScreen } from '@ionic-native/splash-screen';
 let AppPage = class AppPage {
-    constructor(statusBar, screenOrientation, route, platform) {
+    constructor(statusBar, screenOrientation, platform, splashScreen) {
         this.statusBar = statusBar;
         this.screenOrientation = screenOrientation;
-        this.route = route;
         this.platform = platform;
+        this.splashScreen = splashScreen;
         this.iniciarApp();
     }
     iniciarApp() {
-        // this.platform.ready().then(() => {
-        //   setTimeout(() => {
-        //     this.splashScreen.hide();
-        //   }, 1000);
-        // });
-        this.statusBar.backgroundColorByHexString('#2A2A2A');
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-        this.route.navigateByUrl('splash');
+        this.platform.ready().then(() => {
+            setTimeout(() => {
+                this.splashScreen.hide();
+                this.statusBar.backgroundColorByHexString('#2A2A2A');
+                this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+            }, 9000);
+        });
     }
 };
 AppPage.ctorParameters = () => [
     { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
     { type: _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_5__["ScreenOrientation"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["Platform"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["Platform"] },
+    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_7__["SplashScreen"] }
 ];
 AppPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -379,19 +377,6 @@ CabecalhoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], CabecalhoComponent);
 
 
-
-/***/ }),
-
-/***/ "CyD1":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/splash/splash.page.html ***!
-  \*************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-text-center\">\r\n  <img src=\"../../../assets/svg/icone.svg\" alt=\"icone\">\r\n\r\n  <h1>Na trave</h1>\r\n</div>");
 
 /***/ }),
 
@@ -883,51 +868,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "OvIv":
-/*!*********************************************!*\
-  !*** ./src/app/pages/splash/splash.page.ts ***!
-  \*********************************************/
-/*! exports provided: SplashPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SplashPage", function() { return SplashPage; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_splash_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./splash.page.html */ "CyD1");
-/* harmony import */ var _splash_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./splash.page.scss */ "keRv");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-
-
-
-
-
-let SplashPage = class SplashPage {
-    constructor(router) {
-        this.router = router;
-    }
-    ngOnInit() {
-        setTimeout(() => {
-            this.router.navigate(['/inicio']);
-        }, 1200);
-    }
-};
-SplashPage.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
-];
-SplashPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: 'app-splash',
-        template: _raw_loader_splash_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_splash_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
-    })
-], SplashPage);
-
-
-
-/***/ }),
-
 /***/ "P6R5":
 /*!*********************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/modal/modal.component.html ***!
@@ -1261,6 +1201,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/components.module */ "j1ZV");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _ionic_native_vibration_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/vibration/ngx */ "oo/y");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "54vc");
+
 
 
 
@@ -1298,6 +1240,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_10__["StatusBar"],
             _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_11__["ScreenOrientation"],
             _ionic_native_vibration_ngx__WEBPACK_IMPORTED_MODULE_14__["Vibration"],
+            _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_15__["SplashScreen"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
         bootstrap: [_app_page__WEBPACK_IMPORTED_MODULE_5__["AppPage"]],
@@ -1840,19 +1783,6 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ "keRv":
-/*!***********************************************!*\
-  !*** ./src/app/pages/splash/splash.page.scss ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("div {\n  height: 100%;\n  width: 100%;\n  background-color: var(--preto);\n}\n\nimg {\n  background-color: var;\n  width: 30%;\n  margin-top: 70%;\n  animation: roll-in-left 0.6s ease-out both;\n}\n\nh1 {\n  color: var(--branco);\n  text-align: center;\n  animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;\n}\n\n@keyframes roll-in-left {\n  0% {\n    transform: translateX(-800px) rotate(-540deg);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0) rotate(0deg);\n    opacity: 1;\n  }\n}\n\n@keyframes tracking-in-contract {\n  0% {\n    letter-spacing: 1em;\n    opacity: 0;\n  }\n  40% {\n    opacity: 0.6;\n  }\n  100% {\n    letter-spacing: normal;\n    opacity: 1;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxzcGxhc2gucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLFdBQUE7RUFDQSw4QkFBQTtBQUNGOztBQUVBO0VBQ0UscUJBQUE7RUFDQSxVQUFBO0VBQ0EsZUFBQTtFQUNBLDBDQUFBO0FBQ0Y7O0FBRUE7RUFDRSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsNkVBQUE7QUFDRjs7QUFFQTtFQUNFO0lBRUUsNkNBQUE7SUFDQSxVQUFBO0VBQ0Y7RUFFQTtJQUVFLHFDQUFBO0lBQ0EsVUFBQTtFQUFGO0FBQ0Y7O0FBR0E7RUFDRTtJQUNFLG1CQUFBO0lBQ0EsVUFBQTtFQURGO0VBR0E7SUFDRSxZQUFBO0VBREY7RUFHQTtJQUNFLHNCQUFBO0lBQ0EsVUFBQTtFQURGO0FBQ0YiLCJmaWxlIjoic3BsYXNoLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXByZXRvKTtcclxufVxyXG5cclxuaW1nIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXI7XHJcbiAgd2lkdGg6IDMwJTtcclxuICBtYXJnaW4tdG9wOiA3MCU7XHJcbiAgYW5pbWF0aW9uOiByb2xsLWluLWxlZnQgMC42cyBlYXNlLW91dCBib3RoO1xyXG59XHJcblxyXG5oMSB7XHJcbiAgY29sb3I6IHZhcigtLWJyYW5jbyk7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGFuaW1hdGlvbjogdHJhY2tpbmctaW4tY29udHJhY3QgMC44cyBjdWJpYy1iZXppZXIoMC4yMTUsIDAuNjEwLCAwLjM1NSwgMS4wMDApIGJvdGg7XHJcbn1cclxuXHJcbkBrZXlmcmFtZXMgcm9sbC1pbi1sZWZ0IHtcclxuICAwJSB7XHJcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgtODAwcHgpIHJvdGF0ZSgtNTQwZGVnKTtcclxuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtODAwcHgpIHJvdGF0ZSgtNTQwZGVnKTtcclxuICAgIG9wYWNpdHk6IDA7XHJcbiAgfVxyXG5cclxuICAxMDAlIHtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApIHJvdGF0ZSgwZGVnKTtcclxuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgwKSByb3RhdGUoMGRlZyk7XHJcbiAgICBvcGFjaXR5OiAxO1xyXG4gIH1cclxufVxyXG5cclxuQGtleWZyYW1lcyB0cmFja2luZy1pbi1jb250cmFjdCB7XHJcbiAgMCUge1xyXG4gICAgbGV0dGVyLXNwYWNpbmc6IDFlbTtcclxuICAgIG9wYWNpdHk6IDA7XHJcbiAgfVxyXG4gIDQwJSB7XHJcbiAgICBvcGFjaXR5OiAwLjY7XHJcbiAgfVxyXG4gIDEwMCUge1xyXG4gICAgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDtcclxuICAgIG9wYWNpdHk6IDE7XHJcbiAgfVxyXG59XHJcbiJdfQ== */");
-
-/***/ }),
-
 /***/ "nHQF":
 /*!****************************************************!*\
   !*** ./src/app/pages/placar/resumo/resumo.page.ts ***!
@@ -2013,8 +1943,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_placar_resumo_resumo_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/placar/resumo/resumo.page */ "nHQF");
 /* harmony import */ var _pages_selecionar_ajuste_selecionar_ajuste_selecionar_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/selecionar/ajuste-selecionar/ajuste-selecionar.page */ "RYsE");
 /* harmony import */ var _pages_selecionar_selecionar_page__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/selecionar/selecionar.page */ "EJP0");
-/* harmony import */ var _pages_splash_splash_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/splash/splash.page */ "OvIv");
-
 
 
 
@@ -2032,8 +1960,7 @@ const routes = [
     { path: 'ajuste-placar', component: _pages_placar_ajuste_placar_ajuste_placar_page__WEBPACK_IMPORTED_MODULE_4__["AjustePlacarPage"] },
     { path: 'selecionar', component: _pages_selecionar_selecionar_page__WEBPACK_IMPORTED_MODULE_8__["SelecionarPage"] },
     { path: 'ajuste-selecionar', component: _pages_selecionar_ajuste_selecionar_ajuste_selecionar_page__WEBPACK_IMPORTED_MODULE_7__["AjusteSelecionarPage"] },
-    { path: 'resumo', component: _pages_placar_resumo_resumo_page__WEBPACK_IMPORTED_MODULE_6__["ResumoPage"] },
-    { path: 'splash', component: _pages_splash_splash_page__WEBPACK_IMPORTED_MODULE_9__["SplashPage"] }
+    { path: 'resumo', component: _pages_placar_resumo_resumo_page__WEBPACK_IMPORTED_MODULE_6__["ResumoPage"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
