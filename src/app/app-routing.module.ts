@@ -5,7 +5,7 @@ import { AjustePlacarPage } from './pages/placar/ajuste-placar/ajuste-placar.pag
 import { PlacarPage } from './pages/placar/placar.page';
 import { ResumoPage } from './pages/placar/resumo/resumo.page';
 import { AjusteTimePage } from './pages/selecionar/ajuste-time/ajuste-time.page';
-import { SelecionarPage } from './pages/selecionar/selecionar.page';
+import { SelecionarPage } from './pages/selecionar/time.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },

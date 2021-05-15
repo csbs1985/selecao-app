@@ -5,8 +5,8 @@
 
   <div class="time-conta">
     <div class="time-card" *ngFor="let item of times">
-      <h6>{{ item.time }}</h6>
-      <p *ngFor="let a of item.jogadores">{{ a }} </p>
+      <p>{{ item.time }}</p>
+      <p *ngFor="let atleta of item.jogadores">{{ atleta }} </p>
     </div>
   </div>
 

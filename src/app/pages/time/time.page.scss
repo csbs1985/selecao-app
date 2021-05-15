@@ -46,15 +46,13 @@
     background-color: var(--vermelho);
   }
 
-  h6,
   p {
     width: 100%;
     color: var(--preto);
     margin: 0;
   }
 
-  h6 {
-    text-align: center;
+  p:first-of-type {
     margin-bottom: var(--px-10);
   }
 }

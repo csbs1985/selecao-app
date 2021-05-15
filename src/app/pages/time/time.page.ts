@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { MemoriaService } from 'src/app/services/memoria.service';
 
 @Component({
-  selector: 'app-selecionar',
-  templateUrl: './selecionar.page.html',
-  styleUrls: ['./selecionar.page.scss'],
+  selector: 'app-time',
+  templateUrl: './time.page.html',
+  styleUrls: ['./time.page.scss'],
 })
-export class SelecionarPage implements OnInit {
+export class TimePage implements OnInit {
   readonly textoCabecalho = 'Estes são os times sorteados';
   readonly textoBotao = 'Confirmar';
 
@@ -101,6 +101,6 @@ export class SelecionarPage implements OnInit {
   }
 
   botaoVoltar(): void {
-    this.router.navigate(['/ajuste-selecionar']);
+    this.router.navigate(['/ajuste-time']);
   }
 }
