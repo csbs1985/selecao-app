@@ -19,53 +19,14 @@
     padding: var(--px-20);
     color: var(--preto);
 
-    h1,
-    span,
-    p {
-      font-size: 6vw;
-      font-family: var(--bold);
-      text-transform: uppercase;
-    }
-
-    h1 {
-      text-transform: none;
-      font-size: 3.125rem;
-    }
-
     span {
       background-color: var(--verde);
     }
   }
 
-  button {
-    height: 4.375rem;
-    width: 100%;
-    border-radius: var(--canto);
-    color: var(--preto);
-    font-family: var(--bold);
-    margin-bottom: var(--px-20);
-    background-color: var(--azul);
-    text-transform: uppercase;
-  }
-
-  button:last-of-type {
-    background-color: var(--vermelho);
-  }
-
-  &-feito {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    img {
-      height: .75rem;
-      margin-right: var(--px-10);
-    }
-
-    p {
-      font-size: .75rem;
-      line-height: .75rem;
-      color: var(--branco);
-    }
+  img {
+    align-self: center;
+    height: 12px;
+    width: 19px;
   }
 }
