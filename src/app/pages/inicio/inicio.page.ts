@@ -10,7 +10,7 @@ export class InicioPage {
   constructor(private router: Router) { }
 
   rotaAjusteSelecionar(): void {
-    this.router.navigate(['/ajuste-selecionar']);
+    this.router.navigate(['/ajuste-time']);
   }
 
   rotaPlacar(): void {

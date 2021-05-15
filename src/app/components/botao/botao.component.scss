@@ -6,8 +6,9 @@
     border-radius: var(--canto);
     color: var(--preto);
     font-family: var(--bold);
-    height: var(--px-40);
+    line-height: var(--px-40);
     margin: var(--px-20);
     width: 100%;
+    text-transform: uppercase;
   }
 }

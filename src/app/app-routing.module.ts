@@ -4,7 +4,7 @@ import { InicioPage } from './pages/inicio/inicio.page';
 import { AjustePlacarPage } from './pages/placar/ajuste-placar/ajuste-placar.page';
 import { PlacarPage } from './pages/placar/placar.page';
 import { ResumoPage } from './pages/placar/resumo/resumo.page';
-import { AjusteSelecionarPage } from './pages/selecionar/ajuste-selecionar/ajuste-selecionar.page';
+import { AjusteTimePage } from './pages/selecionar/ajuste-time/ajuste-time.page';
 import { SelecionarPage } from './pages/selecionar/selecionar.page';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'placar', component: PlacarPage },
   { path: 'ajuste-placar', component: AjustePlacarPage },
   { path: 'selecionar', component: SelecionarPage },
-  { path: 'ajuste-selecionar', component: AjusteSelecionarPage },
+  { path: 'ajuste-time', component: AjusteTimePage },
   { path: 'resumo', component: ResumoPage }
 ];
 

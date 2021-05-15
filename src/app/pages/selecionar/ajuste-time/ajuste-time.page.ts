@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { MemoriaService } from 'src/app/services/memoria.service';
 
 @Component({
-  selector: 'app-ajuste-selecionar',
-  templateUrl: './ajuste-selecionar.page.html',
-  styleUrls: ['./ajuste-selecionar.page.scss'],
+  selector: 'app-ajuste-time',
+  templateUrl: './ajuste-time.page.html',
+  styleUrls: ['./ajuste-time.page.scss'],
 })
-export class AjusteSelecionarPage implements OnInit {
+export class AjusteTimePage implements OnInit {
   readonly textoCabecalho = 'Ajuste e seleção de times';
   readonly textoBotao = 'Confirmar';
 

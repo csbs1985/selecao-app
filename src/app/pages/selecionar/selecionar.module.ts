@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SelecionarPage } from './selecionar.page';
-import { AjusteSelecionarPage } from './ajuste-selecionar/ajuste-selecionar.page';
+import { AjusteTimePage } from './ajuste-time/ajuste-time.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   declarations: [
     SelecionarPage,
-    AjusteSelecionarPage
+    AjusteTimePage
   ]
 })
 export class SelecionarPageModule { }
