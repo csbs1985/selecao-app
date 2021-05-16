@@ -4,13 +4,28 @@
     width: var(--px-40);
     border-radius: var(--canto);
   }
+
+  &-inicio {
+    height: 4.375rem;
+    width: 100%;
+    color: var(--preto);
+    border-radius: var(--canto);
+    font-family: var(--bold);
+    margin-bottom: var(--px-20);
+    background-color: var(--azul);
+    text-transform: uppercase;
+  }
+
+  &-inicio:last-of-type {
+    background-color: var(--vermelho);
+  }
 }
 
 .desabilitado {
   pointer-events: none;
   opacity: 0.5;
 
-  div{
+  div {
     button {
       pointer-events: none;
       opacity: 0.5;
@@ -27,4 +42,3 @@
     }
   }
 }
-

@@ -1,0 +1,23 @@
+.selecionar {
+  height: 100%;
+  background-color: var(--preto);
+  display: flex;
+  flex-direction: column;
+
+  form {
+    width: 100%;
+    overflow: scroll;
+  }
+
+  .input-tag:first-of-type {
+    margin-top: 0;
+  }
+
+  &-botao {
+    width: 100%;
+  }
+
+  app-botao{
+    margin-top: var(--px-20px);
+  }
+}

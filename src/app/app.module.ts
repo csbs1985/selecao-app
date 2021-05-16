@@ -6,7 +6,7 @@ import { AppPage } from './app.page';
 import { AppRoutingModule } from './app-routing.module';
 import { InicioPageModule } from './pages/inicio/inicio.module';
 import { PlacarPageModule } from './pages/placar/placar.module';
-import { SelecionarPageModule } from './pages/selecionar/selecionar.module';
+import { TimePageModule } from './pages/time/time.module';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { ComponentsModule } from './components/components.module';
@@ -26,14 +26,14 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
     AppRoutingModule,
     InicioPageModule,
     PlacarPageModule,
-    SelecionarPageModule,
+    TimePageModule,
     ComponentsModule
   ],
   providers: [
-    SplashScreen,
     StatusBar,
     ScreenOrientation,
     Vibration,
+    SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppPage],

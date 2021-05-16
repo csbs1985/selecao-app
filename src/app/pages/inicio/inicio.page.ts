@@ -7,16 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage {
-
-  constructor(
-    private router: Router
-  ) { }
-
-  rotaAjustePlacar(): void {
-    this.router.navigate(['/placar']);
-  }
+  constructor(private router: Router) { }
 
   rotaAjusteSelecionar(): void {
-    this.router.navigate(['/ajuste-selecionar']);
+    this.router.navigate(['/ajuste-time']);
+  }
+
+  rotaPlacar(): void {
+    this.router.navigate(['/placar']);
   }
 }
