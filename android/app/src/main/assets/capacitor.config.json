@@ -3,5 +3,9 @@
   "appName": "Na trave",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www"
+  "webDir": "www",
+  "server": {
+    "url": "http://192.168.15.16:8101",
+    "cleartext": true
+  }
 }
