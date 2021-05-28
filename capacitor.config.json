@@ -1,11 +1,6 @@
 {
-  "appId": "na.trave",
-  "appName": "Na trave",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "server": {
-    "url": "http://192.168.15.16:8101",
-    "cleartext": true
-  }
+	"appId": "io.ionic.starter",
+	"appName": "na_trave",
+	"webDir": "www",
+	"bundledWebRuntime": false
 }

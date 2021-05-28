@@ -7,6 +7,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   templateUrl: 'app.page.html',
   styleUrls: ['app.page.scss'],
 })
+
 export class AppPage {
   constructor(
     private statusBar: StatusBar,
