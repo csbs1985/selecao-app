@@ -10,8 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "i": "npm install && ionic capacitor sync",
-    "res": "cordova-res && cordova-res android --skip-config --copy",
+    "i": "rm -rf node-modules && rm -rf package-lock.json && npm install && ionic capacitor sync",
+    "res": "ionic build --prod && cordova-res && cordova-res android --skip-config --copy",
     "emu": "ionic build --prod && ionic capacitor run android -l --external",
     "apk": "ionic build --prod && npx cap open android"
   },

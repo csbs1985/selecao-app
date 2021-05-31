@@ -19,7 +19,7 @@ export class AppPage {
 
   iniciarApp() {
     SplashScreen.show({
-      showDuration: 2000,
+      showDuration: 20000,
       autoHide: true
     });
     this.statusBar.backgroundColorByHexString('#2A2A2A');
