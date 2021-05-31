@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,10 @@ export class AppPage {
   }
 
   iniciarApp() {
+    SplashScreen.show({
+      showDuration: 2000,
+      autoHide: true
+    });
     this.statusBar.backgroundColorByHexString('#2A2A2A');
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
