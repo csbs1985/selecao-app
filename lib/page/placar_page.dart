@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/config/string_config.dart';
 
-class SelecaoPage extends StatefulWidget {
-  const SelecaoPage({super.key});
+class PlacarPage extends StatefulWidget {
+  const PlacarPage({super.key});
 
   @override
-  State<SelecaoPage> createState() => _SelecaoPageState();
+  State<PlacarPage> createState() => _PlacarPageState();
 }
 
-class _SelecaoPageState extends State<SelecaoPage> {
+class _PlacarPageState extends State<PlacarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PadraoAppbar(
         callback: () => {},
-        texto: SELECIONAR_TIME,
+        texto: PLACAR_CRONOMETRO,
       ),
     );
   }

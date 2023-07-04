@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:selecao_app/config/routes.config.dart';
 import 'package:selecao_app/config/tema_config.dart';
-import 'package:selecao_app/page/selecao_page.dart';
 import 'package:selecao_app/theme/ui_tema.dart';
 
 void main() {
@@ -27,10 +27,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: UiTema.tema,
-      home: const SelecaoPage(),
+      routerDelegate: routes.routerDelegate,
+      routeInformationParser: routes.routeInformationParser,
+      routeInformationProvider: routes.routeInformationProvider,
     );
   }
 }
