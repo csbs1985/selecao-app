@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Na trave</string>
-    <string name="title_activity_main">Na trave</string>
-    <string name="package_name">na.trave</string>
-    <string name="custom_url_scheme">na.trave</string>
-</resources>
