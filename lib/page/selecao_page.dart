@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
-import 'package:selecao_app/config/string_config.dart';
+import 'package:selecao_app/button/numero_button.dart';
 import 'package:selecao_app/input/jogadores_input.dart';
+import 'package:selecao_app/widget/info_selecionar_widget.dart';
 
 class SelecaoPage extends StatefulWidget {
   const SelecaoPage({super.key});
@@ -11,30 +12,29 @@ class SelecaoPage extends StatefulWidget {
 }
 
 class _SelecaoPageState extends State<SelecaoPage> {
+  bool _isToggleContainer = false;
+  String _numeroSelecionado = "5";
+
+  void _toggleContainer() {
+    setState(() => _isToggleContainer = !_isToggleContainer);
+  }
+
+  _selecionarNumero(String numero) {
+    setState(() => _numeroSelecionado = numero);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PadraoAppbar(callback: () => {}),
+      appBar: PadraoAppbar(callback: () => _toggleContainer()),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                SELECIONAR_DESCRICAO,
-                style: Theme.of(context).textTheme.displayMedium,
-              ),
-            ),
+            InfoSelecionarWidget(isToggle: _isToggleContainer),
             const JogadoresPadraoInput(
               hintText: "Jogadores...",
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                SELECIONAR_NUMERO,
-                style: Theme.of(context).textTheme.displayMedium,
-              ),
-            ),
+            NumeroButton(callback: (value) => _selecionarNumero(value)),
           ],
         ),
       ),

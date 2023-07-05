@@ -38,48 +38,52 @@ class JogadoresPadraoInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      autofocus: autoFocus!,
-      controller: controller,
-      expands: expands!,
-      focusNode: focusNode,
-      keyboardType: keyboardType,
-      onChanged: (value) => callback!(value),
-      onSaved: onSaved,
-      maxLength: maxLength,
-      minLines: minLines,
-      maxLines: maxLines,
-      style: Theme.of(context).textTheme.displaySmall,
-      textAlignVertical: TextAlignVertical.center,
-      validator: validator,
-      decoration: InputDecoration(
-        prefixIconColor: UiCor.icone,
-        counterStyle: Theme.of(context).textTheme.headlineSmall,
-        hintText: hintText,
-        filled: true,
-        fillColor: UiCor.input,
-        hintStyle: Theme.of(context).textTheme.bodySmall,
-        // errorStyle: UiTexto.erro,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 16,
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(
-            inputCircular ? UiBorda.circulo : UiBorda.arredondada,
+    return Container(
+      color: const Color(0xFF00D691),
+      padding: const EdgeInsets.all(16),
+      child: TextFormField(
+        autofocus: autoFocus!,
+        controller: controller,
+        expands: expands!,
+        focusNode: focusNode,
+        keyboardType: keyboardType,
+        onChanged: (value) => callback!(value),
+        onSaved: onSaved,
+        maxLength: maxLength,
+        minLines: minLines,
+        maxLines: maxLines,
+        style: Theme.of(context).textTheme.displaySmall,
+        textAlignVertical: TextAlignVertical.center,
+        validator: validator,
+        decoration: InputDecoration(
+          prefixIconColor: UiCor.icone,
+          counterStyle: Theme.of(context).textTheme.headlineSmall,
+          hintText: hintText,
+          filled: true,
+          fillColor: const Color(0xFF00D691),
+          hintStyle: Theme.of(context).textTheme.bodySmall,
+          // errorStyle: UiTexto.erro,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 16,
           ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(
-            inputCircular ? UiBorda.circulo : UiBorda.arredondada,
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(
+              inputCircular ? UiBorda.circulo : UiBorda.arredondada,
+            ),
           ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(
-            inputCircular ? UiBorda.circulo : UiBorda.arredondada,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(
+              inputCircular ? UiBorda.circulo : UiBorda.arredondada,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(
+              inputCircular ? UiBorda.circulo : UiBorda.arredondada,
+            ),
           ),
         ),
       ),

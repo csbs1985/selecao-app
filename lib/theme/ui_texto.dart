@@ -16,7 +16,7 @@ class UiTexto {
 
   static const TextStyle displayMedium = TextStyle(
     color: UiCor.displayMedium,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: FontWeight.normal,
   );
 }
