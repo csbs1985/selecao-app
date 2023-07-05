@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 import 'package:selecao_app/theme/ui_texto.dart';
 
 class UiTema {
+  static definirTema() {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarBrightness: Brightness.light,
+        statusBarColor: UiCor.statusBar,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: UiCor.navigationBar,
+        systemNavigationBarIconBrightness: Brightness.light,
+      ),
+    );
+  }
+
   static ThemeData tema = ThemeData(
     appBarTheme: const AppBarTheme(
       color: UiCor.appbar,

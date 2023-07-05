@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:selecao_app/config/string_config.dart';
-import 'package:selecao_app/config/tema_config.dart';
 import 'package:selecao_app/model/menu_model.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 import 'package:selecao_app/theme/ui_icone.dart';
@@ -16,8 +15,6 @@ class InicioPage extends StatefulWidget {
 }
 
 class _InicioPageState extends State<InicioPage> {
-  final TemaConfig _temaConfig = TemaConfig();
-
   PackageInfo _packageInfo = PackageInfo(
     appName: 'Unknown',
     packageName: 'Unknown',
@@ -30,7 +27,6 @@ class _InicioPageState extends State<InicioPage> {
   @override
   void initState() {
     _definirVersao();
-    _temaConfig.definirTemaInicio();
     super.initState();
   }
 

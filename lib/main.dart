@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/config/routes.config.dart';
-import 'package:selecao_app/config/tema_config.dart';
 import 'package:selecao_app/theme/ui_tema.dart';
 
 void main() {
@@ -17,12 +16,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
-  final TemaConfig _temaConfig = TemaConfig();
-
   @override
   void initState() {
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
-    _temaConfig.definirTema();
+    UiTema.definirTema();
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    UiTema.definirTema();
   }
 
   @override
