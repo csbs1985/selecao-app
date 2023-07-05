@@ -7,8 +7,7 @@ class UiTema {
     appBarTheme: const AppBarTheme(
       color: UiCor.appbar,
       elevation: 0,
-      iconTheme: IconThemeData(color: UiCor.iconeAppbar),
-      titleTextStyle: UiTexto.textoAppbar,
+      iconTheme: IconThemeData(color: UiCor.icone),
       titleSpacing: 0,
     ),
     brightness: Brightness.light,
@@ -16,6 +15,7 @@ class UiTema {
     scaffoldBackgroundColor: UiCor.fundo,
     textTheme: const TextTheme(
       displaySmall: UiTexto.displaySmall,
+      displayMedium: UiTexto.displayMedium,
       displayLarge: UiTexto.displayLarge,
     ),
   );

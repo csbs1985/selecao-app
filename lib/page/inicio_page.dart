@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/config/tema_config.dart';
 import 'package:selecao_app/model/menu_model.dart';
-import 'package:selecao_app/text/displaySmall.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 import 'package:selecao_app/theme/ui_icone.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -65,8 +64,14 @@ class _InicioPageState extends State<InicioPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const DisplaySmall(texto: BY),
-                DisplaySmall(texto: 'v${_packageInfo.version}'),
+                Text(
+                  BY,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+                Text(
+                  'v${_packageInfo.version}',
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
               ],
             )
           ],

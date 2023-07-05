@@ -5,12 +5,9 @@ class PadraoAppbar extends StatefulWidget implements PreferredSizeWidget {
   const PadraoAppbar({
     super.key,
     required Function callback,
-    required String texto,
-  })  : _callback = callback,
-        _texto = texto;
+  }) : _callback = callback;
 
   final Function _callback;
-  final String _texto;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -29,13 +26,12 @@ class _PadraoAppbarState extends State<PadraoAppbar> {
     return AppBar(
       leading: IconeButton(
         callback: () => _voltar(),
-        icone: Icons.arrow_back_rounded,
+        icone: Icons.arrow_circle_left_outlined,
       ),
-      title: Text(widget._texto),
       actions: [
         IconeButton(
           callback: () => widget._callback(),
-          icone: Icons.info_outline,
+          icone: Icons.help_outline,
         )
       ],
     );

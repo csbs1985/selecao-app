@@ -25,4 +25,16 @@ class TemaConfig {
       ),
     );
   }
+
+  definirTemaSelecionar() {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarBrightness: Brightness.light,
+        statusBarColor: UiCor.statusBar,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: UiCor.navigationBar,
+        systemNavigationBarIconBrightness: Brightness.light,
+      ),
+    );
+  }
 }

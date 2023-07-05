@@ -14,21 +14,29 @@ class UiCor {
   static const Color statusBarInicio = Color(0xFFFCD45C);
   static const Color navigationBarInicio = Color(0xFFFCD45C);
 
+  static const Color selecionar = Color(0xFF1CF559);
+  static const Color iconeSelecionar = Color(0xFFFFFFFF);
+  static const Color statusBarSelecionar = Color(0xFF1CF559);
+  static const Color navigationBarSelecionar = Color(0xFF0C2D54);
+
   static const Color navigationBar = Color(0xFF0C2D54);
   static const Color statusBar = Color(0xFF0C2D54);
 
-  static const Color appbar = preto;
+  static const Color appbar = Color(0xFF0C2D54);
+  static const Color displayLarge = Color(0xFF0C2D54);
+  static const Color displayMedium = Color(0xFFFFFFFF);
+  static const Color displaySmall = Color(0xFF0C2D54);
+  static const Color fundo = Color(0xFF0C2D54);
+  static const Color icone = Color(0xFFFFFFFF);
+  static const Color input = Color(0xFF0C2D54);
+
+  //////////////////////
   static const Color display = cinza;
-  static const Color fundo = preto;
-  static const Color icone = Color(0xFF0C2D54);
-  static const Color iconeAppbar = branco;
   static const Color mandante = vermelho;
   static const Color periodo = verde;
   static const Color tempo = azul;
   static const Color texto = preto;
-  static const Color displayLarge = Color(0xFF0C2D54);
-  static const Color displaySmall = Color(0xFF0C2D54);
-  static const Color textoAppbar = branco;
+
   static const Color titulo = amarelo;
   static const Color visitante = amarelo;
 }

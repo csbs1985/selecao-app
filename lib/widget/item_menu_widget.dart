@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:selecao_app/model/menu_model.dart';
-import 'package:selecao_app/text/displayLarge.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
 class ItemMenuWidget extends StatefulWidget {
@@ -28,7 +27,10 @@ class _ItemMenuWidgetState extends State<ItemMenuWidget> {
       onTap: () => context.push(widget._item.rota),
       child: Row(
         children: [
-          DisplayLarge(texto: widget._item.texto),
+          Text(
+            widget._item.texto,
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
           const SizedBox(width: 16),
           Icon(
             isPressed
