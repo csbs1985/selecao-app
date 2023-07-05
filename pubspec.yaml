@@ -17,6 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  package_info_plus: ^4.0.2
 
 flutter:
   uses-material-design: true
@@ -24,11 +25,12 @@ flutter:
   assets:
     - assets/app/
     - assets/fonts/
+    - assets/icons/
 
   fonts:
-    - family: agdasima
+    - family: poppins
       fonts:
-        - asset: assets/fonts/Agdasima-Regular.ttf
+        - asset: assets/fonts/poppins.ttf
     - family: digital
       fonts:
         - asset: assets/fonts/DS-DIGI.TTF

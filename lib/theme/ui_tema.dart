@@ -12,7 +12,11 @@ class UiTema {
       titleSpacing: 0,
     ),
     brightness: Brightness.light,
-    fontFamily: 'agdasima',
+    fontFamily: 'poppins',
     scaffoldBackgroundColor: UiCor.fundo,
+    textTheme: const TextTheme(
+      displaySmall: UiTexto.displaySmall,
+      displayLarge: UiTexto.displayLarge,
+    ),
   );
 }

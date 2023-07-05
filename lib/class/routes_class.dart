@@ -23,6 +23,7 @@ CustomTransitionPage transicaoPaginas<T>({
 }
 
 enum RoutesEnum {
+  DOAR('/doar'),
   INICIO('/inicio'),
   PLACAR('/placar'),
   SELECIONAR('/selecionar'),
