@@ -55,19 +55,20 @@ class _JogadoresInputState extends State<JogadoresInput> {
       children: [
         Padding(
           padding: const EdgeInsets.all(16),
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TitleMediumText(
-                    cor: Color(0xFF00D691), texto: SELECIONAR_TIME),
-                if (_listaJogadores.isNotEmpty)
-                  TitleMediumText(
-                    texto: '${_listaJogadores.length} $NOMES',
-                    cor: const Color(0xFF00D691),
-                  ),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const TitleMediumText(
+                cor: Color(0xFF00D691),
+                texto: SELECIONAR_TIME,
+              ),
+              if (_listaJogadores.isNotEmpty)
+                TitleMediumText(
+                  texto:
+                      '${_listaJogadores.length} ${_listaJogadores.length > 1 ? NOMES : NOME}',
+                  cor: const Color(0xFF00D691),
+                ),
+            ],
           ),
         ),
         Container(
@@ -94,7 +95,7 @@ class _JogadoresInputState extends State<JogadoresInput> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                item,
+                                item.toUpperCase(),
                                 style: const TextStyle(
                                   color: Color(0xFF00D691),
                                   fontSize: 16,

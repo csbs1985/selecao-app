@@ -13,7 +13,8 @@ const String DOAR_DESCRICAO =
     'Com gratidão e um sorriso, \n\n'
     'Charles Santos';
 
-const String NOMES = "nome(s)";
+const String NOME = "nome";
+const String NOMES = "nomes";
 
 const String PIX_COPIAR = "Copiar chave Pix";
 const String PIX_CODIGO = "7faa6851-5f31-45c8-831c-fbfafc47d3f9";
