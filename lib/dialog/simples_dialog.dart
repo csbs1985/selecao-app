@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/theme/ui_tamanho.dart';
 
 class SimplesDialog extends StatefulWidget {
-  const SimplesDialog({super.key});
+  const SimplesDialog({
+    super.key,
+    IconData? icone,
+    IconData? iconeAtivo,
+    required String texto,
+    required String titulo,
+  })  : _icone = icone,
+        _iconeAtivo = iconeAtivo,
+        _texto = texto,
+        _titulo = titulo;
+
+  final IconData? _icone;
+  final IconData? _iconeAtivo;
+  final String _texto;
+  final String _titulo;
 
   @override
   State<SimplesDialog> createState() => _OpcoesDialogState();
@@ -18,21 +31,21 @@ class _OpcoesDialogState extends State<SimplesDialog> {
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.zero)),
       actionsPadding: const EdgeInsets.all(16),
-      backgroundColor: Colors.red,
-      title: const Text(
-        SELECIONAR_NUMERO_ERRO,
-        style: TextStyle(
+      backgroundColor: const Color(0xFF0C2D54),
+      title: Text(
+        widget._titulo,
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 24,
           fontWeight: FontWeight.normal,
         ),
       ),
-      content: const SingleChildScrollView(
+      content: SingleChildScrollView(
         child: ListBody(
           children: [
             Text(
-              SELECIONAR_NUMERO_ERRO_DESCRICAO,
-              style: TextStyle(
+              widget._texto,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
@@ -56,9 +69,11 @@ class _OpcoesDialogState extends State<SimplesDialog> {
                 color: Colors.white,
                 child: Center(
                   child: Icon(
-                    isPressed ? Icons.cancel : Icons.highlight_off,
+                    isPressed
+                        ? (widget._iconeAtivo ?? Icons.cancel)
+                        : (widget._icone ?? Icons.highlight_off),
                     size: UiTamanho.botaoDialog,
-                    color: Colors.red,
+                    color: const Color(0xFF0C2D54),
                   ),
                 ),
               ),

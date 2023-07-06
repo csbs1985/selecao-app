@@ -5,26 +5,20 @@ import 'package:selecao_app/button/numero_button.dart';
 import 'package:selecao_app/button/primeiro_button.dart';
 import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/class/selecionar_class.dart';
+import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/input/jogadores_input.dart';
-import 'package:selecao_app/widget/info_widget.dart';
 
-class SelecaoPage extends StatefulWidget {
-  const SelecaoPage({super.key});
+class SelecionarPage extends StatefulWidget {
+  const SelecionarPage({super.key});
 
   @override
-  State<SelecaoPage> createState() => _SelecaoPageState();
+  State<SelecionarPage> createState() => _SelecionarPageState();
 }
 
-class _SelecaoPageState extends State<SelecaoPage> {
+class _SelecionarPageState extends State<SelecionarPage> {
   final SelecionarClass _selecionarClass = SelecionarClass();
-
-  bool _isToggleContainer = false;
-
-  void _toggleContainer() {
-    setState(() => _isToggleContainer = !_isToggleContainer);
-  }
 
   void _selecionarNumero(String numero) {
     setState(() => currentNumEquipe.value = numero);
@@ -32,16 +26,32 @@ class _SelecaoPageState extends State<SelecaoPage> {
 
   void _validarTimes() {
     !_selecionarClass.validarTimes(currentNumEquipe.value)
-        ? _showAlertDialog()
+        ? _dialogErroNumero()
         : context.push(RoutesEnum.TIMES.value);
   }
 
-  Future<void> _showAlertDialog() async {
+  Future<void> _dialogErroNumero() async {
     return showDialog<void>(
       context: context,
       barrierDismissible: true,
       builder: (BuildContext context) {
-        return const SimplesDialog();
+        return const SimplesDialog(
+          titulo: SELECIONAR_NUMERO_ERRO,
+          texto: SELECIONAR_NUMERO_ERRO_DESCRICAO,
+        );
+      },
+    );
+  }
+
+  Future<void> _dialogInfo() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return const SimplesDialog(
+          titulo: COMO_USAR,
+          texto: SELECIONAR_INSTRUCAO,
+        );
       },
     );
   }
@@ -49,12 +59,12 @@ class _SelecaoPageState extends State<SelecaoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PadraoAppbar(callback: () => _toggleContainer()),
+      appBar: AppBar(toolbarHeight: 0),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            InfoWidget(isToggle: _isToggleContainer),
+            PadraoAppbar(callback: () => _dialogInfo()),
             JogadoresInput(callback: (value) => currentJogadores.value = value),
             NumeroButton(callback: (value) => _selecionarNumero(value)),
             PrimeiroButton(

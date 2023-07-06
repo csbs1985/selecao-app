@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:selecao_app/text/title_medium_text.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
 class TextoButton extends StatefulWidget {
@@ -38,14 +39,7 @@ class _ItemMenuWidgetState extends State<TextoButton> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-            child: Text(
-              widget._texto,
-              style: TextStyle(
-                color: widget._cor,
-                fontSize: 24,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
+            child: TitleMediumText(cor: widget._cor, texto: widget._texto),
           ),
         ),
         GestureDetector(

@@ -3,7 +3,8 @@ import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/texto_button.dart';
 import 'package:selecao_app/class/selecionar_class.dart';
 import 'package:selecao_app/config/string_config.dart';
-import 'package:selecao_app/widget/info_widget.dart';
+import 'package:selecao_app/dialog/simples_dialog.dart';
+import 'package:selecao_app/text/title_medium_text.dart';
 
 class TimesPage extends StatefulWidget {
   const TimesPage({super.key});
@@ -28,6 +29,19 @@ class _TimesPageState extends State<TimesPage> {
     setState(() => _equipes = _selecionarClass.separarEquipes());
   }
 
+  Future<void> _showAlertDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return const SimplesDialog(
+          titulo: COMO_USAR,
+          texto: TIMES_INSTRUCAO,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,17 +50,12 @@ class _TimesPageState extends State<TimesPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PadraoAppbar(callback: () => {}),
-            const InfoWidget(isToggle: true),
+            PadraoAppbar(callback: () => _showAlertDialog()),
             const Padding(
               padding: EdgeInsets.all(16),
-              child: Text(
-                TIMES_TITULO,
-                style: TextStyle(
-                  color: Color(0xFF00D691),
-                  fontSize: 24,
-                  fontWeight: FontWeight.normal,
-                ),
+              child: TitleMediumText(
+                cor: Color(0xFF00D691),
+                texto: TIMES_TITULO,
               ),
             ),
             Wrap(

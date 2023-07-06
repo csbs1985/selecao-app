@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/page/inicio_page.dart';
 import 'package:selecao_app/page/placar_page.dart';
-import 'package:selecao_app/page/selecao_page.dart';
+import 'package:selecao_app/page/selecionar_page.dart';
 import 'package:selecao_app/page/splash_page.dart';
 import 'package:selecao_app/page/times_page.dart';
 
@@ -15,7 +15,7 @@ final GoRouter routes = GoRouter(
       pageBuilder: (context, state) => transicaoPaginas(
         context: context,
         state: state,
-        child: const SelecaoPage(),
+        child: const SelecionarPage(),
       ),
     ),
     GoRoute(
