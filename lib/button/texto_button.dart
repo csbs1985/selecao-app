@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:selecao_app/button/primeiro_button.dart';
 import 'package:selecao_app/text/title_medium_text.dart';
-import 'package:selecao_app/theme/ui_cor.dart';
 
 class TextoButton extends StatefulWidget {
   const TextoButton({
@@ -31,9 +31,6 @@ class _ItemMenuWidgetState extends State<TextoButton> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final size = width / 5;
-
     return Row(
       children: [
         Expanded(
@@ -42,25 +39,11 @@ class _ItemMenuWidgetState extends State<TextoButton> {
             child: TitleMediumText(cor: widget._cor, texto: widget._texto),
           ),
         ),
-        GestureDetector(
-          onTapDown: (_) => setState(() => isPressed = true),
-          onTapUp: (_) => setState(() => isPressed = false),
-          onTapCancel: () => setState(() => isPressed = false),
-          onTap: () => widget._callback(),
-          child: Container(
-            width: size,
-            height: size,
-            color: widget._cor,
-            child: Center(
-              child: Icon(
-                isPressed
-                    ? widget._iconeAtivo ?? Icons.arrow_circle_right
-                    : widget._icone ?? Icons.arrow_circle_right_outlined,
-                size: 48,
-                color: UiCor.iconeInicio,
-              ),
-            ),
-          ),
+        PrimeiroButton(
+          cor: const Color(0xFF00D691),
+          callback: () => () => widget._callback(),
+          icone: widget._icone,
+          iconeAtivo: widget._iconeAtivo,
         ),
       ],
     );

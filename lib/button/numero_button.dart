@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
+import 'package:selecao_app/text/title_medium_text.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
 class NumeroButton extends StatefulWidget {
@@ -47,15 +48,9 @@ class _NumeroButtonState extends State<NumeroButton> {
       children: [
         const Padding(
           padding: EdgeInsets.all(16),
-          child: Center(
-            child: Text(
-              SELECIONAR_NUMERO,
-              style: TextStyle(
-                color: Color(0xFFd0c6fb),
-                fontSize: 24,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
+          child: TitleMediumText(
+            cor: Color(0xFFd0c6fb),
+            texto: SELECIONAR_NUMERO,
           ),
         ),
         Wrap(

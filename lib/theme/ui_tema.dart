@@ -31,5 +31,11 @@ class UiTema {
       displayMedium: UiTexto.displayMedium,
       displayLarge: UiTexto.displayLarge,
     ),
+    dialogTheme: const DialogTheme(
+      shape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
+      actionsPadding: EdgeInsets.all(16),
+      backgroundColor: Color(0xFF0C2D54),
+    ),
   );
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:selecao_app/button/primeiro_button.dart';
+import 'package:selecao_app/text/title_medium_text.dart';
 import 'package:selecao_app/theme/ui_tamanho.dart';
 
 class SimplesDialog extends StatefulWidget {
@@ -28,17 +30,9 @@ class _OpcoesDialogState extends State<SimplesDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.zero)),
-      actionsPadding: const EdgeInsets.all(16),
-      backgroundColor: const Color(0xFF0C2D54),
-      title: Text(
-        widget._titulo,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 24,
-          fontWeight: FontWeight.normal,
-        ),
+      title: TitleMediumText(
+        texto: widget._titulo,
+        cor: Colors.white,
       ),
       content: SingleChildScrollView(
         child: ListBody(
@@ -58,25 +52,12 @@ class _OpcoesDialogState extends State<SimplesDialog> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            GestureDetector(
-              onTapDown: (_) => setState(() => isPressed = true),
-              onTapUp: (_) => setState(() => isPressed = false),
-              onTapCancel: () => setState(() => isPressed = false),
-              onTap: () => Navigator.of(context).pop(),
-              child: Container(
-                width: UiTamanho.botaoDialog,
-                height: UiTamanho.botaoDialog,
-                color: Colors.white,
-                child: Center(
-                  child: Icon(
-                    isPressed
-                        ? (widget._iconeAtivo ?? Icons.cancel)
-                        : (widget._icone ?? Icons.highlight_off),
-                    size: UiTamanho.botaoDialog,
-                    color: const Color(0xFF0C2D54),
-                  ),
-                ),
-              ),
+            PrimeiroButton(
+              cor: Colors.white,
+              callback: () => Navigator.of(context).pop(),
+              icone: widget._icone ?? Icons.highlight_off,
+              iconeAtivo: widget._iconeAtivo ?? Icons.cancel,
+              size: UiTamanho.botaoDialog,
             ),
           ],
         ),

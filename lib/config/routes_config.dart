@@ -3,7 +3,6 @@ import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/page/inicio_page.dart';
 import 'package:selecao_app/page/placar_page.dart';
 import 'package:selecao_app/page/selecionar_page.dart';
-import 'package:selecao_app/page/splash_page.dart';
 import 'package:selecao_app/page/times_page.dart';
 
 final GoRouter routes = GoRouter(
@@ -32,14 +31,6 @@ final GoRouter routes = GoRouter(
         context: context,
         state: state,
         child: const InicioPage(),
-      ),
-    ),
-    GoRoute(
-      path: RoutesEnum.SPLASH.value,
-      pageBuilder: (context, state) => transicaoPaginas(
-        context: context,
-        state: state,
-        child: const SplashPage(),
       ),
     ),
     GoRoute(

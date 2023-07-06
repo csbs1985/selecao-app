@@ -27,7 +27,6 @@ enum RoutesEnum {
   INICIO('/inicio'),
   PLACAR('/placar'),
   SELECIONAR('/selecionar'),
-  SPLASH('/splash'),
   TIMES('/times');
 
   final String value;

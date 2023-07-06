@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/button/primeiro_button.dart';
 import 'package:selecao_app/config/string_config.dart';
+import 'package:selecao_app/text/title_medium_text.dart';
 import 'package:selecao_app/theme/ui_borda.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
@@ -58,22 +59,12 @@ class _JogadoresInputState extends State<JogadoresInput> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  SELECIONAR_TIME,
-                  style: TextStyle(
-                    color: Color(0xFF00D691),
-                    fontSize: 24,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
+                const TitleMediumText(
+                    cor: Color(0xFF00D691), texto: SELECIONAR_TIME),
                 if (_listaJogadores.isNotEmpty)
-                  Text(
-                    '${_listaJogadores.length} $NOMES',
-                    style: const TextStyle(
-                      color: Color(0xFF00D691),
-                      fontSize: 24,
-                      fontWeight: FontWeight.normal,
-                    ),
+                  TitleMediumText(
+                    texto: '${_listaJogadores.length} $NOMES',
+                    cor: const Color(0xFF00D691),
                   ),
               ],
             ),
