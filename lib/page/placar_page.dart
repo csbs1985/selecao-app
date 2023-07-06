@@ -13,6 +13,7 @@ class _PlacarPageState extends State<PlacarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PadraoAppbar(callback: () => {}),
+      body: const SingleChildScrollView(),
     );
   }
 }

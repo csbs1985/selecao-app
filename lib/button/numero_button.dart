@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/config/string_config.dart';
+import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
 class NumeroButton extends StatefulWidget {
@@ -28,15 +29,13 @@ class _NumeroButtonState extends State<NumeroButton> {
     '11'
   ];
 
-  String _numeroSelecionado = "5";
-
   _selecionarNumero(String numero) {
-    setState(() => _numeroSelecionado = numero);
-    widget._callback(_numeroSelecionado);
+    setState(() => currentNumEquipe.value = numero);
+    widget._callback(currentNumEquipe.value);
   }
 
   bool _verificarNumero(String numero) {
-    return _numeroSelecionado == numero ? true : false;
+    return currentNumEquipe.value == numero ? true : false;
   }
 
   @override

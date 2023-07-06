@@ -52,16 +52,30 @@ class _JogadoresInputState extends State<JogadoresInput> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(16),
+        Padding(
+          padding: const EdgeInsets.all(16),
           child: Center(
-            child: Text(
-              SELECIONAR_TIME,
-              style: TextStyle(
-                color: Color(0xFF00D691),
-                fontSize: 24,
-                fontWeight: FontWeight.normal,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  SELECIONAR_TIME,
+                  style: TextStyle(
+                    color: Color(0xFF00D691),
+                    fontSize: 24,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                if (_listaJogadores.isNotEmpty)
+                  Text(
+                    '${_listaJogadores.length} $NOMES',
+                    style: const TextStyle(
+                      color: Color(0xFF00D691),
+                      fontSize: 24,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+              ],
             ),
           ),
         ),
