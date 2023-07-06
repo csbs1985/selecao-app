@@ -8,7 +8,7 @@ import 'package:selecao_app/class/selecionar_class.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/input/jogadores_input.dart';
-import 'package:selecao_app/widget/info_selecionar_widget.dart';
+import 'package:selecao_app/widget/info_widget.dart';
 
 class SelecaoPage extends StatefulWidget {
   const SelecaoPage({super.key});
@@ -54,7 +54,7 @@ class _SelecaoPageState extends State<SelecaoPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            InfoSelecionarWidget(isToggle: _isToggleContainer),
+            InfoWidget(isToggle: _isToggleContainer),
             JogadoresInput(callback: (value) => currentJogadores.value = value),
             NumeroButton(callback: (value) => _selecionarNumero(value)),
             PrimeiroButton(

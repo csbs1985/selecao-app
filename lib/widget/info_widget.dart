@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/config/string_config.dart';
 
-class InfoSelecionarWidget extends StatefulWidget {
-  const InfoSelecionarWidget({
+class InfoWidget extends StatefulWidget {
+  const InfoWidget({
     super.key,
     required bool isToggle,
   }) : _isToggle = isToggle;
@@ -10,10 +10,10 @@ class InfoSelecionarWidget extends StatefulWidget {
   final bool _isToggle;
 
   @override
-  State<InfoSelecionarWidget> createState() => _InfoSelecionarWidgetState();
+  State<InfoWidget> createState() => _InfoWidgetState();
 }
 
-class _InfoSelecionarWidgetState extends State<InfoSelecionarWidget>
+class _InfoWidgetState extends State<InfoWidget>
     with SingleTickerProviderStateMixin {
   AnimationController? _animationController;
   Animation<double>? _animation;

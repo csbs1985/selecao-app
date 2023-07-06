@@ -21,3 +21,4 @@ const String SELECIONAR_TIME = "Digite os nomes dos jogadores";
 const String SELECIONAR_VAZIO = "Digite os nomes...";
 
 const String TIMES_TITULO = "Equipes geradas";
+const String TIMES_NOVAMENTE = "Gerar novamente";

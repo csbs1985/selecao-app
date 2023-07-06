@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
 
 class SelecionarClass {
+  int indice = 0;
+
   bool validarTimes(String numeroSelecionado) {
     final int numero = int.parse(numeroSelecionado);
     final int lista = currentJogadores.value.length;
@@ -36,12 +38,15 @@ class SelecionarClass {
     return equipes;
   }
 
-  Color definirCor(int indice) {
+  Color definirCor() {
     final listaCores = [
-      const Color(0xFF00D581),
       const Color(0xffC8F51B),
-      const Color(0xFF004751),
+      const Color(0xffE9FFD9),
       const Color(0xffC8B7F3),
+      const Color(0xFFFCD45C),
+      const Color(0xFFDA714F),
+      const Color(0xFF688DE2),
+      const Color(0xFF1CF559),
     ];
 
     final cor = listaCores[indice];

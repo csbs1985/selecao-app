@@ -17,6 +17,7 @@ class JogadoresInput extends StatefulWidget {
 }
 
 class _JogadoresInputState extends State<JogadoresInput> {
+  final FocusNode _focusNode = FocusNode();
   final TextEditingController _controllerJogadores = TextEditingController();
 
   String _inputTexto = "";
@@ -50,6 +51,8 @@ class _JogadoresInputState extends State<JogadoresInput> {
 
   @override
   Widget build(BuildContext context) {
+    _focusNode.unfocus();
+
     return Column(
       children: [
         Padding(
@@ -126,6 +129,8 @@ class _JogadoresInputState extends State<JogadoresInput> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      autofocus: false,
+                      focusNode: _focusNode,
                       controller: _controllerJogadores,
                       onChanged: (value) => setState(() => _inputTexto = value),
                       maxLines: 1,
