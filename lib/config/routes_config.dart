@@ -4,6 +4,7 @@ import 'package:selecao_app/page/inicio_page.dart';
 import 'package:selecao_app/page/placar_page.dart';
 import 'package:selecao_app/page/selecao_page.dart';
 import 'package:selecao_app/page/splash_page.dart';
+import 'package:selecao_app/page/times_page.dart';
 
 final GoRouter routes = GoRouter(
   debugLogDiagnostics: true,
@@ -39,6 +40,14 @@ final GoRouter routes = GoRouter(
         context: context,
         state: state,
         child: const SplashPage(),
+      ),
+    ),
+    GoRoute(
+      path: RoutesEnum.TIMES.value,
+      pageBuilder: (context, state) => transicaoPaginas(
+        context: context,
+        state: state,
+        child: const TimesPage(),
       ),
     ),
   ],

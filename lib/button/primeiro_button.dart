@@ -5,9 +5,12 @@ class PrimeiroButton extends StatefulWidget {
   const PrimeiroButton({
     super.key,
     required Function callback,
-  }) : _callback = callback;
+    required Color cor,
+  })  : _callback = callback,
+        _cor = cor;
 
   final Function _callback;
+  final Color _cor;
 
   @override
   State<PrimeiroButton> createState() => _ItemMenuWidgetState();
@@ -29,7 +32,7 @@ class _ItemMenuWidgetState extends State<PrimeiroButton> {
       child: Container(
         width: size,
         height: size,
-        color: const Color(0xFFC8F51B),
+        color: widget._cor,
         child: Center(
           child: Icon(
             isPressed

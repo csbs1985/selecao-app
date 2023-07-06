@@ -1,92 +1,152 @@
 import 'package:flutter/material.dart';
+import 'package:selecao_app/button/primeiro_button.dart';
+import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/theme/ui_borda.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
-class JogadoresPadraoInput extends StatelessWidget {
-  final bool? autoFocus;
-  final TextEditingController? controller;
-  final Function? callback;
-  final bool? expands;
-  final FocusNode? focusNode;
-  final String? hintText;
-  final bool inputCircular;
-  final TextInputType? keyboardType;
-  final Function(String?)? onSaved;
-  final int? maxLength;
-  final int? minLines;
-  final int? maxLines;
-  final bool? pesquisarIcone;
-  final String? Function(String?)? validator;
+class JogadoresInput extends StatefulWidget {
+  const JogadoresInput({
+    super.key,
+    required Function callback,
+  }) : _callback = callback;
 
-  const JogadoresPadraoInput({
-    Key? key,
-    this.autoFocus = false,
-    this.controller,
-    this.callback,
-    this.expands = false,
-    this.focusNode,
-    this.hintText,
-    this.inputCircular = false,
-    this.keyboardType = TextInputType.text,
-    this.onSaved,
-    this.maxLength,
-    this.minLines = 1,
-    this.maxLines = 1,
-    this.pesquisarIcone = false,
-    this.validator,
-  }) : super(key: key);
+  final Function _callback;
+
+  @override
+  State<JogadoresInput> createState() => _JogadoresInputState();
+}
+
+class _JogadoresInputState extends State<JogadoresInput> {
+  final TextEditingController _controllerJogadores = TextEditingController();
+
+  String _inputTexto = "";
+
+  final List<String> _listaJogadores = [];
+
+  void _separarPorVirgula() {
+    if (_inputTexto.isNotEmpty) {
+      if (_inputTexto.contains(',')) {
+        List<String> jogadores = _inputTexto.split(',');
+        setState(() => _listaJogadores.addAll(jogadores));
+      } else {
+        setState(() => _listaJogadores.add(_inputTexto));
+      }
+    }
+
+    widget._callback(_listaJogadores);
+    _controllerJogadores.clear();
+    _inputTexto = "";
+  }
+
+  void _deletarJogador(String jogador) {
+    setState(() => _listaJogadores.remove(jogador));
+  }
+
+  @override
+  void dispose() {
+    _controllerJogadores.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFF00D691),
-      padding: const EdgeInsets.all(16),
-      child: TextFormField(
-        autofocus: autoFocus!,
-        controller: controller,
-        expands: expands!,
-        focusNode: focusNode,
-        keyboardType: keyboardType,
-        onChanged: (value) => callback!(value),
-        onSaved: onSaved,
-        maxLength: maxLength,
-        minLines: minLines,
-        maxLines: maxLines,
-        style: Theme.of(context).textTheme.displaySmall,
-        textAlignVertical: TextAlignVertical.center,
-        validator: validator,
-        decoration: InputDecoration(
-          prefixIconColor: UiCor.icone,
-          counterStyle: Theme.of(context).textTheme.headlineSmall,
-          hintText: hintText,
-          filled: true,
-          fillColor: const Color(0xFF00D691),
-          hintStyle: Theme.of(context).textTheme.bodySmall,
-          // errorStyle: UiTexto.erro,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(
-              inputCircular ? UiBorda.circulo : UiBorda.arredondada,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(
-              inputCircular ? UiBorda.circulo : UiBorda.arredondada,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(
-              inputCircular ? UiBorda.circulo : UiBorda.arredondada,
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(16),
+          child: Center(
+            child: Text(
+              SELECIONAR_TIME,
+              style: TextStyle(
+                color: Color(0xFF00D691),
+                fontSize: 24,
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ),
         ),
-      ),
+        Container(
+          width: double.infinity,
+          color: const Color(0xFF00D691),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: _listaJogadores.isEmpty
+                    ? const EdgeInsets.all(0)
+                    : const EdgeInsets.all(8),
+                child: Wrap(
+                  runSpacing: 8,
+                  spacing: 8,
+                  children: [
+                    for (var item in _listaJogadores)
+                      GestureDetector(
+                        onTap: () => _deletarJogador(item),
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(8, 8, 6, 8),
+                          color: const Color(0xFF004751),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                item,
+                                style: const TextStyle(
+                                  color: Color(0xFF00D691),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              const Icon(
+                                Icons.close,
+                                color: Color(0xFF00D691),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      controller: _controllerJogadores,
+                      onChanged: (value) => setState(() => _inputTexto = value),
+                      maxLines: 1,
+                      textAlignVertical: TextAlignVertical.top,
+                      decoration: InputDecoration(
+                        prefixIconColor: UiCor.icone,
+                        counterStyle: Theme.of(context).textTheme.headlineSmall,
+                        hintText: SELECIONAR_VAZIO,
+                        filled: true,
+                        fillColor: const Color(0xFF00D691),
+                        hintStyle: const TextStyle(
+                          color: Color(0xFF004751),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
+                        border: UiBorda.inputBorda,
+                        enabledBorder: UiBorda.inputBorda,
+                        focusedBorder: UiBorda.inputBorda,
+                      ),
+                    ),
+                  ),
+                  PrimeiroButton(
+                    cor: const Color(0xFF00D691),
+                    callback: () => _separarPorVirgula(),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

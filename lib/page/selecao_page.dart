@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/numero_button.dart';
 import 'package:selecao_app/button/primeiro_button.dart';
+import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/input/jogadores_input.dart';
 import 'package:selecao_app/widget/info_selecionar_widget.dart';
 
@@ -21,9 +22,11 @@ class _SelecaoPageState extends State<SelecaoPage> {
     setState(() => _isToggleContainer = !_isToggleContainer);
   }
 
-  _selecionarNumero(String numero) {
+  void _selecionarNumero(String numero) {
     setState(() => _numeroSelecionado = numero);
   }
+
+  void _montarTimes() {}
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +37,12 @@ class _SelecaoPageState extends State<SelecaoPage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             InfoSelecionarWidget(isToggle: _isToggleContainer),
-            const JogadoresPadraoInput(
-              hintText: "Jogadores...",
-            ),
+            JogadoresInput(callback: (value) => currentJogadores.value = value),
             NumeroButton(callback: (value) => _selecionarNumero(value)),
-            PrimeiroButton(callback: () => {}),
+            PrimeiroButton(
+              cor: const Color(0xFFC8F51B),
+              callback: () => _montarTimes(),
+            ),
           ],
         ),
       ),

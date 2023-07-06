@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:selecao_app/config/routes.config.dart';
+import 'package:flutter/services.dart';
+import 'package:selecao_app/config/routes_config.dart';
 import 'package:selecao_app/theme/ui_tema.dart';
 
 void main() {
@@ -30,6 +31,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: UiTema.tema,

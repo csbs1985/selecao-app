@@ -54,7 +54,7 @@ class _InfoSelecionarWidgetState extends State<InfoSelecionarWidget>
       color: Colors.red,
       curve: Curves.easeInOut,
       duration: const Duration(milliseconds: 300),
-      height: widget._isToggle ? 200 : 0,
+      height: widget._isToggle ? 240 : 0,
       padding: const EdgeInsets.all(16),
       child: Center(
         child: Text(
