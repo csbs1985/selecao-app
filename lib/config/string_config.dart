@@ -20,6 +20,13 @@ const String PIX_CODIGO = "7faa6851-5f31-45c8-831c-fbfafc47d3f9";
 
 const String PLACAR = "Placar";
 const String PLACAR_CRONOMETRO = "Placar e cronômetro";
+const String PLACAR_INSTRUCAO =
+    '- Controle os pontos do time mandante usando os botões amarelos. \n'
+    '- Controle os pontos do time visitante usando os botões vermelhos. \n'
+    '- Gerencie o tempo da partida utilizando os botões lilás. \n'
+    '- Acesse a linha do tempo da partida pressionando o botão laranja. \n'
+    '- Ajuste o período da partida no botão verde. \n'
+    '- Configure as opções da partida no botão branco. \n';
 
 const String SELECIONAR = "Selecionar";
 const String SELECIONAR_INSTRUCAO =

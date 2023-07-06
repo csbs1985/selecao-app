@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/segundo_button.dart';
+import 'package:selecao_app/config/string_config.dart';
+import 'package:selecao_app/dialog/simples_dialog.dart';
+import 'package:selecao_app/theme/ui_cor.dart';
 
 class PlacarPage extends StatefulWidget {
   const PlacarPage({super.key});
@@ -10,53 +13,183 @@ class PlacarPage extends StatefulWidget {
 }
 
 class _PlacarPageState extends State<PlacarPage> {
+  Future<void> _dialogInfo() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return const SimplesDialog(
+          titulo: COMO_USAR,
+          texto: PLACAR_INSTRUCAO,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    final size = width / 6;
+    final sizeIcone = width / 6;
+    final sizeMetade = (width / 2) - 4;
+    const espaco = 8.0;
 
     return Scaffold(
-      appBar: PadraoAppbar(callback: () => {}),
+      appBar: AppBar(toolbarHeight: 0),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            PadraoAppbar(callback: () => _dialogInfo()),
+            Row(
+              children: [
+                Container(
+                  width: sizeMetade,
+                  color: UiCor.display,
+                  padding: const EdgeInsets.all(16),
+                  child: const Center(
+                    child: Text(
+                      '2° tempo',
+                      style: TextStyle(
+                        color: UiCor.periodo,
+                        fontSize: 24,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'display',
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: espaco),
+                Container(
+                  width: sizeMetade,
+                  color: UiCor.display,
+                  padding: const EdgeInsets.all(16),
+                  child: const Center(
+                    child: Text(
+                      '16:33:00',
+                      style: TextStyle(
+                        color: UiCor.tempo,
+                        fontSize: 24,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'display',
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(height: espaco),
+            Row(
+              children: [
+                Container(
+                  width: sizeMetade,
+                  color: UiCor.display,
+                  padding: const EdgeInsets.all(16),
+                  child: const Center(
+                    child: Text(
+                      'São Paulo',
+                      style: TextStyle(
+                        color: UiCor.mandante,
+                        fontSize: 24,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'display',
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: espaco),
+                Container(
+                  width: sizeMetade,
+                  color: UiCor.display,
+                  padding: const EdgeInsets.all(16),
+                  child: const Center(
+                    child: Text(
+                      'Palmeiras',
+                      style: TextStyle(
+                        color: UiCor.visitante,
+                        fontSize: 24,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'display',
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(height: espaco),
+            Row(
+              children: [
+                Container(
+                  width: sizeMetade,
+                  color: UiCor.display,
+                  padding: const EdgeInsets.all(16),
+                  child: const Center(
+                    child: Text(
+                      '1',
+                      style: TextStyle(
+                        color: UiCor.mandante,
+                        fontSize: 120,
+                        fontFamily: 'display',
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: espaco),
+                Container(
+                  width: sizeMetade,
+                  color: UiCor.display,
+                  padding: const EdgeInsets.all(16),
+                  child: const Center(
+                    child: Text(
+                      '0',
+                      style: TextStyle(
+                        color: UiCor.visitante,
+                        fontSize: 120,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'display',
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(height: espaco),
             Row(
               children: [
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xFF1CF559),
+                  cor: UiCor.periodo,
                   icone: Icons.timer,
-                  size: size,
+                  size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xffC8B7F3),
+                  cor: UiCor.tempo,
                   icone: Icons.play_arrow,
-                  size: size,
+                  size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xffC8B7F3),
+                  cor: UiCor.tempo,
                   icone: Icons.pause,
-                  size: size,
+                  size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xffC8B7F3),
+                  cor: UiCor.tempo,
                   icone: Icons.stop,
-                  size: size,
+                  size: sizeIcone,
+                ),
+                SegundoButton(
+                  callback: () => {},
+                  cor: UiCor.linha,
+                  icone: Icons.scoreboard,
+                  size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => {},
                   cor: const Color(0xFFFFFFFF),
-                  icone: Icons.scoreboard,
-                  size: size,
-                ),
-                SegundoButton(
-                  callback: () => {},
-                  cor: const Color(0xffC8F51B),
                   icone: Icons.settings,
-                  size: size,
+                  size: sizeIcone,
                 ),
               ],
             ),
@@ -64,29 +197,29 @@ class _PlacarPageState extends State<PlacarPage> {
               children: [
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xFFFCD45C),
+                  cor: UiCor.mandante,
                   duplo: true,
                   icone: Icons.plus_one,
-                  size: size,
+                  size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xFFFCD45C),
+                  cor: UiCor.mandante,
                   icone: Icons.remove,
-                  size: size,
+                  size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xFFDA714F),
+                  cor: UiCor.visitante,
                   icone: Icons.remove,
-                  size: size,
+                  size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => {},
-                  cor: const Color(0xFFDA714F),
+                  cor: UiCor.visitante,
                   duplo: true,
                   icone: Icons.plus_one,
-                  size: size,
+                  size: sizeIcone,
                 ),
               ],
             ),

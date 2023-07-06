@@ -39,6 +39,6 @@ flutter:
     - family: poppins
       fonts:
         - asset: assets/fonts/poppins.ttf
-    - family: digital
+    - family: display
       fonts:
-        - asset: assets/fonts/DS-DIGI.TTF
+        - asset: assets/fonts/DisplayOTF.otf
