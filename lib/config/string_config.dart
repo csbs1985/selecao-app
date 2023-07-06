@@ -26,7 +26,7 @@ const String PLACAR_INSTRUCAO =
     '- Gerencie o tempo da partida utilizando os botões lilás. \n'
     '- Acesse a linha do tempo da partida pressionando o botão laranja. \n'
     '- Ajuste o período da partida no botão verde. \n'
-    '- Configure as opções da partida no botão branco. \n';
+    '- Configure as opções da partida no botão branco.';
 
 const String SELECIONAR = "Selecionar";
 const String SELECIONAR_INSTRUCAO =

@@ -38,7 +38,6 @@ class _InicioPageState extends State<InicioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UiCor.amarelo,
       appBar: AppBar(toolbarHeight: 0),
       body: Container(
         padding: const EdgeInsets.fromLTRB(24, 24, 24, 8),
@@ -60,13 +59,21 @@ class _InicioPageState extends State<InicioPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   BY,
-                  style: Theme.of(context).textTheme.displaySmall,
+                  style: TextStyle(
+                    color: UiCor.inicio,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   'v${_packageInfo.version}',
-                  style: Theme.of(context).textTheme.displaySmall,
+                  style: const TextStyle(
+                    color: UiCor.inicio,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             )

@@ -29,7 +29,11 @@ class _ItemMenuWidgetState extends State<ItemMenuWidget> {
         children: [
           Text(
             widget._item.texto,
-            style: Theme.of(context).textTheme.displayLarge,
+            style: const TextStyle(
+              color: UiCor.inicio,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(width: 16),
           Icon(
@@ -37,7 +41,7 @@ class _ItemMenuWidgetState extends State<ItemMenuWidget> {
                 ? Icons.arrow_circle_right
                 : Icons.arrow_circle_right_outlined,
             size: 48,
-            color: UiCor.iconeInicio,
+            color: UiCor.inicio,
           ),
         ],
       ),

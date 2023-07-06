@@ -193,6 +193,7 @@ class _PlacarPageState extends State<PlacarPage> {
                 ),
               ],
             ),
+            const SizedBox(height: espaco),
             Row(
               children: [
                 SegundoButton(
