@@ -9,17 +9,20 @@ class TextoButton extends StatefulWidget {
     required Color cor,
     IconData? icone,
     IconData? iconeAtivo,
+    double? size,
     required String texto,
   })  : _callback = callback,
         _cor = cor,
         _icone = icone,
         _iconeAtivo = iconeAtivo,
+        _size = size,
         _texto = texto;
 
   final Function _callback;
   final Color _cor;
   final IconData? _icone;
   final IconData? _iconeAtivo;
+  final double? _size;
   final String _texto;
 
   @override
@@ -40,10 +43,11 @@ class _ItemMenuWidgetState extends State<TextoButton> {
           ),
         ),
         PrimeiroButton(
-          cor: const Color(0xFF00D691),
-          callback: () => () => widget._callback(),
+          cor: widget._cor,
+          callback: () => widget._callback(),
           icone: widget._icone,
           iconeAtivo: widget._iconeAtivo,
+          size: widget._size,
         ),
       ],
     );

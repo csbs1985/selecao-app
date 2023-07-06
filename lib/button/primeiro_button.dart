@@ -46,7 +46,7 @@ class _ItemMenuWidgetState extends State<PrimeiroButton> {
             isPressed
                 ? widget._iconeAtivo ?? Icons.arrow_circle_right
                 : widget._icone ?? Icons.arrow_circle_right_outlined,
-            size: 48,
+            size: (widget._size ?? size) * 0.5,
             color: const Color(0xFF0C2D54),
           ),
         ),

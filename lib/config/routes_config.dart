@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:selecao_app/class/routes_class.dart';
+import 'package:selecao_app/page/doar_Page.dart';
 import 'package:selecao_app/page/inicio_page.dart';
 import 'package:selecao_app/page/placar_page.dart';
 import 'package:selecao_app/page/selecionar_page.dart';
@@ -9,6 +10,14 @@ final GoRouter routes = GoRouter(
   debugLogDiagnostics: true,
   initialLocation: RoutesEnum.INICIO.value,
   routes: [
+    GoRoute(
+      path: RoutesEnum.DOAR.value,
+      pageBuilder: (context, state) => transicaoPaginas(
+        context: context,
+        state: state,
+        child: const DoarPage(),
+      ),
+    ),
     GoRoute(
       path: RoutesEnum.SELECIONAR.value,
       pageBuilder: (context, state) => transicaoPaginas(
