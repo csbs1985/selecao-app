@@ -5,10 +5,12 @@ class SegundoButton extends StatefulWidget {
     super.key,
     required Function callback,
     required Color cor,
+    bool? desabilitado,
     bool? duplo,
     IconData? icone,
     required double size,
   })  : _callback = callback,
+        _desabilitado = desabilitado,
         _cor = cor,
         _duplo = duplo,
         _icone = icone,
@@ -16,6 +18,7 @@ class SegundoButton extends StatefulWidget {
 
   final Function _callback;
   final Color _cor;
+  final bool? _desabilitado;
   final bool? _duplo;
   final IconData? _icone;
   final double _size;
@@ -33,11 +36,13 @@ class _ItemMenuWidgetState extends State<SegundoButton> {
       onTapDown: (_) => setState(() => isPressed = true),
       onTapUp: (_) => setState(() => isPressed = false),
       onTapCancel: () => setState(() => isPressed = false),
-      onTap: () => widget._callback(),
+      onTap: () => widget._desabilitado == true ? null : widget._callback(),
       child: Container(
         width: widget._duplo == true ? (widget._size * 2) : widget._size,
         height: widget._size,
-        color: isPressed ? widget._cor.withOpacity(0.9) : widget._cor,
+        color: widget._desabilitado ?? isPressed
+            ? widget._cor.withOpacity(0.9)
+            : widget._cor,
         child: Center(
           child: Icon(
             widget._icone,
