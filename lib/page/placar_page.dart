@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/segundo_button.dart';
-import 'package:selecao_app/class/cronometro_class.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
+import 'package:selecao_app/widget/cronometro_widget.dart';
 
 class PlacarPage extends StatefulWidget {
   const PlacarPage({super.key});
