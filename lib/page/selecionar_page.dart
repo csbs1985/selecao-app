@@ -9,6 +9,7 @@ import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/input/jogadores_input.dart';
+import 'package:selecao_app/theme/ui_cor.dart';
 
 class SelecionarPage extends StatefulWidget {
   const SelecionarPage({super.key});
@@ -68,7 +69,7 @@ class _SelecionarPageState extends State<SelecionarPage> {
             JogadoresInput(callback: (value) => currentJogadores.value = value),
             NumeroButton(callback: (value) => _selecionarNumero(value)),
             PrimeiroButton(
-              cor: const Color(0xFFC8F51B),
+              cor: UiCor.principal,
               callback: () => _validarTimes(),
             ),
           ],

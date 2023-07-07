@@ -4,6 +4,7 @@ import 'package:selecao_app/appbar/voltar_appbar.dart';
 import 'package:selecao_app/button/texto_button.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/text/title_medium_text.dart';
+import 'package:selecao_app/theme/ui_cor.dart';
 import 'package:selecao_app/theme/ui_tamanho.dart';
 
 class DoarPage extends StatefulWidget {
@@ -30,11 +31,11 @@ class _DoarPageState extends State<DoarPage> {
               padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
               child: TitleMediumText(
                 texto: DOAR,
-                cor: Color(0xFF688DE2),
+                cor: UiCor.principal,
               ),
             ),
             Container(
-              color: const Color(0xffC8B7F3),
+              color: UiCor.principal,
               padding: const EdgeInsets.all(16),
               child: const Text(
                 DOAR_DESCRICAO,
@@ -47,7 +48,7 @@ class _DoarPageState extends State<DoarPage> {
             ),
             TextoButton(
               callback: () => _copiarPix(context),
-              cor: const Color(0xFF688DE2),
+              cor: UiCor.principal,
               icone: Icons.content_copy,
               iconeAtivo: Icons.file_copy,
               size: UiTamanho.botaoDialog,

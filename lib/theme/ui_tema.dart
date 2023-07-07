@@ -20,7 +20,7 @@ class UiTema {
     appBarTheme: const AppBarTheme(
       color: UiCor.appbar,
       elevation: 0,
-      iconTheme: IconThemeData(color: UiCor.icone),
+      iconTheme: IconThemeData(color: UiCor.principal),
       titleSpacing: 0,
     ),
     brightness: Brightness.light,

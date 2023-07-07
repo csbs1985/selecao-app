@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/button/primeiro_button.dart';
 import 'package:selecao_app/text/title_medium_text.dart';
+import 'package:selecao_app/theme/ui_cor.dart';
 import 'package:selecao_app/theme/ui_tamanho.dart';
 
 class SimplesDialog extends StatefulWidget {
@@ -32,7 +33,7 @@ class _OpcoesDialogState extends State<SimplesDialog> {
     return AlertDialog(
       title: TitleMediumText(
         texto: widget._titulo,
-        cor: Colors.white,
+        cor: UiCor.principal,
       ),
       content: SingleChildScrollView(
         child: ListBody(
@@ -40,7 +41,7 @@ class _OpcoesDialogState extends State<SimplesDialog> {
             Text(
               widget._texto,
               style: const TextStyle(
-                color: Colors.white,
+                color: UiCor.principal,
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
               ),
@@ -53,7 +54,7 @@ class _OpcoesDialogState extends State<SimplesDialog> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             PrimeiroButton(
-              cor: Colors.white,
+              cor: UiCor.principal,
               callback: () => Navigator.of(context).pop(),
               icone: widget._icone ?? Icons.highlight_off,
               iconeAtivo: widget._iconeAtivo ?? Icons.cancel,

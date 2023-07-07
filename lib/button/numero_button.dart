@@ -49,7 +49,7 @@ class _NumeroButtonState extends State<NumeroButton> {
         const Padding(
           padding: EdgeInsets.all(16),
           child: TitleMediumText(
-            cor: Color(0xFFd0c6fb),
+            cor: UiCor.numero,
             texto: SELECIONAR_NUMERO,
           ),
         ),
@@ -59,16 +59,16 @@ class _NumeroButtonState extends State<NumeroButton> {
               GestureDetector(
                 onTap: () => _selecionarNumero(item),
                 child: Container(
-                  color: _verificarNumero(item)
-                      ? const Color(0xFF1CF559)
-                      : const Color(0xFFd0c6fb),
+                  color:
+                      _verificarNumero(item) ? UiCor.selecionado : UiCor.numero,
                   width: sizeWidth,
                   height: sizeWidth,
                   child: Center(
                     child: Text(
                       item,
-                      style: const TextStyle(
-                        color: UiCor.displayLarge,
+                      style: TextStyle(
+                        color:
+                            _verificarNumero(item) ? UiCor.numero : UiCor.fundo,
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                       ),

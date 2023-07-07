@@ -62,7 +62,7 @@ class _InicioPageState extends State<InicioPage> {
                 const Text(
                   BY,
                   style: TextStyle(
-                    color: UiCor.inicio,
+                    color: UiCor.principal,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
@@ -70,7 +70,7 @@ class _InicioPageState extends State<InicioPage> {
                 Text(
                   'v${_packageInfo.version}',
                   style: const TextStyle(
-                    color: UiCor.inicio,
+                    color: UiCor.principal,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),

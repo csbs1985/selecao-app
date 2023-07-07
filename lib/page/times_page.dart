@@ -5,6 +5,7 @@ import 'package:selecao_app/class/selecionar_class.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/text/title_medium_text.dart';
+import 'package:selecao_app/theme/ui_cor.dart';
 
 class TimesPage extends StatefulWidget {
   const TimesPage({super.key});
@@ -54,7 +55,7 @@ class _TimesPageState extends State<TimesPage> {
             const Padding(
               padding: EdgeInsets.all(16),
               child: TitleMediumText(
-                cor: Color(0xFF00D691),
+                cor: UiCor.principal,
                 texto: TIMES_TITULO,
               ),
             ),
@@ -83,7 +84,7 @@ class _TimesPageState extends State<TimesPage> {
               ],
             ),
             TextoButton(
-              cor: const Color(0xFF1CF559),
+              cor: UiCor.principal,
               callback: () => _separarEquipes(),
               texto: TIMES_NOVAMENTE,
             ),

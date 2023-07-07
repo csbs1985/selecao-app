@@ -52,6 +52,7 @@ class _JogadoresInputState extends State<JogadoresInput> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.all(16),
@@ -59,21 +60,21 @@ class _JogadoresInputState extends State<JogadoresInput> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const TitleMediumText(
-                cor: Color(0xFF00D691),
+                cor: UiCor.jogador,
                 texto: SELECIONAR_TIME,
               ),
               if (_listaJogadores.isNotEmpty)
                 TitleMediumText(
                   texto:
                       '${_listaJogadores.length} ${_listaJogadores.length > 1 ? NOMES : NOME}',
-                  cor: const Color(0xFF00D691),
+                  cor: UiCor.jogador,
                 ),
             ],
           ),
         ),
         Container(
           width: double.infinity,
-          color: const Color(0xFF00D691),
+          color: UiCor.jogador,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -90,14 +91,14 @@ class _JogadoresInputState extends State<JogadoresInput> {
                         onTap: () => _deletarJogador(item),
                         child: Container(
                           padding: const EdgeInsets.fromLTRB(8, 8, 6, 8),
-                          color: const Color(0xFF004751),
+                          color: UiCor.tag,
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
                                 item.toUpperCase(),
                                 style: const TextStyle(
-                                  color: Color(0xFF00D691),
+                                  color: UiCor.jogador,
                                   fontSize: 16,
                                   fontWeight: FontWeight.normal,
                                 ),
@@ -105,7 +106,7 @@ class _JogadoresInputState extends State<JogadoresInput> {
                               const SizedBox(width: 8),
                               const Icon(
                                 Icons.close,
-                                color: Color(0xFF00D691),
+                                color: UiCor.jogador,
                               ),
                             ],
                           ),
@@ -123,14 +124,17 @@ class _JogadoresInputState extends State<JogadoresInput> {
                       onChanged: (value) => setState(() => _inputTexto = value),
                       maxLines: 1,
                       textAlignVertical: TextAlignVertical.top,
+                      style: const TextStyle(
+                        color: UiCor.hint,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                      ),
                       decoration: InputDecoration(
-                        prefixIconColor: UiCor.icone,
-                        counterStyle: Theme.of(context).textTheme.headlineSmall,
                         hintText: SELECIONAR_VAZIO,
                         filled: true,
-                        fillColor: const Color(0xFF00D691),
+                        fillColor: UiCor.jogador,
                         hintStyle: const TextStyle(
-                          color: Color(0xFF004751),
+                          color: UiCor.hint,
                           fontSize: 16,
                           fontWeight: FontWeight.normal,
                         ),
@@ -145,7 +149,7 @@ class _JogadoresInputState extends State<JogadoresInput> {
                     ),
                   ),
                   PrimeiroButton(
-                    cor: const Color(0xFF00D691),
+                    cor: UiCor.jogador,
                     callback: () => _separarPorVirgula(),
                   ),
                 ],

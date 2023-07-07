@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/segundo_button.dart';
+import 'package:selecao_app/class/cronometro_class.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
@@ -63,17 +65,9 @@ class _PlacarPageState extends State<PlacarPage> {
                   color: UiCor.display,
                   padding: const EdgeInsets.all(16),
                   child: const Center(
-                    child: Text(
-                      '16:33:00',
-                      style: TextStyle(
-                        color: UiCor.tempo,
-                        fontSize: 24,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'display',
-                      ),
-                    ),
+                    child: CronometroWidget(),
                   ),
-                )
+                ),
               ],
             ),
             const SizedBox(height: espaco),

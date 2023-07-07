@@ -30,7 +30,7 @@ class _ItemMenuWidgetState extends State<ItemMenuWidget> {
           Text(
             widget._item.texto,
             style: const TextStyle(
-              color: UiCor.inicio,
+              color: UiCor.principal,
               fontSize: 40,
               fontWeight: FontWeight.bold,
             ),
@@ -41,7 +41,7 @@ class _ItemMenuWidgetState extends State<ItemMenuWidget> {
                 ? Icons.arrow_circle_right
                 : Icons.arrow_circle_right_outlined,
             size: 48,
-            color: UiCor.inicio,
+            color: UiCor.principal,
           ),
         ],
       ),

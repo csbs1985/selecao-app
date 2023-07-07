@@ -31,7 +31,7 @@ const String PLACAR_INSTRUCAO =
 
 const String SELECIONAR = "Selecionar";
 const String SELECIONAR_INSTRUCAO =
-    '- Digite os nomes dos jogadores no campo verde claro. Se estiver digitando mais de um nome ao mesmo tempo, separe-os por vírgula. \n'
+    '- Digite os nomes dos jogadores no campo vermelho. Se estiver digitando mais de um nome ao mesmo tempo, separe-os por vírgula. \n'
     '- Selecione o número de jogadores por time. \n'
     '- Clique no botão indicado com a seta para criar os times. \n'
     '- Para deletar o jogador basta clicar no nome.';
