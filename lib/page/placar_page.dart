@@ -1,8 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/segundo_button.dart';
+import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/config/string_config.dart';
+import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
@@ -76,10 +79,11 @@ class _PlacarPageState extends State<PlacarPage> {
                   width: sizeMetade,
                   color: UiCor.display,
                   padding: const EdgeInsets.all(16),
-                  child: const Center(
+                  child: Center(
                     child: Text(
-                      'São Paulo',
-                      style: TextStyle(
+                      currentDefinir.value.mandante,
+                      style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
                         color: UiCor.mandante,
                         fontSize: 24,
                         fontWeight: FontWeight.normal,
@@ -93,10 +97,11 @@ class _PlacarPageState extends State<PlacarPage> {
                   width: sizeMetade,
                   color: UiCor.display,
                   padding: const EdgeInsets.all(16),
-                  child: const Center(
+                  child: Center(
                     child: Text(
-                      'Palmeiras',
-                      style: TextStyle(
+                      currentDefinir.value.visitante,
+                      style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
                         color: UiCor.visitante,
                         fontSize: 24,
                         fontWeight: FontWeight.normal,
@@ -175,13 +180,13 @@ class _PlacarPageState extends State<PlacarPage> {
                   size: sizeIcone,
                 ),
                 SegundoButton(
-                  callback: () => {},
+                  callback: () => context.push(RoutesEnum.PARTIDA.value),
                   cor: UiCor.linha,
                   icone: Icons.scoreboard,
                   size: sizeIcone,
                 ),
                 SegundoButton(
-                  callback: () => {},
+                  callback: () => context.push(RoutesEnum.DEFINIR.value),
                   cor: const Color(0xFFFFFFFF),
                   icone: Icons.settings,
                   size: sizeIcone,
@@ -227,13 +232,13 @@ class _PlacarPageState extends State<PlacarPage> {
 
   int horas = 0, minutos = 0, segundos = 0, milessimos = 0;
 
-  late Timer timer;
+  Timer timer = Timer.periodic(const Duration(milliseconds: 0), (_) {});
 
   bool iniciado = false;
 
   @override
   void dispose() {
-    timer.cancel();
+    timer = Timer.periodic(const Duration(milliseconds: 0), (_) {});
     super.dispose();
   }
 

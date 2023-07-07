@@ -41,7 +41,7 @@ class _ItemMenuWidgetState extends State<SegundoButton> {
         width: widget._duplo == true ? (widget._size * 2) : widget._size,
         height: widget._size,
         color: widget._desabilitado ?? isPressed
-            ? widget._cor.withOpacity(0.9)
+            ? widget._cor.withOpacity(0.7)
             : widget._cor,
         child: Center(
           child: Icon(

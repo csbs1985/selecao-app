@@ -31,9 +31,18 @@ class _OpcoesDialogState extends State<SimplesDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: TitleMediumText(
-        texto: widget._titulo,
-        cor: UiCor.principal,
+      title: Row(
+        children: [
+          const Icon(
+            Icons.help_outline,
+            color: UiCor.principal,
+          ),
+          const SizedBox(width: 16),
+          TitleMediumText(
+            texto: widget._titulo,
+            cor: UiCor.principal,
+          ),
+        ],
       ),
       content: SingleChildScrollView(
         child: ListBody(

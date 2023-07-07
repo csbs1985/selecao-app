@@ -21,12 +21,14 @@ class SelecionarPage extends StatefulWidget {
 class _SelecionarPageState extends State<SelecionarPage> {
   final SelecionarClass _selecionarClass = SelecionarClass();
 
-  void _selecionarNumero(String numero) {
-    setState(() => currentNumEquipe.value = numero);
+  final List<int> listaNumero = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+  void _selecionarNumero(int numero) {
+    currentQuantidade.value = numero;
   }
 
   void _validarTimes() {
-    !_selecionarClass.validarTimes(currentNumEquipe.value)
+    !_selecionarClass.validarTimes(currentQuantidade.value)
         ? _dialogErroNumero()
         : context.push(RoutesEnum.TIMES.value);
   }
@@ -67,10 +69,17 @@ class _SelecionarPageState extends State<SelecionarPage> {
           children: [
             PadraoAppbar(callback: () => _dialogInfo()),
             JogadoresInput(callback: (value) => currentJogadores.value = value),
-            NumeroButton(callback: (value) => _selecionarNumero(value)),
+            NumeroButton(
+              callback: (value) => _selecionarNumero(value),
+              cor: UiCor.numero,
+              inicial: currentQuantidade.value,
+              lista: listaNumero,
+              texto: SELECIONAR_NUMERO,
+            ),
             PrimeiroButton(
               cor: UiCor.principal,
               callback: () => _validarTimes(),
+              full: true,
             ),
           ],
         ),

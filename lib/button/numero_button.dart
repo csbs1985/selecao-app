@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:selecao_app/config/string_config.dart';
-import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/text/title_medium_text.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
@@ -8,75 +6,90 @@ class NumeroButton extends StatefulWidget {
   const NumeroButton({
     super.key,
     required Function callback,
-  }) : _callback = callback;
+    required Color cor,
+    required int inicial,
+    required List<int> lista,
+    double? size,
+    required String texto,
+  })  : _callback = callback,
+        _cor = cor,
+        _inicial = inicial,
+        _lista = lista,
+        _size = size,
+        _texto = texto;
 
   final Function _callback;
+  final Color _cor;
+  final int _inicial;
+  final List<int> _lista;
+  final double? _size;
+  final String _texto;
 
   @override
   State<NumeroButton> createState() => _NumeroButtonState();
 }
 
 class _NumeroButtonState extends State<NumeroButton> {
-  final List<String> listaNumero = [
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11'
-  ];
+  int? selecionado;
 
-  _selecionarNumero(String numero) {
-    setState(() => currentNumEquipe.value = numero);
-    widget._callback(currentNumEquipe.value);
+  @override
+  void initState() {
+    super.initState();
+    _selecionarNumero(widget._inicial);
   }
 
-  bool _verificarNumero(String numero) {
-    return currentNumEquipe.value == numero ? true : false;
+  _selecionarNumero(int numero) {
+    setState(() => selecionado = numero);
+    widget._callback(selecionado);
+  }
+
+  bool _verificarNumero(int numero) {
+    return selecionado == numero ? true : false;
   }
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final sizeWidth = width / 5;
+    final fontSize = sizeWidth * 0.3;
 
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(16),
+        Padding(
+          padding: const EdgeInsets.all(16),
           child: TitleMediumText(
-            cor: UiCor.numero,
-            texto: SELECIONAR_NUMERO,
+            cor: widget._cor,
+            texto: widget._texto,
           ),
         ),
-        Wrap(
-          children: [
-            for (var item in listaNumero)
-              GestureDetector(
-                onTap: () => _selecionarNumero(item),
-                child: Container(
-                  color:
-                      _verificarNumero(item) ? UiCor.selecionado : UiCor.numero,
-                  width: sizeWidth,
-                  height: sizeWidth,
-                  child: Center(
-                    child: Text(
-                      item,
-                      style: TextStyle(
-                        color:
-                            _verificarNumero(item) ? UiCor.numero : UiCor.fundo,
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
+        SizedBox(
+          width: double.infinity,
+          child: Wrap(
+            alignment: WrapAlignment.start,
+            children: [
+              for (var item in widget._lista)
+                GestureDetector(
+                  onTap: () => _selecionarNumero(item),
+                  child: Container(
+                    color: _verificarNumero(item)
+                        ? widget._cor.withOpacity(0.7)
+                        : widget._cor,
+                    width: widget._size ?? sizeWidth,
+                    height: widget._size ?? sizeWidth,
+                    child: Center(
+                      child: Text(
+                        item.toString(),
+                        style: TextStyle(
+                          color: UiCor.fundo,
+                          fontSize: fontSize,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-          ],
+            ],
+          ),
         )
       ],
     );

@@ -14,7 +14,7 @@ class VoltarAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: IconeButton(
         callback: () => Navigator.of(context).pop(),
-        icone: Icons.arrow_back,
+        icone: Icons.arrow_circle_left_outlined,
       ),
     );
   }

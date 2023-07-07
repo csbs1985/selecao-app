@@ -5,8 +5,8 @@ import 'package:selecao_app/config/value_notifier_config.dart';
 class SelecionarClass {
   int indice = 0;
 
-  bool validarTimes(String numeroSelecionado) {
-    final int numero = int.parse(numeroSelecionado);
+  bool validarTimes(int numeroSelecionado) {
+    final int numero = numeroSelecionado;
     final int lista = currentJogadores.value.length;
 
     if (lista == 0) return false;
@@ -17,7 +17,7 @@ class SelecionarClass {
   List<List<String>> separarEquipes() {
     List<List<String>> equipes = [];
     List<String> lista = currentJogadores.value;
-    final int numero = int.parse(currentNumEquipe.value);
+    final int numero = currentQuantidade.value;
 
     if (lista.length > numero) {
       lista.shuffle();
