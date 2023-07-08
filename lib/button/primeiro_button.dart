@@ -9,12 +9,14 @@ class PrimeiroButton extends StatefulWidget {
     bool? full,
     IconData? icone,
     IconData? iconeAtivo,
+    Color? iconeCor,
     double? size,
   })  : _callback = callback,
         _cor = cor,
         _full = full,
         _icone = icone,
         _iconeAtivo = iconeAtivo,
+        _iconeCor = iconeCor,
         _size = size;
 
   final Function _callback;
@@ -22,6 +24,7 @@ class PrimeiroButton extends StatefulWidget {
   final bool? _full;
   final IconData? _icone;
   final IconData? _iconeAtivo;
+  final Color? _iconeCor;
   final double? _size;
 
   @override
@@ -47,14 +50,17 @@ class _ItemMenuWidgetState extends State<PrimeiroButton> {
           Container(
             width: widget._size ?? size,
             height: widget._size ?? size,
-            color: widget._cor ?? UiCor.principal,
+            color: isPressed
+                ? widget._cor?.withOpacity(0.7) ??
+                    UiCor.principal.withOpacity(0.7)
+                : widget._cor ?? UiCor.principal,
             child: Center(
               child: Icon(
                 isPressed
                     ? widget._iconeAtivo ?? Icons.arrow_circle_right
                     : widget._icone ?? Icons.arrow_circle_right_outlined,
                 size: (widget._size ?? size) * 0.7,
-                color: const Color(0xFF0C2D54),
+                color: widget._iconeCor ?? const Color(0xFF0C2D54),
               ),
             ),
           ),

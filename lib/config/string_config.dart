@@ -1,3 +1,5 @@
+const String ATENCAO = "Atenção";
+
 const String BY = "by Charles Santos";
 
 const String COMO_USAR = "Como usar";
@@ -65,3 +67,6 @@ const String TIMES_NOVAMENTE = "Gerar novamente";
 
 const String VISITANTE = "Visitante";
 const String VISITANTE_EQUIPE = "Equipe visitante";
+
+const String VOLTAR_FINALIZAR =
+    "Por favor, tenha cuidado ao decidir sair da tela da partida, pois uma vez que o fizer, a partida será considerada encerrada e o placar será reiniciado.";

@@ -7,6 +7,7 @@ import 'package:selecao_app/class/partida_class.dart';
 import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
+import 'package:selecao_app/dialog/opcoes_dialog.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
@@ -23,7 +24,7 @@ class _PlacarPageState extends State<PlacarPage> {
   int _periodo = 1;
   int horas = 0, minutos = 0, segundos = 0, milessimos = 0;
 
-  String _tempo = TempoEnum.INICIAR.value;
+  String _tempo = TempoEnum.PARAR.value;
 
   bool iniciado = false;
 
@@ -48,12 +49,36 @@ class _PlacarPageState extends State<PlacarPage> {
     );
   }
 
-  _alterarPeriodo(int periodo) {
+  Future<void> _dialogVoltar() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return OpcoesDialog(
+          callback: (value) => _opcoesVoltar(value),
+          titulo: ATENCAO,
+          texto: VOLTAR_FINALIZAR,
+        );
+      },
+    );
+  }
+
+  void _opcoesVoltar(bool voltar) {
+    if (voltar) {
+      Navigator.of(context).pop();
+      pararCronometro();
+      Navigator.of(context).pop();
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
+  void _alterarPeriodo(int periodo) {
     final int value = _partidaClass.alterarPeriodo(periodo);
     setState(() => _periodo = value);
   }
 
-  _alterarTempo(String value) {
+  void _alterarTempo(String value) {
     setState(() => _tempo = value);
   }
 
@@ -73,7 +98,7 @@ class _PlacarPageState extends State<PlacarPage> {
     if (iniciado) return;
 
     iniciado = true;
-    timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 0), (_) {
       setState(() {
         milessimos++;
         if (milessimos >= 100) {
@@ -133,195 +158,201 @@ class _PlacarPageState extends State<PlacarPage> {
     final sizeMetade = (width / 2) - 4;
     const espaco = 8.0;
 
-    return Scaffold(
-      appBar: AppBar(toolbarHeight: 0),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            PadraoAppbar(callback: () => _dialogInfo()),
-            Row(
-              children: [
-                Container(
-                  width: sizeMetade,
-                  color: UiCor.display,
-                  padding: const EdgeInsets.all(16),
-                  child: Center(
-                    child: Text(
-                      '${_periodo.toString()}° TEMPO',
-                      style: const TextStyle(
-                        color: UiCor.periodo,
-                        fontSize: 24,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'display',
+    return WillPopScope(
+      onWillPop: () async {
+        _dialogVoltar();
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(toolbarHeight: 0),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              PadraoAppbar(callback: () => _dialogInfo()),
+              Row(
+                children: [
+                  Container(
+                    width: sizeMetade,
+                    color: UiCor.display,
+                    padding: const EdgeInsets.all(16),
+                    child: Center(
+                      child: Text(
+                        '${_periodo.toString()}° TEMPO',
+                        style: const TextStyle(
+                          color: UiCor.periodo,
+                          fontSize: 24,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'display',
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: espaco),
-                Container(
-                  width: sizeMetade,
-                  color: UiCor.display,
-                  padding: const EdgeInsets.all(16),
-                  child: Center(
-                    child: cronometro(),
+                  const SizedBox(width: espaco),
+                  Container(
+                    width: sizeMetade,
+                    color: UiCor.display,
+                    padding: const EdgeInsets.all(16),
+                    child: Center(
+                      child: cronometro(),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: espaco),
-            Row(
-              children: [
-                Container(
-                  width: sizeMetade,
-                  color: UiCor.display,
-                  padding: const EdgeInsets.all(16),
-                  child: Center(
-                    child: Text(
-                      currentDefinir.value.mandante,
-                      style: const TextStyle(
-                        overflow: TextOverflow.ellipsis,
-                        color: UiCor.mandante,
-                        fontSize: 24,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'display',
+                ],
+              ),
+              const SizedBox(height: espaco),
+              Row(
+                children: [
+                  Container(
+                    width: sizeMetade,
+                    color: UiCor.display,
+                    padding: const EdgeInsets.all(16),
+                    child: Center(
+                      child: Text(
+                        currentDefinir.value.mandante,
+                        style: const TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          color: UiCor.mandante,
+                          fontSize: 24,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'display',
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: espaco),
-                Container(
-                  width: sizeMetade,
-                  color: UiCor.display,
-                  padding: const EdgeInsets.all(16),
-                  child: Center(
-                    child: Text(
-                      currentDefinir.value.visitante,
-                      style: const TextStyle(
-                        overflow: TextOverflow.ellipsis,
-                        color: UiCor.visitante,
-                        fontSize: 24,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'display',
+                  const SizedBox(width: espaco),
+                  Container(
+                    width: sizeMetade,
+                    color: UiCor.display,
+                    padding: const EdgeInsets.all(16),
+                    child: Center(
+                      child: Text(
+                        currentDefinir.value.visitante,
+                        style: const TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          color: UiCor.visitante,
+                          fontSize: 24,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'display',
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: espaco),
+              Row(
+                children: [
+                  Container(
+                    width: sizeMetade,
+                    color: UiCor.display,
+                    padding: const EdgeInsets.all(16),
+                    child: const Center(
+                      child: Text(
+                        '1',
+                        style: TextStyle(
+                          color: UiCor.mandante,
+                          fontSize: 120,
+                          fontFamily: 'display',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
-            const SizedBox(height: espaco),
-            Row(
-              children: [
-                Container(
-                  width: sizeMetade,
-                  color: UiCor.display,
-                  padding: const EdgeInsets.all(16),
-                  child: const Center(
-                    child: Text(
-                      '1',
-                      style: TextStyle(
-                        color: UiCor.mandante,
-                        fontSize: 120,
-                        fontFamily: 'display',
-                        fontWeight: FontWeight.normal,
+                  const SizedBox(width: espaco),
+                  Container(
+                    width: sizeMetade,
+                    color: UiCor.display,
+                    padding: const EdgeInsets.all(16),
+                    child: const Center(
+                      child: Text(
+                        '0',
+                        style: TextStyle(
+                          color: UiCor.visitante,
+                          fontSize: 120,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'display',
+                        ),
                       ),
                     ),
+                  )
+                ],
+              ),
+              const SizedBox(height: espaco),
+              Row(
+                children: [
+                  SegundoButton(
+                    callback: () => _alterarPeriodo(_periodo),
+                    cor: UiCor.periodo,
+                    icone: Icons.timer,
+                    size: sizeIcone,
                   ),
-                ),
-                const SizedBox(width: espaco),
-                Container(
-                  width: sizeMetade,
-                  color: UiCor.display,
-                  padding: const EdgeInsets.all(16),
-                  child: const Center(
-                    child: Text(
-                      '0',
-                      style: TextStyle(
-                        color: UiCor.visitante,
-                        fontSize: 120,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'display',
-                      ),
-                    ),
+                  SegundoButton(
+                    callback: () => iniciarCronometro(),
+                    cor: UiCor.tempo,
+                    desabilitado: _desabilitarIniciar(),
+                    icone: Icons.play_arrow,
+                    size: sizeIcone,
                   ),
-                )
-              ],
-            ),
-            const SizedBox(height: espaco),
-            Row(
-              children: [
-                SegundoButton(
-                  callback: () => _alterarPeriodo(_periodo),
-                  cor: UiCor.periodo,
-                  icone: Icons.timer,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => iniciarCronometro(),
-                  cor: UiCor.tempo,
-                  desabilitado: _desabilitarIniciar(),
-                  icone: Icons.play_arrow,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => pausarCronometro(),
-                  cor: UiCor.tempo,
-                  desabilitado: _desabilitarPausar(),
-                  icone: Icons.pause,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => pararCronometro(),
-                  cor: UiCor.tempo,
-                  desabilitado: _desabilitarParar(),
-                  icone: Icons.stop,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => context.push(RoutesEnum.PARTIDA.value),
-                  cor: UiCor.linha,
-                  icone: Icons.scoreboard,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => context.push(RoutesEnum.DEFINIR.value),
-                  cor: const Color(0xFFFFFFFF),
-                  icone: Icons.settings,
-                  size: sizeIcone,
-                ),
-              ],
-            ),
-            const SizedBox(height: espaco),
-            Row(
-              children: [
-                SegundoButton(
-                  callback: () => {},
-                  cor: UiCor.mandante,
-                  duplo: true,
-                  icone: Icons.plus_one,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => {},
-                  cor: UiCor.mandante,
-                  icone: Icons.remove,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => {},
-                  cor: UiCor.visitante,
-                  icone: Icons.remove,
-                  size: sizeIcone,
-                ),
-                SegundoButton(
-                  callback: () => {},
-                  cor: UiCor.visitante,
-                  duplo: true,
-                  icone: Icons.plus_one,
-                  size: sizeIcone,
-                ),
-              ],
-            ),
-          ],
+                  SegundoButton(
+                    callback: () => pausarCronometro(),
+                    cor: UiCor.tempo,
+                    desabilitado: _desabilitarPausar(),
+                    icone: Icons.pause,
+                    size: sizeIcone,
+                  ),
+                  SegundoButton(
+                    callback: () => pararCronometro(),
+                    cor: UiCor.tempo,
+                    desabilitado: _desabilitarParar(),
+                    icone: Icons.stop,
+                    size: sizeIcone,
+                  ),
+                  SegundoButton(
+                    callback: () => context.push(RoutesEnum.PARTIDA.value),
+                    cor: UiCor.linha,
+                    icone: Icons.scoreboard,
+                    size: sizeIcone,
+                  ),
+                  SegundoButton(
+                    callback: () => context.push(RoutesEnum.DEFINIR.value),
+                    cor: const Color(0xFFFFFFFF),
+                    icone: Icons.settings,
+                    size: sizeIcone,
+                  ),
+                ],
+              ),
+              const SizedBox(height: espaco),
+              Row(
+                children: [
+                  SegundoButton(
+                    callback: () => {},
+                    cor: UiCor.mandante,
+                    duplo: true,
+                    icone: Icons.plus_one,
+                    size: sizeIcone,
+                  ),
+                  SegundoButton(
+                    callback: () => {},
+                    cor: UiCor.mandante,
+                    icone: Icons.remove,
+                    size: sizeIcone,
+                  ),
+                  SegundoButton(
+                    callback: () => {},
+                    cor: UiCor.visitante,
+                    icone: Icons.remove,
+                    size: sizeIcone,
+                  ),
+                  SegundoButton(
+                    callback: () => {},
+                    cor: UiCor.visitante,
+                    duplo: true,
+                    icone: Icons.plus_one,
+                    size: sizeIcone,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
