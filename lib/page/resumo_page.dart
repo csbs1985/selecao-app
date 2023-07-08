@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/voltar_appbar.dart';
+import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
-class PartidaPage extends StatefulWidget {
-  const PartidaPage({super.key});
+class ResumoPage extends StatefulWidget {
+  const ResumoPage({super.key});
 
   @override
-  State<PartidaPage> createState() => PartidarPageState();
+  State<ResumoPage> createState() => PartidarPageState();
 }
 
-class PartidarPageState extends State<PartidaPage> {
+class PartidarPageState extends State<ResumoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +19,7 @@ class PartidarPageState extends State<PartidaPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const VoltarAppbar(),
+            const VoltarAppbar(texto: Resumo),
             Container(
               width: double.infinity,
               color: UiCor.display,

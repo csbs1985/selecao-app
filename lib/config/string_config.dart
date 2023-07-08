@@ -4,6 +4,7 @@ const String BY = "by Charles Santos";
 
 const String COMO_USAR = "Como usar";
 
+const String DEFINIR_PARTIDA = "Definir partida";
 const String DEFINIR_INSTRUCAO =
     "- Defina o nome da equipe mandante no campo amarelo. \n"
     "- Defina o nome da equipe visitante no campo vermelho. \n"
@@ -20,6 +21,14 @@ const String DOAR_DESCRICAO =
     'Agradeço a todos vocês pelo apoio, pela risada compartilhada e por ajudar a manter meu estoque de café sempre abastecido! \n\n'
     'Com gratidão e um sorriso, \n\n'
     'Charles Santos';
+
+const String EQUIPES_INSTRUCAO =
+    "- Cada área de cor diferente representa uma equipe diferente. \n"
+    '- Caso queira, é possível gerar outras equipes selecionando o botão indicado com a seta.\n'
+    '- Para editar os nomes ou a quantidade de jogadores, simplesmente escolha a opção "voltar" e faça as alterações desejadas.';
+const String EQUIPES_NOVAMENTE = "Gerar novamente";
+const String EQUIPES_SELECIONADA = "Equipes selecionadas";
+const String EQUIPES_TITULO = "Equipes geradas";
 
 const String MANDANTE = "Mandante";
 const String MANDANTE_EQUIPE = "Equipe mandante";
@@ -42,7 +51,10 @@ const String PLACAR_INSTRUCAO =
 
 const String PERIODO_SELECIONAR = "Escolha a quantidade de períodos da partida";
 
+const String Resumo = "Resumo";
+
 const String SELECIONAR = "Selecionar";
+const String SELECIONAR_EQUIPES = "Selecionar equipes";
 const String SELECIONAR_INSTRUCAO =
     '- Digite os nomes dos jogadores no campo vermelho. Se estiver digitando mais de um nome ao mesmo tempo, separe-os por vírgula. \n'
     '- Selecione o número de jogadores por equipe. \n'
@@ -57,13 +69,6 @@ const String SELECIONAR_VAZIO = "Digite os nomes...";
 
 const String TEMP = "tempo";
 const String TEMPO_SELECIONAR = "Escolha o tempo de cada período da partida";
-
-const String EQUIPES_TITULO = "Equipes geradas";
-const String EQUIPES_INSTRUCAO =
-    "- Cada área de cor diferente representa uma equipe diferente. \n"
-    '- Caso queira, é possível gerar outras equipes selecionando o botão indicado com a seta.\n'
-    '- Para editar os nomes ou a quantidade de jogadores, simplesmente escolha a opção "voltar" e faça as alterações desejadas.';
-const String EQUIPES_NOVAMENTE = "Gerar novamente";
 
 const String VISITANTE = "Visitante";
 const String VISITANTE_EQUIPE = "Equipe visitante";

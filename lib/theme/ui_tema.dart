@@ -30,6 +30,7 @@ class UiTema {
       displaySmall: UiTexto.displaySmall,
       displayMedium: UiTexto.displayMedium,
       displayLarge: UiTexto.displayLarge,
+      titleLarge: UiTexto.titleLarge,
     ),
     dialogTheme: const DialogTheme(
       shape:

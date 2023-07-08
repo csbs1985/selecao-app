@@ -7,7 +7,10 @@ class VoltarAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   const VoltarAppbar({
     super.key,
-  });
+    required String texto,
+  }) : _texto = texto;
+
+  final String _texto;
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +18,10 @@ class VoltarAppbar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconeButton(
         callback: () => Navigator.of(context).pop(),
         icone: Icons.arrow_circle_left_outlined,
+      ),
+      title: Text(
+        _texto,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
     );
   }

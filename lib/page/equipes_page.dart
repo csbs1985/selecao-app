@@ -7,14 +7,14 @@ import 'package:selecao_app/dialog/simples_dialog.dart';
 import 'package:selecao_app/text/title_medium_text.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 
-class TimesPage extends StatefulWidget {
-  const TimesPage({super.key});
+class EquipesPage extends StatefulWidget {
+  const EquipesPage({super.key});
 
   @override
-  State<TimesPage> createState() => _TimesPageState();
+  State<EquipesPage> createState() => _EquipesPageState();
 }
 
-class _TimesPageState extends State<TimesPage> {
+class _EquipesPageState extends State<EquipesPage> {
   final SelecionarClass _selecionarClass = SelecionarClass();
 
   List<List<String>> _equipes = [];
@@ -51,7 +51,10 @@ class _TimesPageState extends State<TimesPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PadraoAppbar(callback: () => _showAlertDialog()),
+            PadraoAppbar(
+              callback: () => _showAlertDialog(),
+              texto: EQUIPES_SELECIONADA,
+            ),
             const Padding(
               padding: EdgeInsets.all(16),
               child: TitleMediumText(

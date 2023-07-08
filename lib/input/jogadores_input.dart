@@ -28,9 +28,18 @@ class _JogadoresInputState extends State<JogadoresInput> {
     if (_inputTexto.isNotEmpty) {
       if (_inputTexto.contains(',')) {
         List<String> jogadores = _inputTexto.split(',');
+
+        jogadores = jogadores
+            .map((jogador) => jogador.trim())
+            .where((jogador) => jogador.isNotEmpty)
+            .toList();
+
         setState(() => _listaJogadores.addAll(jogadores));
       } else {
-        setState(() => _listaJogadores.add(_inputTexto));
+        String jogador = _inputTexto.trim();
+        if (jogador.isNotEmpty) {
+          setState(() => _listaJogadores.add(jogador));
+        }
       }
     }
 

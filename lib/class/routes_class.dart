@@ -26,10 +26,10 @@ enum RoutesEnum {
   DEFINIR('/definir'),
   DOAR('/doar'),
   INICIO('/inicio'),
-  PARTIDA('/partida'),
+  RESUMO('/resumo'),
   PLACAR('/placar'),
   SELECIONAR('/selecionar'),
-  EQUIPES('/times');
+  EQUIPES('/equipes');
 
   final String value;
   const RoutesEnum(this.value);

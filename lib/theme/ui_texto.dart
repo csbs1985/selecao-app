@@ -19,4 +19,10 @@ class UiTexto {
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
+
+  static const TextStyle titleLarge = TextStyle(
+    color: UiCor.principal,
+    fontSize: 24,
+    fontWeight: FontWeight.normal,
+  );
 }

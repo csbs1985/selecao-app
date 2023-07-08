@@ -10,7 +10,7 @@ class SelecionarClass {
     final int lista = currentJogadores.value.length;
 
     if (lista == 0) return false;
-    if (numero > lista) return false;
+    if (numero >= lista) return false;
     return true;
   }
 

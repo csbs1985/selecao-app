@@ -195,7 +195,10 @@ class _PlacarPageState extends State<PlacarPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              PadraoAppbar(callback: () => _dialogInfo()),
+              PadraoAppbar(
+                callback: () => _dialogInfo(),
+                texto: PLACAR_CRONOMETRO,
+              ),
               Row(
                 children: [
                   Container(
@@ -334,7 +337,7 @@ class _PlacarPageState extends State<PlacarPage> {
                     size: sizeIcone,
                   ),
                   SegundoButton(
-                    callback: () => context.push(RoutesEnum.PARTIDA.value),
+                    callback: () => context.push(RoutesEnum.RESUMO.value),
                     cor: UiCor.linha,
                     icone: Icons.scoreboard,
                     size: sizeIcone,

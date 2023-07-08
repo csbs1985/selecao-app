@@ -28,9 +28,9 @@ class _SelecionarPageState extends State<SelecionarPage> {
   }
 
   void _validarTimes() {
-    !_selecionarClass.validarTimes(currentQuantidade.value)
-        ? _dialogErroNumero()
-        : context.push(RoutesEnum.EQUIPES.value);
+    _selecionarClass.validarTimes(currentQuantidade.value)
+        ? context.push(RoutesEnum.EQUIPES.value)
+        : _dialogErroNumero();
   }
 
   Future<void> _dialogErroNumero() async {
@@ -67,7 +67,10 @@ class _SelecionarPageState extends State<SelecionarPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            PadraoAppbar(callback: () => _dialogInfo()),
+            PadraoAppbar(
+              callback: () => _dialogInfo(),
+              texto: SELECIONAR_EQUIPES,
+            ),
             JogadoresInput(callback: (value) => currentJogadores.value = value),
             NumeroButton(
               callback: (value) => _selecionarNumero(value),

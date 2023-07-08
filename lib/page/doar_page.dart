@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:selecao_app/appbar/voltar_appbar.dart';
 import 'package:selecao_app/button/texto_button.dart';
 import 'package:selecao_app/config/string_config.dart';
-import 'package:selecao_app/text/title_medium_text.dart';
 import 'package:selecao_app/theme/ui_cor.dart';
 import 'package:selecao_app/theme/ui_tamanho.dart';
 
@@ -22,18 +21,12 @@ class _DoarPageState extends State<DoarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const VoltarAppbar(),
+      appBar: AppBar(toolbarHeight: 0),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
-              child: TitleMediumText(
-                texto: DOAR,
-                cor: UiCor.principal,
-              ),
-            ),
+            const VoltarAppbar(texto: DOAR),
             Container(
               color: UiCor.principal,
               padding: const EdgeInsets.all(16),

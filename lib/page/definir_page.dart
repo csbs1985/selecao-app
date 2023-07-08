@@ -59,7 +59,10 @@ class _DoarPageState extends State<DefinirPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PadraoAppbar(callback: () => _dialogInfo()),
+            PadraoAppbar(
+              callback: () => _dialogInfo(),
+              texto: DEFINIR_PARTIDA,
+            ),
             const Padding(
               padding: EdgeInsets.all(16),
               child: TitleMediumText(
