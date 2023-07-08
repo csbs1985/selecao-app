@@ -24,6 +24,8 @@ class _PlacarPageState extends State<PlacarPage> {
   int _periodo = 1;
   int horas = 0, minutos = 0, segundos = 0, milessimos = 0;
 
+  int _pontoMandante = 0, _pontoVisitante = 0;
+
   String _tempo = TempoEnum.PARAR.value;
 
   bool iniciado = false;
@@ -145,6 +147,26 @@ class _PlacarPageState extends State<PlacarPage> {
     return value.toString().padLeft(3, '0');
   }
 
+  void _aumentarPontoMandante() {
+    setState(() => _pontoMandante++);
+  }
+
+  void _aumentarPontoVisitante() {
+    setState(() => _pontoVisitante++);
+  }
+
+  void _diminuirPontoMandante() {
+    if (_pontoMandante > 0) {
+      setState(() => _pontoMandante--);
+    }
+  }
+
+  void _diminuirPontoVisitante() {
+    if (_pontoVisitante > 0) {
+      setState(() => _pontoVisitante--);
+    }
+  }
+
   @override
   void dispose() {
     timer = Timer.periodic(const Duration(milliseconds: 0), (_) {});
@@ -160,7 +182,12 @@ class _PlacarPageState extends State<PlacarPage> {
 
     return WillPopScope(
       onWillPop: () async {
-        _dialogVoltar();
+        if (iniciado || _pontoMandante > 0 || _pontoVisitante > 0) {
+          _dialogVoltar();
+        } else {
+          Navigator.of(context).pop();
+        }
+
         return false;
       },
       child: Scaffold(
@@ -245,10 +272,10 @@ class _PlacarPageState extends State<PlacarPage> {
                     width: sizeMetade,
                     color: UiCor.display,
                     padding: const EdgeInsets.all(16),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        '1',
-                        style: TextStyle(
+                        _pontoMandante.toString(),
+                        style: const TextStyle(
                           color: UiCor.mandante,
                           fontSize: 120,
                           fontFamily: 'display',
@@ -262,10 +289,10 @@ class _PlacarPageState extends State<PlacarPage> {
                     width: sizeMetade,
                     color: UiCor.display,
                     padding: const EdgeInsets.all(16),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        '0',
-                        style: TextStyle(
+                        _pontoVisitante.toString(),
+                        style: const TextStyle(
                           color: UiCor.visitante,
                           fontSize: 120,
                           fontWeight: FontWeight.normal,
@@ -324,26 +351,26 @@ class _PlacarPageState extends State<PlacarPage> {
               Row(
                 children: [
                   SegundoButton(
-                    callback: () => {},
+                    callback: () => _aumentarPontoMandante(),
                     cor: UiCor.mandante,
                     duplo: true,
                     icone: Icons.plus_one,
                     size: sizeIcone,
                   ),
                   SegundoButton(
-                    callback: () => {},
+                    callback: () => _diminuirPontoMandante(),
                     cor: UiCor.mandante,
                     icone: Icons.remove,
                     size: sizeIcone,
                   ),
                   SegundoButton(
-                    callback: () => {},
+                    callback: () => _diminuirPontoVisitante(),
                     cor: UiCor.visitante,
                     icone: Icons.remove,
                     size: sizeIcone,
                   ),
                   SegundoButton(
-                    callback: () => {},
+                    callback: () => _aumentarPontoVisitante(),
                     cor: UiCor.visitante,
                     duplo: true,
                     icone: Icons.plus_one,
