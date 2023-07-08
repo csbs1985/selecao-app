@@ -9,20 +9,17 @@ class NumeroButton extends StatefulWidget {
     required Color cor,
     required int inicial,
     required List<int> lista,
-    double? size,
     required String texto,
   })  : _callback = callback,
         _cor = cor,
         _inicial = inicial,
         _lista = lista,
-        _size = size,
         _texto = texto;
 
   final Function _callback;
   final Color _cor;
   final int _inicial;
   final List<int> _lista;
-  final double? _size;
   final String _texto;
 
   @override
@@ -50,7 +47,7 @@ class _NumeroButtonState extends State<NumeroButton> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    final sizeWidth = width / 5;
+    final sizeWidth = width / 7;
     final fontSize = sizeWidth * 0.3;
 
     return Column(
@@ -74,8 +71,8 @@ class _NumeroButtonState extends State<NumeroButton> {
                     color: _verificarNumero(item)
                         ? widget._cor.withOpacity(0.7)
                         : widget._cor,
-                    width: widget._size ?? sizeWidth,
-                    height: widget._size ?? sizeWidth,
+                    width: sizeWidth,
+                    height: sizeWidth,
                     child: Center(
                       child: Text(
                         item.toString(),

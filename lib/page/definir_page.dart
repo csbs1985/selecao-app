@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/numero_button.dart';
 import 'package:selecao_app/button/primeiro_button.dart';
+import 'package:selecao_app/class/lista_class.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
 import 'package:selecao_app/dialog/simples_dialog.dart';
@@ -18,8 +19,7 @@ class DefinirPage extends StatefulWidget {
 }
 
 class _DoarPageState extends State<DefinirPage> {
-  final List<int> listaPeriodo = [1, 2, 3, 4];
-  final List<int> listaTempo = [10, 15, 20, 25, 30, 35, 40, 45];
+  final ListaClass _listaClass = ListaClass();
 
   String _mandante = currentDefinir.value.mandante;
   String _visitante = currentDefinir.value.visitante;
@@ -53,9 +53,6 @@ class _DoarPageState extends State<DefinirPage> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final size = width / 6;
-
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0),
       body: SingleChildScrollView(
@@ -95,16 +92,14 @@ class _DoarPageState extends State<DefinirPage> {
               callback: (value) => _periodo = value,
               cor: UiCor.periodo,
               inicial: currentDefinir.value.periodo,
-              lista: listaPeriodo,
-              size: size,
+              lista: _listaClass.listaQtdPeriodos,
               texto: PERIODO_SELECIONAR,
             ),
             NumeroButton(
               callback: (value) => _tempo = value,
               cor: UiCor.tempo,
               inicial: currentDefinir.value.tempo,
-              lista: listaTempo,
-              size: size,
+              lista: _listaClass.listaDuracaoTempo,
               texto: TEMPO_SELECIONAR,
             ),
             PrimeiroButton(

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/numero_button.dart';
 import 'package:selecao_app/button/primeiro_button.dart';
+import 'package:selecao_app/class/lista_class.dart';
 import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/class/selecionar_class.dart';
 import 'package:selecao_app/config/string_config.dart';
@@ -19,9 +20,8 @@ class SelecionarPage extends StatefulWidget {
 }
 
 class _SelecionarPageState extends State<SelecionarPage> {
+  final ListaClass _listaClass = ListaClass();
   final SelecionarClass _selecionarClass = SelecionarClass();
-
-  final List<int> listaNumero = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
   void _selecionarNumero(int numero) {
     currentQuantidade.value = numero;
@@ -73,7 +73,7 @@ class _SelecionarPageState extends State<SelecionarPage> {
               callback: (value) => _selecionarNumero(value),
               cor: UiCor.numero,
               inicial: currentQuantidade.value,
-              lista: listaNumero,
+              lista: _listaClass.listaQtdDeJogadores,
               texto: SELECIONAR_NUMERO,
             ),
             PrimeiroButton(

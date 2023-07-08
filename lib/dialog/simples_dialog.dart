@@ -38,9 +38,11 @@ class _OpcoesDialogState extends State<SimplesDialog> {
             color: UiCor.principal,
           ),
           const SizedBox(width: 16),
-          TitleMediumText(
-            texto: widget._titulo,
-            cor: UiCor.principal,
+          Expanded(
+            child: TitleMediumText(
+              texto: widget._titulo,
+              cor: UiCor.principal,
+            ),
           ),
         ],
       ),

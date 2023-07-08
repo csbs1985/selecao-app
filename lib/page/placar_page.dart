@@ -100,7 +100,7 @@ class _PlacarPageState extends State<PlacarPage> {
     if (iniciado) return;
 
     iniciado = true;
-    timer = Timer.periodic(const Duration(milliseconds: 0), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
       setState(() {
         milessimos++;
         if (milessimos >= 100) {
