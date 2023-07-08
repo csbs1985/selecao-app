@@ -13,3 +13,12 @@ class PartidaClass {
     return atual;
   }
 }
+
+enum TempoEnum {
+  INICIAR('inicio'),
+  PARAR('parar'),
+  PAUSAR('pausar');
+
+  final String value;
+  const TempoEnum(this.value);
+}

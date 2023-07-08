@@ -21,6 +21,13 @@ class _PlacarPageState extends State<PlacarPage> {
   final PartidaClass _partidaClass = PartidaClass();
 
   int _periodo = 1;
+  int horas = 0, minutos = 0, segundos = 0, milessimos = 0;
+
+  String _tempo = TempoEnum.INICIAR.value;
+
+  bool iniciado = false;
+
+  Timer timer = Timer.periodic(const Duration(milliseconds: 0), (_) {});
 
   @override
   void initState() {
@@ -44,6 +51,79 @@ class _PlacarPageState extends State<PlacarPage> {
   _alterarPeriodo(int periodo) {
     final int value = _partidaClass.alterarPeriodo(periodo);
     setState(() => _periodo = value);
+  }
+
+  _alterarTempo(String value) {
+    setState(() => _tempo = value);
+  }
+
+  bool _desabilitarIniciar() {
+    return _tempo == TempoEnum.INICIAR.value ? true : false;
+  }
+
+  bool _desabilitarPausar() {
+    return _tempo == TempoEnum.INICIAR.value ? false : true;
+  }
+
+  bool _desabilitarParar() {
+    return _tempo == TempoEnum.PAUSAR.value ? false : true;
+  }
+
+  void iniciarCronometro() {
+    if (iniciado) return;
+
+    iniciado = true;
+    timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
+      setState(() {
+        milessimos++;
+        if (milessimos >= 100) {
+          milessimos = 0;
+          segundos++;
+        }
+        if (segundos >= 60) {
+          segundos = 0;
+          minutos++;
+        }
+        if (minutos >= 60) {
+          minutos = 0;
+          horas++;
+        }
+      });
+    });
+
+    _alterarTempo(TempoEnum.INICIAR.value);
+  }
+
+  void pausarCronometro() {
+    timer.cancel();
+    setState(() => iniciado = false);
+    _alterarTempo(TempoEnum.PAUSAR.value);
+  }
+
+  void pararCronometro() {
+    timer.cancel();
+    setState(() {
+      horas = 0;
+      minutos = 0;
+      segundos = 0;
+      milessimos = 0;
+      iniciado = false;
+    });
+    _alterarTempo(TempoEnum.PARAR.value);
+  }
+
+  String _formatDoisDigitos(int value) {
+    return value.toString().padLeft(2, '0');
+  }
+
+  String _formatTresDigitos(int value) {
+    return value.toString().padLeft(3, '0');
+  }
+
+  @override
+  void dispose() {
+    timer = Timer.periodic(const Duration(milliseconds: 0), (_) {});
+    super.dispose();
   }
 
   @override
@@ -178,20 +258,21 @@ class _PlacarPageState extends State<PlacarPage> {
                 SegundoButton(
                   callback: () => iniciarCronometro(),
                   cor: UiCor.tempo,
-                  desabilitado: isCronometroIniciado(),
+                  desabilitado: _desabilitarIniciar(),
                   icone: Icons.play_arrow,
                   size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => pausarCronometro(),
                   cor: UiCor.tempo,
-                  desabilitado: !isCronometroIniciado(),
+                  desabilitado: _desabilitarPausar(),
                   icone: Icons.pause,
                   size: sizeIcone,
                 ),
                 SegundoButton(
                   callback: () => pararCronometro(),
                   cor: UiCor.tempo,
+                  desabilitado: _desabilitarParar(),
                   icone: Icons.stop,
                   size: sizeIcone,
                 ),
@@ -244,69 +325,6 @@ class _PlacarPageState extends State<PlacarPage> {
         ),
       ),
     );
-  }
-
-  int horas = 0, minutos = 0, segundos = 0, milessimos = 0;
-
-  Timer timer = Timer.periodic(const Duration(milliseconds: 0), (_) {});
-
-  bool iniciado = false;
-
-  @override
-  void dispose() {
-    timer = Timer.periodic(const Duration(milliseconds: 0), (_) {});
-    super.dispose();
-  }
-
-  bool isCronometroIniciado() {
-    return iniciado ? true : false;
-  }
-
-  void iniciarCronometro() {
-    if (iniciado) return;
-
-    iniciado = true;
-    timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
-      setState(() {
-        milessimos++;
-        if (milessimos >= 100) {
-          milessimos = 0;
-          segundos++;
-        }
-        if (segundos >= 60) {
-          segundos = 0;
-          minutos++;
-        }
-        if (minutos >= 60) {
-          minutos = 0;
-          horas++;
-        }
-      });
-    });
-  }
-
-  void pausarCronometro() {
-    timer.cancel();
-    setState(() => iniciado = false);
-  }
-
-  void pararCronometro() {
-    timer.cancel();
-    setState(() {
-      horas = 0;
-      minutos = 0;
-      segundos = 0;
-      milessimos = 0;
-      iniciado = false;
-    });
-  }
-
-  String _formatDoisDigitos(int value) {
-    return value.toString().padLeft(2, '0');
-  }
-
-  String _formatTresDigitos(int value) {
-    return value.toString().padLeft(3, '0');
   }
 
   Widget cronometro() {
