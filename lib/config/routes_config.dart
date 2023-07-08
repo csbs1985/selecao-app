@@ -61,7 +61,7 @@ final GoRouter routes = GoRouter(
       ),
     ),
     GoRoute(
-      path: RoutesEnum.TIMES.value,
+      path: RoutesEnum.EQUIPES.value,
       pageBuilder: (context, state) => transicaoPaginas(
         context: context,
         state: state,

@@ -5,8 +5,8 @@ const String BY = "by Charles Santos";
 const String COMO_USAR = "Como usar";
 
 const String DEFINIR_INSTRUCAO =
-    "- Defina o nome do time mandante no campo amarelo. \n"
-    "- Defina o nome do time visitante no campo vermelho. \n"
+    "- Defina o nome da equipe mandante no campo amarelo. \n"
+    "- Defina o nome da equipe visitante no campo vermelho. \n"
     "- Defina a quantidade de períodos no campo verde. \n"
     "- Defina o tempo de jogo no campo de cor lilas.";
 
@@ -33,8 +33,8 @@ const String PIX_CODIGO = "7faa6851-5f31-45c8-831c-fbfafc47d3f9";
 const String PLACAR = "Placar";
 const String PLACAR_CRONOMETRO = "Placar e cronômetro";
 const String PLACAR_INSTRUCAO =
-    '- Controle os pontos do time mandante usando os botões amarelos. \n'
-    '- Controle os pontos do time visitante usando os botões vermelhos. \n'
+    '- Controle os pontos da equipe mandante usando os botões amarelos. \n'
+    '- Controle os pontos da equipe visitante usando os botões vermelhos. \n'
     '- Gerencie o tempo da partida utilizando os botões lilás. \n'
     '- Acesse a linha do tempo da partida pressionando o botão laranja. \n'
     '- Ajuste o período da partida no botão verde. \n'
@@ -45,11 +45,11 @@ const String PERIODO_SELECIONAR = "Escolha a quantidade de períodos da partida"
 const String SELECIONAR = "Selecionar";
 const String SELECIONAR_INSTRUCAO =
     '- Digite os nomes dos jogadores no campo vermelho. Se estiver digitando mais de um nome ao mesmo tempo, separe-os por vírgula. \n'
-    '- Selecione o número de jogadores por time. \n'
-    '- Clique no botão indicado com a seta para criar os times. \n'
+    '- Selecione o número de jogadores por equipe. \n'
+    '- Clique no botão indicado com a seta para criar as equipes. \n'
     '- Para deletar o jogador basta clicar no nome.';
 const String SELECIONAR_NUMERO = "Escolha a quantidade de jogadores por equipe";
-const String SELECIONAR_NUMERO_ERRO = "Não foi possível gerar os times";
+const String SELECIONAR_NUMERO_ERRO = "Não foi possível gerar as equipes";
 const String SELECIONAR_NUMERO_ERRO_DESCRICAO =
     "A quantidade de nomes deve ser maior do que o número de jogadores por equipe.";
 const String SELECIONAR_TIME = "Digite os nomes dos jogadores";
@@ -58,12 +58,12 @@ const String SELECIONAR_VAZIO = "Digite os nomes...";
 const String TEMP = "tempo";
 const String TEMPO_SELECIONAR = "Escolha o tempo de cada período da partida";
 
-const String TIMES_TITULO = "Equipes geradas";
-const String TIMES_INSTRUCAO =
+const String EQUIPES_TITULO = "Equipes geradas";
+const String EQUIPES_INSTRUCAO =
     "- Cada área de cor diferente representa uma equipe diferente. \n"
     '- Caso queira, é possível gerar outras equipes selecionando o botão indicado com a seta.\n'
     '- Para editar os nomes ou a quantidade de jogadores, simplesmente escolha a opção "voltar" e faça as alterações desejadas.';
-const String TIMES_NOVAMENTE = "Gerar novamente";
+const String EQUIPES_NOVAMENTE = "Gerar novamente";
 
 const String VISITANTE = "Visitante";
 const String VISITANTE_EQUIPE = "Equipe visitante";

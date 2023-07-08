@@ -37,7 +37,7 @@ class _TimesPageState extends State<TimesPage> {
       builder: (BuildContext context) {
         return const SimplesDialog(
           titulo: COMO_USAR,
-          texto: TIMES_INSTRUCAO,
+          texto: EQUIPES_INSTRUCAO,
         );
       },
     );
@@ -56,7 +56,7 @@ class _TimesPageState extends State<TimesPage> {
               padding: EdgeInsets.all(16),
               child: TitleMediumText(
                 cor: UiCor.principal,
-                texto: TIMES_TITULO,
+                texto: EQUIPES_TITULO,
               ),
             ),
             Wrap(
@@ -86,7 +86,7 @@ class _TimesPageState extends State<TimesPage> {
             TextoButton(
               cor: UiCor.principal,
               callback: () => _separarEquipes(),
-              texto: TIMES_NOVAMENTE,
+              texto: EQUIPES_NOVAMENTE,
             ),
           ],
         ),

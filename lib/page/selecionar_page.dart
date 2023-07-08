@@ -30,7 +30,7 @@ class _SelecionarPageState extends State<SelecionarPage> {
   void _validarTimes() {
     !_selecionarClass.validarTimes(currentQuantidade.value)
         ? _dialogErroNumero()
-        : context.push(RoutesEnum.TIMES.value);
+        : context.push(RoutesEnum.EQUIPES.value);
   }
 
   Future<void> _dialogErroNumero() async {

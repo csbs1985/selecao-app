@@ -29,7 +29,7 @@ enum RoutesEnum {
   PARTIDA('/partida'),
   PLACAR('/placar'),
   SELECIONAR('/selecionar'),
-  TIMES('/times');
+  EQUIPES('/times');
 
   final String value;
   const RoutesEnum(this.value);
