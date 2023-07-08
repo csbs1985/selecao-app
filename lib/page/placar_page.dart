@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:selecao_app/appbar/padrao_appbar.dart';
 import 'package:selecao_app/button/segundo_button.dart';
+import 'package:selecao_app/class/partida_class.dart';
 import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/config/string_config.dart';
 import 'package:selecao_app/config/value_notifier_config.dart';
@@ -17,6 +18,16 @@ class PlacarPage extends StatefulWidget {
 }
 
 class _PlacarPageState extends State<PlacarPage> {
+  final PartidaClass _partidaClass = PartidaClass();
+
+  int _periodo = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _alterarPeriodo(currentDefinir.value.periodo);
+  }
+
   Future<void> _dialogInfo() async {
     return showDialog<void>(
       context: context,
@@ -28,6 +39,11 @@ class _PlacarPageState extends State<PlacarPage> {
         );
       },
     );
+  }
+
+  _alterarPeriodo(int periodo) {
+    final int value = _partidaClass.alterarPeriodo(periodo);
+    setState(() => _periodo = value);
   }
 
   @override
@@ -49,10 +65,10 @@ class _PlacarPageState extends State<PlacarPage> {
                   width: sizeMetade,
                   color: UiCor.display,
                   padding: const EdgeInsets.all(16),
-                  child: const Center(
+                  child: Center(
                     child: Text(
-                      '2° tempo',
-                      style: TextStyle(
+                      '${_periodo.toString()}° TEMPO',
+                      style: const TextStyle(
                         color: UiCor.periodo,
                         fontSize: 24,
                         fontWeight: FontWeight.normal,
@@ -154,7 +170,7 @@ class _PlacarPageState extends State<PlacarPage> {
             Row(
               children: [
                 SegundoButton(
-                  callback: () => {},
+                  callback: () => _alterarPeriodo(_periodo),
                   cor: UiCor.periodo,
                   icone: Icons.timer,
                   size: sizeIcone,

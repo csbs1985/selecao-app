@@ -53,6 +53,7 @@ const String SELECIONAR_NUMERO_ERRO_DESCRICAO =
 const String SELECIONAR_TIME = "Digite os nomes dos jogadores";
 const String SELECIONAR_VAZIO = "Digite os nomes...";
 
+const String TEMP = "tempo";
 const String TEMPO_SELECIONAR = "Escolha o tempo de cada período da partida";
 
 const String TIMES_TITULO = "Equipes geradas";
