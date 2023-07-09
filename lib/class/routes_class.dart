@@ -26,7 +26,6 @@ enum RoutesEnum {
   DEFINIR('/definir'),
   DOAR('/doar'),
   INICIO('/inicio'),
-  RESUMO('/resumo'),
   PLACAR('/placar'),
   SELECIONAR('/selecionar'),
   EQUIPES('/equipes');

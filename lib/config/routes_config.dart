@@ -3,7 +3,6 @@ import 'package:selecao_app/class/routes_class.dart';
 import 'package:selecao_app/page/definir_page.dart';
 import 'package:selecao_app/page/doar_Page.dart';
 import 'package:selecao_app/page/inicio_page.dart';
-import 'package:selecao_app/page/resumo_page.dart';
 import 'package:selecao_app/page/placar_page.dart';
 import 'package:selecao_app/page/selecionar_page.dart';
 import 'package:selecao_app/page/equipes_page.dart';
@@ -34,14 +33,6 @@ final GoRouter routes = GoRouter(
         context: context,
         state: state,
         child: const InicioPage(),
-      ),
-    ),
-    GoRoute(
-      path: RoutesEnum.RESUMO.value,
-      pageBuilder: (context, state) => transicaoPaginas(
-        context: context,
-        state: state,
-        child: const ResumoPage(),
       ),
     ),
     GoRoute(

@@ -65,8 +65,40 @@ class _PlacarPageState extends State<PlacarPage> {
     );
   }
 
-  void _opcoesVoltar(bool voltar) {
-    if (voltar) {
+  Future<void> _dialogReiniciar() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return OpcoesDialog(
+          callback: (value) => _opcoesReiniciar(value),
+          titulo: ATENCAO,
+          texto: REINICIAR_DESCRICAO,
+        );
+      },
+    );
+  }
+
+  void _opcoesReiniciar(bool isReiniciar) {
+    if (!isReiniciar) {
+      Navigator.of(context).pop();
+    } else {
+      Navigator.of(context).pop();
+      pararCronometro();
+      currentDefinir.value.mandante = "mandante";
+      currentDefinir.value.visitante = "visitante";
+      currentDefinir.value.periodo = 1;
+      currentDefinir.value.tempo = 25;
+      setState(() {
+        _pontoMandante = 0;
+        _pontoVisitante = 0;
+        _periodo = 1;
+      });
+    }
+  }
+
+  void _opcoesVoltar(bool isVoltar) {
+    if (isVoltar) {
       Navigator.of(context).pop();
       pararCronometro();
       Navigator.of(context).pop();
@@ -207,7 +239,7 @@ class _PlacarPageState extends State<PlacarPage> {
                     padding: const EdgeInsets.all(16),
                     child: Center(
                       child: Text(
-                        '${_periodo.toString()}° TEMPO',
+                        '${_periodo.toString()}° $TEMPO',
                         style: const TextStyle(
                           color: UiCor.periodo,
                           fontSize: 24,
@@ -278,9 +310,9 @@ class _PlacarPageState extends State<PlacarPage> {
                     child: Center(
                       child: Text(
                         _pontoMandante.toString(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: UiCor.mandante,
-                          fontSize: 120,
+                          fontSize: width * 0.2,
                           fontFamily: 'display',
                           fontWeight: FontWeight.normal,
                         ),
@@ -295,9 +327,9 @@ class _PlacarPageState extends State<PlacarPage> {
                     child: Center(
                       child: Text(
                         _pontoVisitante.toString(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: UiCor.visitante,
-                          fontSize: 120,
+                          fontSize: width * 0.2,
                           fontWeight: FontWeight.normal,
                           fontFamily: 'display',
                         ),
@@ -337,9 +369,9 @@ class _PlacarPageState extends State<PlacarPage> {
                     size: sizeIcone,
                   ),
                   SegundoButton(
-                    callback: () => context.push(RoutesEnum.RESUMO.value),
+                    callback: () => _dialogReiniciar(),
                     cor: UiCor.linha,
-                    icone: Icons.scoreboard,
+                    icone: Icons.restart_alt,
                     size: sizeIcone,
                   ),
                   SegundoButton(

@@ -64,7 +64,7 @@ class _DoarPageState extends State<DefinirPage> {
               texto: DEFINIR_PARTIDA,
             ),
             const Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
               child: TitleMediumText(
                 cor: UiCor.mandante,
                 texto: MANDANTE_EQUIPE,

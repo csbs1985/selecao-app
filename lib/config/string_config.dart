@@ -45,13 +45,14 @@ const String PLACAR_INSTRUCAO =
     '- Controle os pontos da equipe mandante usando os botões amarelos. \n'
     '- Controle os pontos da equipe visitante usando os botões vermelhos. \n'
     '- Gerencie o tempo da partida utilizando os botões lilás. \n'
-    '- Acesse a linha do tempo da partida pressionando o botão laranja. \n'
+    '- Reinicie o placar no botão azul. \n'
     '- Ajuste o período da partida no botão verde. \n'
     '- Configure as opções da partida no botão branco.';
 
 const String PERIODO_SELECIONAR = "Escolha a quantidade de períodos da partida";
 
-const String Resumo = "Resumo";
+const String REINICIAR_DESCRICAO =
+    "Você tem certeza de que deseja reiniciar o placar? Isso resultará na redefinição de todos os campos, fazendo com que sejam zerados.";
 
 const String SELECIONAR = "Selecionar";
 const String SELECIONAR_EQUIPES = "Selecionar equipes";
@@ -67,7 +68,7 @@ const String SELECIONAR_NUMERO_ERRO_DESCRICAO =
 const String SELECIONAR_TIME = "Digite os nomes dos jogadores";
 const String SELECIONAR_VAZIO = "Digite os nomes...";
 
-const String TEMP = "tempo";
+const String TEMPO = "tempo";
 const String TEMPO_SELECIONAR = "Escolha o tempo de cada período da partida";
 
 const String VISITANTE = "Visitante";
