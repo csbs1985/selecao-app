@@ -28,12 +28,12 @@ class _DoarPageState extends State<DoarPage> {
           children: [
             const VoltarAppbar(texto: DOAR),
             Container(
-              color: UiCor.principal,
+              color: UiCor.fundo,
               padding: const EdgeInsets.all(16),
               child: const Text(
                 DOAR_DESCRICAO,
                 style: TextStyle(
-                  color: Color(0xFF0C2D54),
+                  color: UiCor.principal,
                   fontSize: 16,
                   fontWeight: FontWeight.normal,
                 ),

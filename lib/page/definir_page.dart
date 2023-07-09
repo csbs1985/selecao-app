@@ -63,6 +63,7 @@ class _DoarPageState extends State<DefinirPage> {
               callback: () => _dialogInfo(),
               texto: DEFINIR_PARTIDA,
             ),
+            const SizedBox(height: 16),
             const Padding(
               padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
               child: TitleMediumText(

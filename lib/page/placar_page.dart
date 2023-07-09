@@ -85,8 +85,8 @@ class _PlacarPageState extends State<PlacarPage> {
     } else {
       Navigator.of(context).pop();
       pararCronometro();
-      currentDefinir.value.mandante = "mandante";
-      currentDefinir.value.visitante = "visitante";
+      currentDefinir.value.mandante = MANDANTE;
+      currentDefinir.value.visitante = VISITANTE;
       currentDefinir.value.periodo = 1;
       currentDefinir.value.tempo = 25;
       setState(() {
@@ -231,6 +231,7 @@ class _PlacarPageState extends State<PlacarPage> {
                 callback: () => _dialogInfo(),
                 texto: PLACAR_CRONOMETRO,
               ),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Container(
