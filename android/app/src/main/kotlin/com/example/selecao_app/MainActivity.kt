@@ -1,4 +1,4 @@
-package com.example.selecao_app
+package chalres.santos.selecao_app
 
 import io.flutter.embedding.android.FlutterActivity
 

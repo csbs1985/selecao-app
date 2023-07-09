@@ -1,0 +1,35 @@
+Política de Privacidade e Termos de Uso do Aplicativo Seleção
+
+Última atualização: 09 de julho de 2023
+
+Bem-vindo ao Seleção! Este aplicativo foi desenvolvido para proporcionar uma experiência de conversa conveniente e segura.
+Leia atentamente esta Política de Privacidade e os Termos de Uso antes de utilizar o aplicativo.
+
+1. Coleta e Uso de Informações Pessoais
+O Seleção não coleta nem armazena informações pessoais dos usuários, incluindo nomes, endereços de e-mail ou outros dados de identificação pessoal. 
+O aplicativo não solicitará permissão para acessar contatos ou quaisquer outras informações pessoais do dispositivo.
+
+2. Histórico de Uso
+O Seleção mantém um histórico de uso que inclui os números de telefone com os quais você se comunicou através do aplicativo. 
+Essas informações são armazenadas localmente no seu dispositivo e não são compartilhadas com terceiros nem transferidas para servidores externos. 
+O histórico de uso é exclusivamente para fins de conveniência e não é utilizado para rastreamento ou análise de dados.
+
+3. Compartilhamento de Contatos via URL
+O Seleção permite que você compartilhe seu próprio número de telefone através de uma URL gerada pelo aplicativo. 
+Ao utilizar essa funcionalidade, você concorda que é responsável por compartilhar sua própria informação de contato e que deve fazê-lo de maneira responsável e apropriada. 
+O Seleção não se responsabiliza pelo uso indevido ou não autorizado das informações compartilhadas através da URL.
+
+4. Segurança
+O Seleção implementa medidas de segurança para proteger as informações armazenadas localmente no seu dispositivo. 
+No entanto, é importante lembrar que nenhum método de transmissão ou armazenamento de dados é 100% seguro, e não podemos garantir a segurança absoluta das informações.
+
+5. Alterações na Política de Privacidade e Termos de Uso
+Reservamo-nos o direito de atualizar ou modificar esta Política de Privacidade e os Termos de Uso a qualquer momento, mediante notificação prévia ou através de uma atualização no aplicativo. 
+Recomendamos que você revise regularmente esta política para se manter informado sobre quaisquer alterações.
+
+6. Contato
+Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade e os Termos de Uso, entre em contato conosco através do csbs.conta@gmail.com.
+
+Ao utilizar o Seleção, você concorda com esta Política de Privacidade e os Termos de Uso. Se você não concordar com estes termos, não utilize o aplicativo.
+
+Agradecemos por escolher o Seleção! Esperamos que você desfrute de uma experiência de conversa livre de complicações e valorizamos a sua privacidade e segurança.
