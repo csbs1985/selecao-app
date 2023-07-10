@@ -130,7 +130,7 @@ class _PlacarPageState extends State<PlacarPage> {
 
   bool _desabilitarReiniciar() {
     if (_pontoMandante > 0 || _pontoVisitante > 0) return false;
-    if (_tempo != TempoEnum.INICIAR.value) return false;
+    if (_tempo != TempoEnum.PARAR.value) return false;
     return true;
   }
 
