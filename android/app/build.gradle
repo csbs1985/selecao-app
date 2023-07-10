@@ -53,7 +53,7 @@ android {
         applicationId "chalres.santos.selecao_app"
         minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
+        versionCode 2
         versionName flutterVersionName
     }
 
