@@ -128,6 +128,12 @@ class _PlacarPageState extends State<PlacarPage> {
     return _tempo == TempoEnum.PAUSAR.value ? false : true;
   }
 
+  bool _desabilitarReiniciar() {
+    if (_pontoMandante > 0 || _pontoVisitante > 0) return false;
+    if (_tempo != TempoEnum.INICIAR.value) return false;
+    return true;
+  }
+
   void iniciarCronometro() {
     if (iniciado) return;
 
@@ -372,6 +378,7 @@ class _PlacarPageState extends State<PlacarPage> {
                   SegundoButton(
                     callback: () => _dialogReiniciar(),
                     cor: UiCor.linha,
+                    desabilitado: _desabilitarReiniciar(),
                     icone: Icons.restart_alt,
                     size: sizeIcone,
                   ),
