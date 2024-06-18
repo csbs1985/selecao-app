@@ -1,4 +1,4 @@
-package chalres.santos.selecao_app
+package charles.santos.online.selecao_app
 
 import io.flutter.embedding.android.FlutterActivity
 

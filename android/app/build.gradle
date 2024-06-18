@@ -29,7 +29,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "chalres.santos.selecao_app"
+    namespace "charles.santos.online.selecao_app"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -47,10 +47,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "chalres.santos.selecao_app"
+        applicationId "charles.santos.online.selecao_app"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
-        versionCode 2
+        versionCode 1
         versionName flutterVersionName
     }
 
