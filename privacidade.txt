@@ -1,35 +1,36 @@
-Política de Privacidade e Termos de Uso do Aplicativo Seleção
 
-Última atualização: 09 de julho de 2023
+Política de Privacidade do App Seleção
 
-Bem-vindo ao Seleção! Este aplicativo foi desenvolvido para proporcionar uma experiência de conversa conveniente e segura.
-Leia atentamente esta Política de Privacidade e os Termos de Uso antes de utilizar o aplicativo.
+Introdução
 
-1. Coleta e Uso de Informações Pessoais
-O Seleção não coleta nem armazena informações pessoais dos usuários, incluindo nomes, endereços de e-mail ou outros dados de identificação pessoal. 
-O aplicativo não solicitará permissão para acessar contatos ou quaisquer outras informações pessoais do dispositivo.
+Este documento descreve a Política de Privacidade do aplicativo Seleção, um app para seleção de equipes esportivas e gestão de partidas. O objetivo desta política é informar aos usuários como coletamos, usamos e compartilhamos suas informações.
 
-2. Histórico de Uso
-O Seleção mantém um histórico de uso que inclui os números de telefone com os quais você se comunicou através do aplicativo. 
-Essas informações são armazenadas localmente no seu dispositivo e não são compartilhadas com terceiros nem transferidas para servidores externos. 
-O histórico de uso é exclusivamente para fins de conveniência e não é utilizado para rastreamento ou análise de dados.
+Coleta de Informações
 
-3. Compartilhamento de Contatos via URL
-O Seleção permite que você compartilhe seu próprio número de telefone através de uma URL gerada pelo aplicativo. 
-Ao utilizar essa funcionalidade, você concorda que é responsável por compartilhar sua própria informação de contato e que deve fazê-lo de maneira responsável e apropriada. 
-O Seleção não se responsabiliza pelo uso indevido ou não autorizado das informações compartilhadas através da URL.
+O app Seleção não coleta, armazena ou compartilha nenhuma informação pessoal dos usuários. Isso significa que não solicitamos, guardamos ou temos acesso a qualquer dado que possa te identificar, como nome, email, endereço, número de telefone ou qualquer outra informação pessoal.
 
-4. Segurança
-O Seleção implementa medidas de segurança para proteger as informações armazenadas localmente no seu dispositivo. 
-No entanto, é importante lembrar que nenhum método de transmissão ou armazenamento de dados é 100% seguro, e não podemos garantir a segurança absoluta das informações.
+Uso de Informações
 
-5. Alterações na Política de Privacidade e Termos de Uso
-Reservamo-nos o direito de atualizar ou modificar esta Política de Privacidade e os Termos de Uso a qualquer momento, mediante notificação prévia ou através de uma atualização no aplicativo. 
-Recomendamos que você revise regularmente esta política para se manter informado sobre quaisquer alterações.
+Como o app Seleção não coleta nenhuma informação, também não a utilizamos para nenhum propósito.
 
-6. Contato
-Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade e os Termos de Uso, entre em contato conosco através do csbs.conta@gmail.com.
+Compartilhamento de Informações
 
-Ao utilizar o Seleção, você concorda com esta Política de Privacidade e os Termos de Uso. Se você não concordar com estes termos, não utilize o aplicativo.
+O app Seleção não compartilha nenhuma informação com terceiros. Isso significa que seus dados não são vendidos, alugados ou de qualquer outra forma transferidos para qualquer outra empresa ou organização.
 
-Agradecemos por escolher o Seleção! Esperamos que você desfrute de uma experiência de conversa livre de complicações e valorizamos a sua privacidade e segurança.
+Segurança
+
+Levamos a sério a segurança das suas informações. O app Seleção utiliza medidas de segurança adequadas para proteger seus dados contra acesso não autorizado, uso indevido, divulgação, alteração ou destruição.
+
+Alterações nesta Política
+
+Esta Política de Privacidade pode ser atualizada a qualquer momento. Notificaremos os usuários sobre quaisquer alterações significativas nesta política por meio de um aviso no aplicativo ou por email.
+
+Contato
+
+Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco pelo email: charlessantosonline@gmail.com.
+
+Observações Importantes
+
+Esta Política de Privacidade se aplica apenas ao aplicativo Seleção.
+Esta Política de Privacidade não se aplica a sites ou serviços de terceiros que você possa acessar através do aplicativo Seleção.
+Ao usar o aplicativo Seleção, você concorda com os termos desta Política de Privacidade.
